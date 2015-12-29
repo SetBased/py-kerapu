@@ -1,0 +1,11 @@
+**/__pycache__/
+.idea
+Kerapu.egg-info/
+bin/phing
+bin/yuicompressor.jar
+build/
+composer.lock
+dist/
+source/
+var/
+vendor/
