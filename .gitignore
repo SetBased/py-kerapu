@@ -2,7 +2,6 @@
 .idea
 Kerapu.egg-info/
 bin/phing
-bin/yuicompressor.jar
 build/
 composer.lock
 dist/
