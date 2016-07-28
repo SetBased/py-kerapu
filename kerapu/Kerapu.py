@@ -20,9 +20,6 @@ from kerapu.Lbz.ZorgActiviteit import ZorgActiviteit
 from kerapu.Lbz.ZorgType import ZorgType
 from kerapu.Lbz.ZorgVraag import ZorgVraag
 
-# ----------------------------------------------------------------------------------------------------------------------
-
-
 class Kerapu:
     """
     Een implementatie van de grouper in Python.
@@ -32,30 +29,35 @@ class Kerapu:
         self._zorgproductgroep_boom = {}
         """
         De zorgproductgroepboom. Sleutel is zorgproductgroepcode.
+
         :type: dict[str, ZorgProductGroep]
         """
 
         self._beslisregels = {}
         """
         Alle beslisregels. Sleutel is het ID van de beslisregel.
+
         :type: dict[int, BeslisRegel]
         """
 
         self._attribuutgroepen = {}
         """
         Alle attribuutgroepen. Sleutel is het ID van de attribuutgroep.
+
         :type: dict[int, AttribuutGroep]
         """
 
         self._attribuut_groep_koppelingen = {}
         """
         Alle attribuutgroepkoppelingen. Sleutel is het ID van de attribuutgroep.
+
         :type: dict[int, list[AttribuutGroepKoppeling]]
         """
 
         self._attributen = {}
         """
         Alle attributen. Sleutel is het ID van het attribuut.
+
         :type: dict[int, Attribuut]
         """
 
@@ -83,7 +85,7 @@ class Kerapu:
         """
         Leest de attribuuttabel (opgeslagen in CSV).
         
-        :type str folder: De folder met alle groupertabellen in CSV-formaat.
+        :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/Attributen.csv') as csv_file:
             reader = csv.reader(csv_file, )
@@ -115,8 +117,8 @@ class Kerapu:
     def _lees_attribuut_groep_koppeling_tabel(self, folder):
         """
         Leest de  attribuutgroepkoppelingen (opgeslagen in CSV).
-        
-        :type str folder: De folder met alle groupertabellen in CSV-formaat.
+
+        :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/AttribuutGroepKoppelingen.csv') as csv_file:
             reader = csv.reader(csv_file, )
@@ -154,8 +156,8 @@ class Kerapu:
     def _lees_attribuut_groepen_tabel(self, folder):
         """
         Leest de attribuutgroepen (opgeslagen in CSV).
-        
-        :type str folder: De folder met alle groupertabellen in CSV-formaat.
+
+        :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/AttribuutGroepen.csv') as csv_file:
             reader = csv.reader(csv_file, )
@@ -185,7 +187,7 @@ class Kerapu:
         """
         Leest de beslisregels (opgeslagen in CSV).
         
-        :type str folder: De folder met alle groupertabellen in CSV-formaat.
+        :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         verrijkingen = {}
         with open(folder + '/BeslisRegels.csv') as csv_file:
@@ -230,7 +232,7 @@ class Kerapu:
         """
         Leest de zorgproductgroepen (opgeslagen in CSV).
         
-        :type str folder: De folder met alle groupertabellen in CSV-formaat.
+        :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/ZorgProductGroepen.csv') as csv_file:
             reader = csv.reader(csv_file, )

@@ -19,6 +19,7 @@ class ZorgType:
     _zorg_type_tabel = {}
     """
     De zorgtypen referentietabel.
+
     :type: dict[(str,str),list[dict[str,str]]]
     """
 
@@ -33,12 +34,14 @@ class ZorgType:
         self._specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
+
         :type: str
         """
 
         self._zorg_type_code = clean_code(zorg_type_code, LEN_ZORG_TYPE_CODE)
         """
         De code van deze zorgtype.
+
         :type: str
         """
 
@@ -59,7 +62,7 @@ class ZorgType:
 
         :param datum: De begindatum van het subtraject.
 
-        :return: dict[str,str]
+        :rtype: dict[str,str]
         """
 
         if (self._specialisme_code, self._zorg_type_code) in self._zorg_type_tabel:

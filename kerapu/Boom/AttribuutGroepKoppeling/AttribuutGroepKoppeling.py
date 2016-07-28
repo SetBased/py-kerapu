@@ -26,12 +26,14 @@ class AttribuutGroepKoppeling:
         self._attribute_groep_id = attribute_groep_id
         """
         Het ID van deze attribuutgroepkoppeling.
+
         :type: int
         """
 
         self._attribuut = attribuut
         """
         Het attribuut van deze koppeling.
+
         :type: Attribuut
         """
 

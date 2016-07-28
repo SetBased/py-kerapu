@@ -19,18 +19,21 @@ class ZorgActiviteit:
     _zorg_activiteiten_tabel = {}
     """
     De zorgactiviteiten referentietabel.
+
     :type: dict[str,list[dict[str,str]]]
     """
 
     _zorg_activiteiten_vertaal_tabel = {}
     """
     De zorgactiviteiten vertaaltabel.
+
     :type: dict[str,list[dict[str,str]]]
     """
 
     _behandel_klassen_tabel = {}
     """
     De behandelklassen referentietabel.
+
     :type: dict[(str,str,str),list[dict[str,str]]]
     """
 
@@ -45,12 +48,14 @@ class ZorgActiviteit:
         self._zorg_activiteit_code = clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE)
         """
         De code van deze zorgactiviteit.
+
         :type: str
         """
 
         self._aantal = clean_int(aantal, 0)
         """
         Het aantal malen dat deze zorgactiviteit is uitgevoerd.
+
         :type: int
         """
 
@@ -226,7 +231,8 @@ class ZorgActiviteit:
         Zoekt de referentie data voor deze zorgactiviteit in de zorgactiviteiten referentietabel.
 
         :param datum: De begindatum van het subtraject.
-        :return: dict[str,str]
+
+        :rtype: dict[str,str]
         """
         # Vertaal de zorgactiviteitcode naar een "oude" zorgactiviteitcode.
         zorg_activiteit_code = ZorgActiviteit._vertaal_zorgactiviteit_code(self._zorg_activiteit_code, datum)
@@ -251,7 +257,8 @@ class ZorgActiviteit:
         :param str zorg_product_groep_code: De zorgproductgroepcode van het subtraject.
         :param str behandel_klasse_code: De gevraagde behandelklassecode
         :param str datum: De begindatum van het subtraject.
-        :return: dict[str,str]
+
+        :rtype: dict[str,str]
         """
         # Vertaal de zorgactiviteitcode naar een "oude" zorgactiviteitcode.
         zorg_activiteit_code = ZorgActiviteit._vertaal_zorgactiviteit_code(self._zorg_activiteit_code, datum)

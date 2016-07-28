@@ -28,18 +28,21 @@ class AttribuutGroep:
         self._attribute_groep_id = attribute_groep_id
         """
         Het ID van deze attribuutgroep.
+
         :type: int
         """
 
         self._aantal_voorwaarden_voor_true = aantal_voorwaarden_voor_true
         """
         Het minimale aantal voorwaarden waaraan moet worden voldaan om deze attribuutgroep te laten vuren.
+
         :type: int
         """
 
         self._koppelingen = koppelingen
         """
         De attribuutgroepkoppelingen.
+
         :type: list[AttribuutGroepKoppeling]
         """
 

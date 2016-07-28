@@ -18,7 +18,6 @@ class Patient:
 
         :param str geboorte_datum: De geboortedatum van de patiënt.
         :param str geslacht_code: Het geslacht van de patiënt.
-        :return:
         """
         self._geboorte_datum = geboorte_datum
         self._geslacht_code = Patient.normaliseer_geslacht_code(geslacht_code)
@@ -30,7 +29,8 @@ class Patient:
         Normaliseert een geslachtscode naar 1 (man), 2 (vrouw) of 9 (anders).
 
         :param str geslacht_code: De geslachtscode.
-        :rtype : str
+
+        :rtype: str
         """
         if geslacht_code.upper() in ('1', 'M'):
             return '1'
@@ -56,7 +56,7 @@ class Patient:
 
         :param str datum: De peildatum.
 
-        :rtype : int
+        :rtype: int
         """
         if not datum:
             raise RuntimeError("Datum is niet gespecificeerd.")

@@ -31,6 +31,7 @@ class Specialisme:
         self._specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
+
         :type: str
         """
 
@@ -87,6 +88,7 @@ class Specialisme:
         Zoekt de referentie data voor deze specialisme in de specialismen referentietabel.
 
         :param str datum: De begindatum van het subtraject.
+
         :rtype: dict[str,str]
         """
         if self._specialisme_code in self._specialisme_tabel:
@@ -108,6 +110,7 @@ class Specialisme:
         .
         :param str specialisme_code: De attribuutcode waaraan voldaan moet worden.
         :param str datum: De datum.
+
         :rtype: int
         """
         referentie = self._get_specialisme_referentie(datum)
@@ -129,6 +132,7 @@ class Specialisme:
         :param str cluster_code: De clustercode waaraan voldaan moet worden.
         :param int cluster_nummer: Het clusternummer.
         :param str datum: De datum.
+
         :rtype: int
         """
         referentie = self._get_specialisme_referentie(datum)

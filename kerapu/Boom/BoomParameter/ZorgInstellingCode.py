@@ -25,7 +25,6 @@ class ZorgInstellingCode(BoomParameter):
 
         :rtype: int
         """
-
         # Deze boomparameter komt slechts 4 keer voor in tabel attribuut.
         raise NotImplementedError('Boomparameter 110 is niet geïmplementeerd.')
 

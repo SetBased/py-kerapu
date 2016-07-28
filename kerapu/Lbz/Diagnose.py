@@ -33,12 +33,14 @@ class Diagnose:
         self._specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
+
         :type: str
         """
 
         self._diagnose_code = clean_code(diagnose_code, LEN_DIAGNOSE_CODE)
         """
         De code van deze diagnose.
+
         :type: str
         """
 
@@ -111,7 +113,6 @@ class Diagnose:
         :param str datum: De begindatum van het subtraject.
         :rtype: dict[str,str]
         """
-
         if (self._specialisme_code, self._diagnose_code) in self._diagnose_tabel:
             for referentie in self._diagnose_tabel[(self._specialisme_code, self._diagnose_code)]:
                 if referentie['begin_datum'] <= datum <= referentie['eind_datum']:

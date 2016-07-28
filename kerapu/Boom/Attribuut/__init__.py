@@ -28,7 +28,6 @@ def maak_attribuut(attribuut_id,
 
     :rtype: Attribuut
     """
-
     if filter_toets_wijze == 1 and filter_waarde_type == 2:
         return Attribuut12(attribuut_id, boom_parameter_nummer, onder_filter_waarde)
 

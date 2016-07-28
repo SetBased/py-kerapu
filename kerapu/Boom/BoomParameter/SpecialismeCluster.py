@@ -16,7 +16,7 @@ class SpecialismeCluster(BoomParameter):
     Boomparameternummers: 210, 202.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, cluster_nummer: int):
+    def __init__(self, cluster_nummer):
         """
         Object constructor.
 

@@ -26,11 +26,13 @@ class Attribuut:
         self._attribuut_id = attribuut_id
         """
         Het ID van dit attribuut.
+
         :type: int
         """
         self._boom_parameter = create_boom_parameter(boom_parameter_nummer)
         """
         De boomparameter van dit attribuut.
+
         :type: BoomParameter
         """
 

@@ -37,7 +37,6 @@ def create_boom_parameter(boom_parameter_nummer):
 
     :rtype: kerapu.Boom.BoomParameter.BoomParameter.BoomParameter
     """
-
     if boom_parameter_nummer in _boom_parameters:
         return _boom_parameters[boom_parameter_nummer]
 
@@ -52,6 +51,7 @@ def _create_boom_parameter(boom_parameter_nummer):
     Een fabriek voor het maken van boomparameters.
 
     :param int boom_parameter_nummer: Het nummer van de boomparameter.
+
     :rtype: BoomParameter
     """
     if boom_parameter_nummer == 100:

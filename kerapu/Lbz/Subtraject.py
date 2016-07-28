@@ -44,54 +44,63 @@ class Subtraject:
         self._subtraject_nummer = subtraject_nummer
         """
         Het subtrajectnummer.
+
         :type: str
         """
 
         self._specialisme = Specialisme(specialisme_code)
         """
         Het uitvoerend specialisme.
+
         :type: Specialisme
         """
 
         self._begin_datum = begin_datum
         """
         De begindatum van het subtraject.
+
         :type: str
         """
 
         self._patient = Patient(geboorte_datum, geslacht_code)
         """
         De patient.
+
         :type: Patient
         """
 
         self._zorg_type = ZorgType(specialisme_code, zorg_type_code)
         """
         Het zorgtype.
+
         :type: ZorgType
         """
 
         self._zorg_vraag = ZorgVraag(specialisme_code, zorg_vraag_code)
         """
         De zorgvraag.
+
         :type: ZorgVraag
         """
 
         self._diagnose = Diagnose(specialisme_code, diagnose_code)
         """
         De diagnose.
+
         :type: Diagnose
         """
 
         self._zorg_activiteiten = []
         """
         De zorgactiviteiten.
+
         :type: list[ZorgActiviteit]
         """
 
         self._zorg_product_groep_code = ''
         """
         De zorgproductgroepcode (zoals afgeleid door Kerapu).
+
         :type: str
         """
 

@@ -25,28 +25,31 @@ class ZorgProductGroepVersie:
         :param str begin_datum: Begindatum van het interval waarvoor deze versie van toepassing is.
         :param str eind_datum: Einddatum van het interval waarvoor deze versie van toepassing is.
         """
-
         self._zorg_product_groep_code = zorg_product_groep_code
         """
         De zorgproductgroepcode.
+
         :type: str
         """
 
         self._beslis_regel = beslis_regel
         """
         De beslisregel behoorden bij de zorgproductgroepcode.
+
         :type: kerapu.Boom.BeslisRegel.BeslisRegel
         """
 
         self._begin_datum = begin_datum
         """
         Begindatum van het interval waarvoor deze versie van toepassing is.
+
         :type: str
         """
 
         self._eind_datum = eind_datum
         """
         Einddatum van het interval waarvoor deze versie van toepassing is.
+
         :type: str
         """
 

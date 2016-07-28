@@ -35,7 +35,7 @@ def clean_code(code, lengte):
 
     :rtype: str
     """
-    return (('0' * lengte) + code.strip())[-lengte:]
+    return code.zfill(lengte)
 
 
 # ----------------------------------------------------------------------------------------------------------------------

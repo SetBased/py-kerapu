@@ -26,6 +26,7 @@ class Attribuut12(Attribuut):
         self._filter_waarde = filter_waarde
         """
         De waarde om dit attribuut the laten vuren.
+
         :type: str
         """
 

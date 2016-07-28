@@ -21,12 +21,14 @@ class ZorgProductGroep:
         self._zorg_product_groep_code = zorg_product_groep_code
         """
         De zorgproductgroepcode.
+
         :type: str
         """
 
         self._versies = []
         """
         De versies van de zorgproductgroep.
+
         :type: list[ZorgProductGroepVersie]
         """
 

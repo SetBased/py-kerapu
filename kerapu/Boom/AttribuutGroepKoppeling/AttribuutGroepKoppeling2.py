@@ -32,12 +32,14 @@ class AttribuutGroepKoppeling2(AttribuutGroepKoppeling):
         self._onder_toets_waarde = onder_toets_waarde
         """
         De ondergrens om deze koppeling the laten vuren.
+
         :type: int
         """
 
         self._boven_toets_waarde = boven_toets_waarde
         """
         De bovengrens om deze koppeling the laten vuren.
+
         :type: int
         """
 

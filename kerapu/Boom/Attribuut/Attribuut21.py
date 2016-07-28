@@ -31,12 +31,14 @@ class Attribuut21(Attribuut):
         self._onder_filter_waarde = onder_filter_waarde
         """
         De ondergrens om dit attribuut te laten vuren.
+
         :type: int
         """
 
         self._boven_filter_waarde = boven_filter_waarde
         """
         De bovengrens om dit attribuut te laten vuren.
+
         :type: int
         """
 
