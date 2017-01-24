@@ -1,17 +1,14 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
 from kerapu.Boom.Attribuut.Attribuut import Attribuut
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class Attribuut12(Attribuut):
     """
     Klasse voor attributen met toetswijze 1 (gelijk) en waarde type 2 (alfanumeriek).
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self, attribuut_id, boom_parameter_nummer, filter_waarde):
         """

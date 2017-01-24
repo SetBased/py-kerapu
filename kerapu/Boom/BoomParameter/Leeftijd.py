@@ -1,20 +1,16 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.BoomParameter.BoomParameter import BoomParameter
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class Leeftijd(BoomParameter):
     """
     Klasse voor boomparameter leeftijd.
 
     Boomparameternummer: 100.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def tel(self, leeg, subtraject):
         """
@@ -26,6 +22,5 @@ class Leeftijd(BoomParameter):
         :rtype: int
         """
         return subtraject.get_leeftijd()
-
 
 # ----------------------------------------------------------------------------------------------------------------------

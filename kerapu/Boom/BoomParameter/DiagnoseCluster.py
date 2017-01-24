@@ -1,20 +1,16 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.BoomParameter.BoomParameter import BoomParameter
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class DiagnoseCluster(BoomParameter):
     """
     Klasse voor boomparameter diagnosecluster.
 
     Boomparameternummers: 232, 233, 234, 235, 236, 237.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self, cluster_nummer):
         """

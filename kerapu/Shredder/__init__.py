@@ -1,17 +1,12 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 import argparse
 
 from kerapu.Shredder.BoomBestandenShredder import BoomBestandenShredder
 from kerapu.Shredder.ReferentieShredder import ReferentieShredder
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 def main():
     """
     The main function of Kerapu's XML shredder.

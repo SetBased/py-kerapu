@@ -1,20 +1,16 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.BoomParameter.BoomParameter import BoomParameter
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class DiagnoseCode(BoomParameter):
     """
     Klasse voor boomparameter diagnosecode.
 
     Boomparameternummer: 230.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def tel(self, diagnose_attribuut_code, subtraject):
         """

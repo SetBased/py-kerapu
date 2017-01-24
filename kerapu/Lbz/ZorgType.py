@@ -1,8 +1,5 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
 # ----------------------------------------------------------------------------------------------------------------------
 import csv
@@ -156,13 +153,13 @@ class ZorgType:
 
                 sleutel = (specialisme_code, zorg_type_code)
 
-                rij = {'specialisme_code': specialisme_code,
-                       'zorg_type_code': zorg_type_code,
+                rij = {'specialisme_code':         specialisme_code,
+                       'zorg_type_code':           zorg_type_code,
                        'zorg_type_attribuut_code': zorg_type_attribuut_code,
-                       'zorg_type_cluster1': zorg_type_cluster01,
-                       'zorg_type_cluster2': zorg_type_cluster02,
-                       'begin_datum': begin_datum,
-                       'eind_datum': eind_datum}
+                       'zorg_type_cluster1':       zorg_type_cluster01,
+                       'zorg_type_cluster2':       zorg_type_cluster02,
+                       'begin_datum':              begin_datum,
+                       'eind_datum':               eind_datum}
 
                 if sleutel not in ZorgType._zorg_type_tabel:
                     ZorgType._zorg_type_tabel[sleutel] = []
@@ -170,6 +167,5 @@ class ZorgType:
                 ZorgType._zorg_type_tabel[sleutel].append(rij)
 
         print("Aantal zorgtypen: %d" % (regel_nummer - 1))
-
 
 # ----------------------------------------------------------------------------------------------------------------------

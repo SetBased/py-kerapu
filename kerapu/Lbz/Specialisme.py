@@ -1,15 +1,11 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
 import csv
 
 from kerapu import clean_code, clean_date, clean_str, LEN_SPECIALISME_CODE
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class Specialisme:
     """
     Klasse voor specialismen.

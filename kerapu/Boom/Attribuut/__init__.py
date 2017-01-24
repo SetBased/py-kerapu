@@ -1,15 +1,10 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.Attribuut.Attribuut12 import Attribuut12
 from kerapu.Boom.Attribuut.Attribuut21 import Attribuut21
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 def maak_attribuut(attribuut_id,
                    boom_parameter_nummer,
                    filter_toets_wijze,
@@ -34,10 +29,10 @@ def maak_attribuut(attribuut_id,
     if filter_toets_wijze == 2 and filter_waarde_type == 1:
         return Attribuut21(attribuut_id, boom_parameter_nummer, int(onder_filter_waarde), int(boven_filter_waarde))
 
-    if not (1 <= filter_toets_wijze <= 2):
+    if not 1 <= filter_toets_wijze <= 2:
         raise RuntimeError("Onbekende filtertoetswijze %d." % filter_toets_wijze)
 
-    if not (1 <= filter_waarde_type <= 3):
+    if not 1 <= filter_waarde_type <= 3:
         raise RuntimeError("Onbekende type %d van de waarde van het attribuut." % filter_waarde_type)
 
     raise NotImplementedError("Attribuut met filtertoetswijze %d en waarde type %d is niet geïmplementeerd" % (

@@ -1,20 +1,16 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.BoomParameter.BoomParameter import BoomParameter
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class ZorgActiviteitCluster(BoomParameter):
     """
     Klasse voor boomparameter zorgactiviteitcluster.
 
     Boomparameternummers: 301..310, 401..410, 401..510.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self, cluster_nummer, weeg_factor_nummer):
         """

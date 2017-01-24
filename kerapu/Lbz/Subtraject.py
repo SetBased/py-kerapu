@@ -1,10 +1,6 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu import *
 from kerapu.Lbz.Diagnose import Diagnose
 from kerapu.Lbz.Patient import Patient
@@ -14,11 +10,11 @@ from kerapu.Lbz.ZorgType import ZorgType
 from kerapu.Lbz.ZorgVraag import ZorgVraag
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class Subtraject:
     """
     Klasse voor subtrajecten.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
                  subtraject_nummer,
@@ -52,7 +48,7 @@ class Subtraject:
         """
         Het uitvoerend specialisme.
 
-        :type: Specialisme
+        :type: kerapu.Lbz.Specialisme.Specialisme
         """
 
         self._begin_datum = begin_datum
@@ -66,35 +62,35 @@ class Subtraject:
         """
         De patient.
 
-        :type: Patient
+        :type: kerapu.Lbz.Patient.Patient
         """
 
         self._zorg_type = ZorgType(specialisme_code, zorg_type_code)
         """
         Het zorgtype.
 
-        :type: ZorgType
+        :type: kerapu.Lbz.ZorgType.ZorgType
         """
 
         self._zorg_vraag = ZorgVraag(specialisme_code, zorg_vraag_code)
         """
         De zorgvraag.
 
-        :type: ZorgVraag
+        :type: kerapu.Lbz.ZorgVraag.ZorgVraag
         """
 
         self._diagnose = Diagnose(specialisme_code, diagnose_code)
         """
         De diagnose.
 
-        :type: Diagnose
+        :type: kerapu.Lbz.Diagnose.Diagnose
         """
 
         self._zorg_activiteiten = []
         """
         De zorgactiviteiten.
 
-        :type: list[ZorgActiviteit]
+        :type: list[kerapu.Lbz.ZorgActiviteit.ZorgActiviteit]
         """
 
         self._zorg_product_groep_code = ''
@@ -229,7 +225,7 @@ class Subtraject:
         :rtype: int
         """
         return self._zorg_vraag.get_zorg_vraag_cluster_aantal(cluster_code, cluster_nummer, self._begin_datum)
-    
+
     # ------------------------------------------------------------------------------------------------------------------
     def get_specialisme_telling(self, specialisme_code):
         """

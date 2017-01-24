@@ -1,20 +1,16 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from lxml import etree
 
 from kerapu.Shredder.Shredder import Shredder
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class ReferentieShredder(Shredder):
     """
     Klasse voor het schreden en opslaan in CSV-formaat van referentietabellen opgeslagen in XML-formaat.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def shred_xml_file(self, filename):
         """

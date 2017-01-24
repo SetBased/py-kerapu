@@ -1,20 +1,16 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.BoomParameter.BoomParameter import BoomParameter
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class ZorgVraagCode(BoomParameter):
     """
     Klasse voor boomparameter zorgvraagcode.
 
     Boomparameternummers: 220.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def tel(self, zorg_vraag_attribuut_code, subtraject):
         """

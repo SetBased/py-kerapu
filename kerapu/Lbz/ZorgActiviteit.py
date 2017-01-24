@@ -1,8 +1,5 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
 # ----------------------------------------------------------------------------------------------------------------------
 import csv
@@ -93,21 +90,21 @@ class ZorgActiviteit:
 
                 sleutel = zorg_activiteit_code
 
-                rij = {'zorg_activiteit_code': zorg_activiteit_code,
-                       'zorg_activiteit_cluster01': zorg_activiteit_cluster01,
-                       'zorg_activiteit_cluster02': zorg_activiteit_cluster02,
-                       'zorg_activiteit_cluster03': zorg_activiteit_cluster03,
-                       'zorg_activiteit_cluster04': zorg_activiteit_cluster04,
-                       'zorg_activiteit_cluster05': zorg_activiteit_cluster05,
-                       'zorg_activiteit_cluster06': zorg_activiteit_cluster06,
-                       'zorg_activiteit_cluster07': zorg_activiteit_cluster07,
-                       'zorg_activiteit_cluster08': zorg_activiteit_cluster08,
-                       'zorg_activiteit_cluster09': zorg_activiteit_cluster09,
-                       'zorg_activiteit_cluster10': zorg_activiteit_cluster10,
+                rij = {'zorg_activiteit_code':         zorg_activiteit_code,
+                       'zorg_activiteit_cluster01':    zorg_activiteit_cluster01,
+                       'zorg_activiteit_cluster02':    zorg_activiteit_cluster02,
+                       'zorg_activiteit_cluster03':    zorg_activiteit_cluster03,
+                       'zorg_activiteit_cluster04':    zorg_activiteit_cluster04,
+                       'zorg_activiteit_cluster05':    zorg_activiteit_cluster05,
+                       'zorg_activiteit_cluster06':    zorg_activiteit_cluster06,
+                       'zorg_activiteit_cluster07':    zorg_activiteit_cluster07,
+                       'zorg_activiteit_cluster08':    zorg_activiteit_cluster08,
+                       'zorg_activiteit_cluster09':    zorg_activiteit_cluster09,
+                       'zorg_activiteit_cluster10':    zorg_activiteit_cluster10,
                        'zorg_activiteit_weeg_factor1': zorg_activiteit_weeg_factor1,
                        'zorg_activiteit_weeg_factor2': zorg_activiteit_weeg_factor2,
-                       'begin_datum': begin_datum,
-                       'eind_datum': eind_datum}
+                       'begin_datum':                  begin_datum,
+                       'eind_datum':                   eind_datum}
 
                 if sleutel not in ZorgActiviteit._zorg_activiteiten_tabel:
                     ZorgActiviteit._zorg_activiteiten_tabel[sleutel] = []
@@ -139,10 +136,10 @@ class ZorgActiviteit:
 
                 sleutel = zorg_activiteit_code
 
-                rij = {'zorg_activiteit_code': zorg_activiteit_code,
+                rij = {'zorg_activiteit_code':     zorg_activiteit_code,
                        'zorg_activiteit_code_oud': zorg_activiteit_code_oud,
-                       'begin_datum': begin_datum,
-                       'eind_datum': eind_datum}
+                       'begin_datum':              begin_datum,
+                       'eind_datum':               eind_datum}
 
                 if sleutel not in ZorgActiviteit._zorg_activiteiten_vertaal_tabel:
                     ZorgActiviteit._zorg_activiteiten_vertaal_tabel[sleutel] = []
@@ -176,10 +173,10 @@ class ZorgActiviteit:
                 sleutel = (zorg_product_groep_code, zorg_activiteit_code, behandel_klasse_code)
 
                 rij = {'zorg_product_groep_code': zorg_product_groep_code,
-                       'zorg_activiteit_code': zorg_activiteit_code,
-                       'behandel_klasse_code': behandel_klasse_code,
-                       'begin_datum': begin_datum,
-                       'eind_datum': eind_datum}
+                       'zorg_activiteit_code':    zorg_activiteit_code,
+                       'behandel_klasse_code':    behandel_klasse_code,
+                       'begin_datum':             begin_datum,
+                       'eind_datum':              eind_datum}
 
                 if sleutel not in ZorgActiviteit._behandel_klassen_tabel:
                     ZorgActiviteit._behandel_klassen_tabel[sleutel] = []

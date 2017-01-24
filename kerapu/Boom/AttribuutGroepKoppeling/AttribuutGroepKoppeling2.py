@@ -1,18 +1,14 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling import AttribuutGroepKoppeling
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class AttribuutGroepKoppeling2(AttribuutGroepKoppeling):
     """
     Klasse voor attribuutgroepkoppelingen met filtertoetswijze 2 (tussen onder- en bovengrens).
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
                  attribute_groep_id,
@@ -23,7 +19,7 @@ class AttribuutGroepKoppeling2(AttribuutGroepKoppeling):
         Object constructor.
 
         :param int attribute_groep_id: Het ID van deze koppeling.
-        :param Attribuut attribuut: Het attribuut van deze koppeling.
+        :param kerapu.Boom.Attribuut.Attribuut.Attribuut attribuut: Het attribuut van deze koppeling.
         :param int onder_toets_waarde: De ondergrens.
         :param int boven_toets_waarde: De bovengrens.
         """

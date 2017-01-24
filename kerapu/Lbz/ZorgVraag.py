@@ -1,8 +1,5 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
 # ----------------------------------------------------------------------------------------------------------------------
 import csv
@@ -40,7 +37,7 @@ class ZorgVraag:
 
         self._zorg_vraag_code = clean_code(zorg_vraag_code, LEN_ZORG_VRAAG_CODE)
         """
-        De code van deze zorg_vraag.
+        De code van deze zorgvraag.
 
         :type: str
         """
@@ -156,13 +153,13 @@ class ZorgVraag:
 
                 sleutel = (specialisme_code, zorg_vraag_code)
 
-                rij = {'specialisme_code': specialisme_code,
-                       'zorg_vraag_code': zorg_vraag_code,
+                rij = {'specialisme_code':          specialisme_code,
+                       'zorg_vraag_code':           zorg_vraag_code,
                        'zorg_vraag_attribuut_code': zorg_vraag_attribuut_code,
-                       'zorg_vraag_cluster1': zorg_vraag_cluster01,
-                       'zorg_vraag_cluster2': zorg_vraag_cluster02,
-                       'begin_datum': begin_datum,
-                       'eind_datum': eind_datum}
+                       'zorg_vraag_cluster1':       zorg_vraag_cluster01,
+                       'zorg_vraag_cluster2':       zorg_vraag_cluster02,
+                       'begin_datum':               begin_datum,
+                       'eind_datum':                eind_datum}
 
                 if sleutel not in ZorgVraag._zorg_vraag_tabel:
                     ZorgVraag._zorg_vraag_tabel[sleutel] = []
@@ -170,6 +167,5 @@ class ZorgVraag:
                 ZorgVraag._zorg_vraag_tabel[sleutel].append(rij)
 
         print("Aantal zorgvragen: %d" % (regel_nummer - 1))
-
 
 # ----------------------------------------------------------------------------------------------------------------------

@@ -1,10 +1,6 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 import csv
 
 from kerapu import *
@@ -12,53 +8,58 @@ from kerapu.Boom.Attribuut import maak_attribuut
 from kerapu.Boom.AttribuutGroep import AttribuutGroep
 from kerapu.Boom.AttribuutGroepKoppeling import maak_attribuut_groep_koppeling
 from kerapu.Boom.BeslisRegel import BeslisRegel
-from kerapu.Lbz.Diagnose import Diagnose
 from kerapu.Boom.ZorgProductGroep import ZorgProductGroep
 from kerapu.Boom.ZorgProductGroepVersie import ZorgProductGroepVersie
+from kerapu.Lbz.Diagnose import Diagnose
 from kerapu.Lbz.Specialisme import Specialisme
 from kerapu.Lbz.ZorgActiviteit import ZorgActiviteit
 from kerapu.Lbz.ZorgType import ZorgType
 from kerapu.Lbz.ZorgVraag import ZorgVraag
 
+
 class Kerapu:
     """
     Een implementatie van de grouper in Python.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self):
+        """
+        Object constructor.
+        """
         self._zorgproductgroep_boom = {}
         """
         De zorgproductgroepboom. Sleutel is zorgproductgroepcode.
 
-        :type: dict[str, ZorgProductGroep]
+        :type: dict[str,kerapu.Boom.ZorgProductGroep.ZorgProductGroep]
         """
 
         self._beslisregels = {}
         """
         Alle beslisregels. Sleutel is het ID van de beslisregel.
 
-        :type: dict[int, BeslisRegel]
+        :type: dict[int,kerapu.Boom.BeslisRegel.BeslisRegel]
         """
 
         self._attribuutgroepen = {}
         """
         Alle attribuutgroepen. Sleutel is het ID van de attribuutgroep.
 
-        :type: dict[int, AttribuutGroep]
+        :type: dict[int,kerapu.Boom.AttribuutGroep.AttribuutGroep]
         """
 
         self._attribuut_groep_koppelingen = {}
         """
         Alle attribuutgroepkoppelingen. Sleutel is het ID van de attribuutgroep.
 
-        :type: dict[int, list[AttribuutGroepKoppeling]]
+        :type: dict[int,list[kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling]]
         """
 
         self._attributen = {}
         """
         Alle attributen. Sleutel is het ID van het attribuut.
 
-        :type: dict[int, Attribuut]
+        :type: dict[int,kerapu.Boom.Attribuut.Attribuut.Attribuut]
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -84,7 +85,7 @@ class Kerapu:
     def _lees_attribuut_tabel(self, folder):
         """
         Leest de attribuuttabel (opgeslagen in CSV).
-        
+
         :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/Attributen.csv') as csv_file:
@@ -186,7 +187,7 @@ class Kerapu:
     def _lees_beslis_regel_tabel(self, folder):
         """
         Leest de beslisregels (opgeslagen in CSV).
-        
+
         :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         verrijkingen = {}
@@ -231,7 +232,7 @@ class Kerapu:
     def _lees_zorg_product_groepen(self, folder):
         """
         Leest de zorgproductgroepen (opgeslagen in CSV).
-        
+
         :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/ZorgProductGroepen.csv') as csv_file:
@@ -265,7 +266,8 @@ class Kerapu:
         """
         Bepaalt de zorgproductgroep van een subtraject.
 
-        :param Subject subtraject: Het subtraject waarvoor de zorgproductgroep moet worden bepaalt.
+        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject waarvoor de zorgproductgroep moet worden
+               bepaalt.
 
         :rtype: str
         """
@@ -278,7 +280,8 @@ class Kerapu:
         """
         Bepaalt de zorgproduct van een subtraject.
 
-        :param Subject subtraject: Het subtraject waarvoor de zorgproductcode moet worden bepaalt.
+        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject waarvoor de zorgproductcode moet worden
+               bepaalt.
         :param str zorg_product_groep_code: De zorgproductgroep van het subtraject.
 
         :rtype: str

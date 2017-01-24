@@ -1,20 +1,16 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.BoomParameter.BoomParameter import BoomParameter
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class Geslacht(BoomParameter):
     """
     Klasse voor boomparameter geslacht.
 
     Boomparameternummer: 230.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def tel(self, geslacht_code, subtraject):
         """

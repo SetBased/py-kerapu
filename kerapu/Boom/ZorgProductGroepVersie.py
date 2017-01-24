@@ -1,16 +1,13 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class ZorgProductGroepVersie:
     """
     Klasse voor versies zorgproductgroepversies.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
                  zorg_product_groep_code,
@@ -74,6 +71,5 @@ class ZorgProductGroepVersie:
         :rtype: str
         """
         return self._beslis_regel.klim(subtraject)
-
 
 # ----------------------------------------------------------------------------------------------------------------------

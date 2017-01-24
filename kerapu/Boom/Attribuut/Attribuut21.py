@@ -1,17 +1,14 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
 from kerapu.Boom.Attribuut.Attribuut import Attribuut
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class Attribuut21(Attribuut):
     """
     Klasse voor attributen met toetswijze 2 (tussen) en waarde type 1 (numeriek).
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
                  attribuut_id,
@@ -57,6 +54,5 @@ class Attribuut21(Attribuut):
             return 1
 
         return 0
-
 
 # ----------------------------------------------------------------------------------------------------------------------

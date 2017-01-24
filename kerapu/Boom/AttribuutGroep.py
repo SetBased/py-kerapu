@@ -1,18 +1,13 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
-from kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling import AttribuutGroepKoppeling
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class AttribuutGroep:
     """
     Klasse voor attribuutgroep.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
                  attribute_groep_id,
@@ -23,7 +18,8 @@ class AttribuutGroep:
 
         :param int attribute_groep_id: Het ID van deze attribuutgroep.
         :param int aantal_voorwaarden_voor_true: Het minimale aantal voorwaarden waaraan moet worden voldaan.
-        :param list[AttribuutGroepKoppeling] koppelingen: De attribuutgroepkoppelingen.
+        :param list[kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling] koppelingen: De
+               attribuutgroepkoppelingen.
         """
         self._attribute_groep_id = attribute_groep_id
         """
@@ -43,7 +39,7 @@ class AttribuutGroep:
         """
         De attribuutgroepkoppelingen.
 
-        :type: list[AttribuutGroepKoppeling]
+        :type: list[kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling]
         """
 
     # ------------------------------------------------------------------------------------------------------------------

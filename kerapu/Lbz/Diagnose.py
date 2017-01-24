@@ -1,16 +1,11 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 import csv
 
 from kerapu import clean_code, clean_date, clean_str, LEN_DIAGNOSE_CODE, LEN_SPECIALISME_CODE
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class Diagnose:
     """
     Klasse voor diagnosen.
@@ -76,17 +71,17 @@ class Diagnose:
 
                 sleutel = (specialisme_code, diagnose_code)
 
-                rij = {'specialisme_code': specialisme_code,
-                       'diagnose_code': diagnose_code,
+                rij = {'specialisme_code':        specialisme_code,
+                       'diagnose_code':           diagnose_code,
                        'diagnose_attribute_code': diagnose_attribute_code,
-                       'diagnose_cluster1': diagnose_cluster01,
-                       'diagnose_cluster2': diagnose_cluster02,
-                       'diagnose_cluster3': diagnose_cluster03,
-                       'diagnose_cluster4': diagnose_cluster04,
-                       'diagnose_cluster5': diagnose_cluster05,
-                       'diagnose_cluster6': diagnose_cluster06,
-                       'begin_datum': begin_datum,
-                       'eind_datum': eind_datum}
+                       'diagnose_cluster1':       diagnose_cluster01,
+                       'diagnose_cluster2':       diagnose_cluster02,
+                       'diagnose_cluster3':       diagnose_cluster03,
+                       'diagnose_cluster4':       diagnose_cluster04,
+                       'diagnose_cluster5':       diagnose_cluster05,
+                       'diagnose_cluster6':       diagnose_cluster06,
+                       'begin_datum':             begin_datum,
+                       'eind_datum':              eind_datum}
 
                 if sleutel not in Diagnose._diagnose_tabel:
                     Diagnose._diagnose_tabel[sleutel] = []

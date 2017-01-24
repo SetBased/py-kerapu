@@ -1,10 +1,6 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 from kerapu.Boom.BoomParameter.BehandelKlasse import BehandelKlasse
 from kerapu.Boom.BoomParameter.DiagnoseCluster import DiagnoseCluster
 from kerapu.Boom.BoomParameter.DiagnoseCode import DiagnoseCode
@@ -18,7 +14,6 @@ from kerapu.Boom.BoomParameter.ZorgInstellingCode import ZorgInstellingCode
 from kerapu.Boom.BoomParameter.ZorgTypeCode import ZorgTypeCode
 from kerapu.Boom.BoomParameter.ZorgVraagCluster import ZorgVraagCluster
 from kerapu.Boom.BoomParameter.ZorgVraagCode import ZorgVraagCode
-
 
 # ----------------------------------------------------------------------------------------------------------------------
 _boom_parameters = {}
@@ -154,6 +149,5 @@ def _create_boom_parameter(boom_parameter_nummer):
         raise NotImplementedError('Boomparameter %d is niet geïmplementeerd.' % boom_parameter_nummer)
 
     raise RuntimeError("Onbekende boomparameter '%s'." % boom_parameter_nummer)
-
 
 # ----------------------------------------------------------------------------------------------------------------------

@@ -1,20 +1,16 @@
 """
 Kerapu
-
-:copyright: 2015-2016 Set Based IT Consultancy
-:licence: MIT
 """
-# ----------------------------------------------------------------------------------------------------------------------
 import abc
 
 from kerapu.Boom.BoomParameter import create_boom_parameter
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class Attribuut:
     """
     Abstract klasse voor attributen.
     """
+
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self, attribuut_id, boom_parameter_nummer):
         """
