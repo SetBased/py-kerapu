@@ -179,7 +179,7 @@ class Kerapu:
                 self.__attribuutgroepen[attribuut_groep_id] = AttribuutGroep(attribuut_groep_id,
                                                                              aantal_voorwaarden_voor_true,
                                                                              self.__attribuut_groep_koppelingen[
-                                                                                attribuut_groep_id])
+                                                                                 attribuut_groep_id])
 
         print("Aantal attributen: %d" % (regel_nummer - 1))
 
