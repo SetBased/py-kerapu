@@ -3,7 +3,7 @@ Kerapu
 """
 import csv
 
-from kerapu import *
+from kerapu import clean_str, clean_int, clean_bool, clean_date
 from kerapu.Boom.Attribuut import maak_attribuut
 from kerapu.Boom.AttribuutGroep import AttribuutGroep
 from kerapu.Boom.AttribuutGroepKoppeling import maak_attribuut_groep_koppeling

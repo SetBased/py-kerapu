@@ -3,8 +3,8 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-# with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
-#    long_description = f.read()
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='Kerapu',
@@ -12,9 +12,9 @@ setup(
     version='0.9.10',
 
     description='Een implementatie van de grouper',
-    # long_description=long_description,
+    long_description=long_description,
 
-    # url='https://github.com/SetBased/py-kerapu',
+    url='https://github.com/SetBased/py-kerapu',
 
     author='Paul Water',
     author_email='p.r.water@setbased.nl',
@@ -32,6 +32,8 @@ setup(
 
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
 
     keywords='DBC,Grouper',
