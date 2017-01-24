@@ -24,7 +24,7 @@ class Specialisme:
 
         :param str specialisme_code: De code van het specialisme.
         """
-        self._specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
+        self.__specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
 
@@ -79,7 +79,7 @@ class Specialisme:
         Specialisme._lees_specialisme_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_specialisme_referentie(self, datum):
+    def __get_specialisme_referentie(self, datum):
         """
         Zoekt de referentie data voor deze specialisme in de specialismen referentietabel.
 
@@ -87,8 +87,8 @@ class Specialisme:
 
         :rtype: dict[str,str]
         """
-        if self._specialisme_code in self._specialisme_tabel:
-            for referentie in self._specialisme_tabel[self._specialisme_code]:
+        if self.__specialisme_code in self._specialisme_tabel:
+            for referentie in self._specialisme_tabel[self.__specialisme_code]:
                 if referentie['begin_datum'] <= datum <= referentie['eind_datum']:
                     # Een geldige referentie rij gevonden.
                     return referentie
@@ -109,7 +109,7 @@ class Specialisme:
 
         :rtype: int
         """
-        referentie = self._get_specialisme_referentie(datum)
+        referentie = self.__get_specialisme_referentie(datum)
 
         if not referentie:
             # Het specialisme komt niet voor in de referentie tabel. Geef 0 terug.
@@ -131,7 +131,7 @@ class Specialisme:
 
         :rtype: int
         """
-        referentie = self._get_specialisme_referentie(datum)
+        referentie = self.__get_specialisme_referentie(datum)
 
         if not referentie:
             # Het specialisme komt niet voor in de referentie tabel. Geef 0 terug.

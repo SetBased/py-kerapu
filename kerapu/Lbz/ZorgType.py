@@ -1,19 +1,17 @@
 """
 Kerapu
 """
-# ----------------------------------------------------------------------------------------------------------------------
 import csv
 
-from kerapu import *
+from kerapu import clean_code, LEN_SPECIALISME_CODE, LEN_ZORG_TYPE_CODE, clean_str, clean_date
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class ZorgType:
     """
     Klasse voor zorgtypen.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    _zorg_type_tabel = {}
+    __zorg_type_tabel = {}
     """
     De zorgtypen referentietabel.
 
@@ -28,14 +26,14 @@ class ZorgType:
         :param str specialisme_code: De code van het uitvoerend specialisme.
         :param str zorg_type_code: De code van deze zorgtype.
         """
-        self._specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
+        self.__specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
 
         :type: str
         """
 
-        self._zorg_type_code = clean_code(zorg_type_code, LEN_ZORG_TYPE_CODE)
+        self.__zorg_type_code = clean_code(zorg_type_code, LEN_ZORG_TYPE_CODE)
         """
         De code van deze zorgtype.
 
@@ -50,10 +48,10 @@ class ZorgType:
 
         :param str folder: De folder met alle goupertabellen.
         """
-        ZorgType._lees_zorg_type_tabel(folder)
+        ZorgType.__lees_zorg_type_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_zorg_type_referentie(self, datum):
+    def __get_zorg_type_referentie(self, datum):
         """
         Zoekt de referentie data voor deze zorg_type in de zorgtype referentietabel.
 
@@ -62,8 +60,8 @@ class ZorgType:
         :rtype: dict[str,str]
         """
 
-        if (self._specialisme_code, self._zorg_type_code) in self._zorg_type_tabel:
-            for referentie in self._zorg_type_tabel[(self._specialisme_code, self._zorg_type_code)]:
+        if (self.__specialisme_code, self.__zorg_type_code) in self.__zorg_type_tabel:
+            for referentie in self.__zorg_type_tabel[(self.__specialisme_code, self.__zorg_type_code)]:
                 if referentie['begin_datum'] <= datum <= referentie['eind_datum']:
                     # Een geldige referentie rij gevonden.
                     return referentie
@@ -85,7 +83,7 @@ class ZorgType:
 
         :rtype: int
         """
-        referentie = self._get_zorg_type_referentie(datum)
+        referentie = self.__get_zorg_type_referentie(datum)
 
         if not referentie:
             # De diagnose komt niet voor in de referentie tabel. Geef 0 terug.
@@ -107,7 +105,7 @@ class ZorgType:
 
         :rtype: int
         """
-        referentie = self._get_zorg_type_referentie(datum)
+        referentie = self.__get_zorg_type_referentie(datum)
 
         if not referentie:
             # Deze zorgtype komt niet voor in de referentie tabel. Geef 0 terug.
@@ -127,7 +125,7 @@ class ZorgType:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _lees_zorg_type_tabel(folder):
+    def __lees_zorg_type_tabel(folder):
         """
         Leest de zorg_type referentietabel (opgeslagen in CSV).
 
@@ -161,10 +159,10 @@ class ZorgType:
                        'begin_datum':              begin_datum,
                        'eind_datum':               eind_datum}
 
-                if sleutel not in ZorgType._zorg_type_tabel:
-                    ZorgType._zorg_type_tabel[sleutel] = []
+                if sleutel not in ZorgType.__zorg_type_tabel:
+                    ZorgType.__zorg_type_tabel[sleutel] = []
 
-                ZorgType._zorg_type_tabel[sleutel].append(rij)
+                ZorgType.__zorg_type_tabel[sleutel].append(rij)
 
         print("Aantal zorgtypen: %d" % (regel_nummer - 1))
 

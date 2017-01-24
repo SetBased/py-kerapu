@@ -1,19 +1,17 @@
 """
 Kerapu
 """
-# ----------------------------------------------------------------------------------------------------------------------
 import csv
 
-from kerapu import *
+from kerapu import clean_code, LEN_SPECIALISME_CODE, LEN_ZORG_VRAAG_CODE, clean_str, clean_date
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class ZorgVraag:
     """
     Klasse voor zorgvragen.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    _zorg_vraag_tabel = {}
+    __zorg_vraag_tabel = {}
     """
     De zorgvragen referentietabel.
 
@@ -28,14 +26,14 @@ class ZorgVraag:
         :param str specialisme_code: De code van het uitvoerend specialisme.
         :param str zorg_vraag_code: De code van deze zorgvraag.
         """
-        self._specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
+        self.__specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
 
         :type: str
         """
 
-        self._zorg_vraag_code = clean_code(zorg_vraag_code, LEN_ZORG_VRAAG_CODE)
+        self.__zorg_vraag_code = clean_code(zorg_vraag_code, LEN_ZORG_VRAAG_CODE)
         """
         De code van deze zorgvraag.
 
@@ -50,10 +48,10 @@ class ZorgVraag:
 
         :param str folder: De folder met alle goupertabellen.
         """
-        ZorgVraag._lees_zorg_vraag_tabel(folder)
+        ZorgVraag.__lees_zorg_vraag_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_zorg_vraag_referentie(self, datum):
+    def __get_zorg_vraag_referentie(self, datum):
         """
         Zoekt de referentie data voor deze zorg_vraag in de zorgvraag referentietabel.
 
@@ -62,8 +60,8 @@ class ZorgVraag:
         :rtype: dict[str,str]
         """
 
-        if (self._specialisme_code, self._zorg_vraag_code) in self._zorg_vraag_tabel:
-            for referentie in self._zorg_vraag_tabel[(self._specialisme_code, self._zorg_vraag_code)]:
+        if (self.__specialisme_code, self.__zorg_vraag_code) in self.__zorg_vraag_tabel:
+            for referentie in self.__zorg_vraag_tabel[(self.__specialisme_code, self.__zorg_vraag_code)]:
                 if referentie['begin_datum'] <= datum <= referentie['eind_datum']:
                     # Een geldige referentie rij gevonden.
                     return referentie
@@ -85,7 +83,7 @@ class ZorgVraag:
 
         :rtype: int
         """
-        referentie = self._get_zorg_vraag_referentie(datum)
+        referentie = self.__get_zorg_vraag_referentie(datum)
 
         if not referentie:
             # De diagnose komt niet voor in de referentie tabel. Geef 0 terug.
@@ -107,7 +105,7 @@ class ZorgVraag:
 
         :rtype: int
         """
-        referentie = self._get_zorg_vraag_referentie(datum)
+        referentie = self.__get_zorg_vraag_referentie(datum)
 
         if not referentie:
             # Deze zorgvraag komt niet voor in de referentie tabel. Geef 0 terug.
@@ -127,7 +125,7 @@ class ZorgVraag:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _lees_zorg_vraag_tabel(folder):
+    def __lees_zorg_vraag_tabel(folder):
         """
         Leest de zorg_vraag referentietabel (opgeslagen in CSV).
 
@@ -161,10 +159,10 @@ class ZorgVraag:
                        'begin_datum':               begin_datum,
                        'eind_datum':                eind_datum}
 
-                if sleutel not in ZorgVraag._zorg_vraag_tabel:
-                    ZorgVraag._zorg_vraag_tabel[sleutel] = []
+                if sleutel not in ZorgVraag.__zorg_vraag_tabel:
+                    ZorgVraag.__zorg_vraag_tabel[sleutel] = []
 
-                ZorgVraag._zorg_vraag_tabel[sleutel].append(rij)
+                ZorgVraag.__zorg_vraag_tabel[sleutel].append(rij)
 
         print("Aantal zorgvragen: %d" % (regel_nummer - 1))
 

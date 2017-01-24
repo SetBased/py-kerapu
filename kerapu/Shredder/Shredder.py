@@ -16,13 +16,13 @@ class Shredder:
 
         :param str target_dir: De folder waar de CSV-bestanden moeten worden opgeslagen.
         """
-        self._target_dir = target_dir
+        self.__target_dir = target_dir
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
     def extract_field(element, tag):
         """
-        Extracts the waarde van een XML element.
+        Extracts de waarde van een XML element.
 
         :param lxml.etree.Element element: Het parent XML element.
         :param str tag: De tag van het gevraagde XML-element.
@@ -50,7 +50,7 @@ class Shredder:
             raise ValueError("fields and xpaths must have equal length")
 
         # Open the file and create CSV writer.
-        file = open(self._target_dir + '/' + filename, 'wt')
+        file = open(self.__target_dir + '/' + filename, 'wt')
         writer = csv.writer(file)
 
         # Write header row.

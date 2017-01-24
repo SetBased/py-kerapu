@@ -45,12 +45,12 @@ class ZorgProductGroep:
 
         :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
         """
-        versie = self._get_actuele_versie(subtraject)
+        versie = self.__get_actuele_versie(subtraject)
 
         return versie.klim(subtraject)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_actuele_versie(self, subtraject):
+    def __get_actuele_versie(self, subtraject):
         """
         Geeft de actuele versie van dit zorgproductgroep voor een subtraject.
 

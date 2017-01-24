@@ -1,7 +1,7 @@
 """
 Kerapu
 """
-from kerapu import *
+from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, LEN_ZORG_PRODUCT_GROEP_CODE
 from kerapu.Lbz.Diagnose import Diagnose
 from kerapu.Lbz.Patient import Patient
 from kerapu.Lbz.Specialisme import Specialisme
@@ -37,63 +37,63 @@ class Subtraject:
         :param str geboorte_datum: De geboortedatum van de patient.
         :param str geslacht_code: De code voor het geslacht van de patient.
         """
-        self._subtraject_nummer = subtraject_nummer
+        self.__subtraject_nummer = subtraject_nummer
         """
         Het subtrajectnummer.
 
         :type: str
         """
 
-        self._specialisme = Specialisme(specialisme_code)
+        self.__specialisme = Specialisme(specialisme_code)
         """
         Het uitvoerend specialisme.
 
         :type: kerapu.Lbz.Specialisme.Specialisme
         """
 
-        self._begin_datum = begin_datum
+        self.__begin_datum = begin_datum
         """
         De begindatum van het subtraject.
 
         :type: str
         """
 
-        self._patient = Patient(geboorte_datum, geslacht_code)
+        self.__patient = Patient(geboorte_datum, geslacht_code)
         """
         De patient.
 
         :type: kerapu.Lbz.Patient.Patient
         """
 
-        self._zorg_type = ZorgType(specialisme_code, zorg_type_code)
+        self.__zorg_type = ZorgType(specialisme_code, zorg_type_code)
         """
         Het zorgtype.
 
         :type: kerapu.Lbz.ZorgType.ZorgType
         """
 
-        self._zorg_vraag = ZorgVraag(specialisme_code, zorg_vraag_code)
+        self.__zorg_vraag = ZorgVraag(specialisme_code, zorg_vraag_code)
         """
         De zorgvraag.
 
         :type: kerapu.Lbz.ZorgVraag.ZorgVraag
         """
 
-        self._diagnose = Diagnose(specialisme_code, diagnose_code)
+        self.__diagnose = Diagnose(specialisme_code, diagnose_code)
         """
         De diagnose.
 
         :type: kerapu.Lbz.Diagnose.Diagnose
         """
 
-        self._zorg_activiteiten = []
+        self.__zorg_activiteiten = []
         """
         De zorgactiviteiten.
 
         :type: list[kerapu.Lbz.ZorgActiviteit.ZorgActiviteit]
         """
 
-        self._zorg_product_groep_code = ''
+        self.__zorg_product_groep_code = ''
         """
         De zorgproductgroepcode (zoals afgeleid door Kerapu).
 
@@ -108,7 +108,7 @@ class Subtraject:
         :param str zorg_activiteit_code: De zorgactiviteitcode.
         :param int aantal: Het aantal malen (of eenheden) dat de zorgactiviteit is uitgevoerd.
         """
-        self._zorg_activiteiten.append(ZorgActiviteit(zorg_activiteit_code, aantal))
+        self.__zorg_activiteiten.append(ZorgActiviteit(zorg_activiteit_code, aantal))
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_subtraject_nummer(self):
@@ -117,7 +117,7 @@ class Subtraject:
 
         :rtype: str
         """
-        return self._subtraject_nummer
+        return self.__subtraject_nummer
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_begin_datum(self):
@@ -126,7 +126,7 @@ class Subtraject:
 
         :rtype: str
         """
-        return self._begin_datum
+        return self.__begin_datum
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_zorg_activiteit_cluster_telling(self, cluster_code, cluster_nummer, weeg_factor_nummer):
@@ -141,11 +141,11 @@ class Subtraject:
         :rtype: int
         """
         aantal = 0
-        for zorg_activiteit in self._zorg_activiteiten:
+        for zorg_activiteit in self.__zorg_activiteiten:
             aantal += zorg_activiteit.get_zorg_activiteit_cluster_aantal(cluster_code,
                                                                          cluster_nummer,
                                                                          weeg_factor_nummer,
-                                                                         self._begin_datum)
+                                                                         self.__begin_datum)
 
         return aantal
 
@@ -162,10 +162,10 @@ class Subtraject:
         """
         aantal = 0
         zorg_activiteit_code = clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE)
-        for zorg_activiteit in self._zorg_activiteiten:
+        for zorg_activiteit in self.__zorg_activiteiten:
             aantal += zorg_activiteit.get_zorg_activiteit_aantal(zorg_activiteit_code,
                                                                  weeg_factor_nummer,
-                                                                 self._begin_datum)
+                                                                 self.__begin_datum)
 
         return aantal
 
@@ -181,11 +181,11 @@ class Subtraject:
         :rtype: int
         """
         aantal = 0
-        for zorg_activiteit in self._zorg_activiteiten:
-            aantal += zorg_activiteit.get_behandel_klasse_aantal(self._zorg_product_groep_code,
+        for zorg_activiteit in self.__zorg_activiteiten:
+            aantal += zorg_activiteit.get_behandel_klasse_aantal(self.__zorg_product_groep_code,
                                                                  behandel_klasse_code,
                                                                  weeg_factor_nummer,
-                                                                 self._begin_datum)
+                                                                 self.__begin_datum)
 
         return aantal
 
@@ -199,7 +199,7 @@ class Subtraject:
 
         :rtype: int
         """
-        return self._diagnose.get_diagnose_cluster_aantal(cluster_code, cluster_nummer, self._begin_datum)
+        return self.__diagnose.get_diagnose_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_specialisme_cluster_telling(self, cluster_code, cluster_nummer):
@@ -212,7 +212,7 @@ class Subtraject:
 
         :rtype: int
         """
-        return self._specialisme.get_specialisme_cluster_aantal(cluster_code, cluster_nummer, self._begin_datum)
+        return self.__specialisme.get_specialisme_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_zorg_vraag_cluster_telling(self, cluster_code, cluster_nummer):
@@ -224,7 +224,7 @@ class Subtraject:
 
         :rtype: int
         """
-        return self._zorg_vraag.get_zorg_vraag_cluster_aantal(cluster_code, cluster_nummer, self._begin_datum)
+        return self.__zorg_vraag.get_zorg_vraag_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_specialisme_telling(self, specialisme_code):
@@ -236,7 +236,7 @@ class Subtraject:
 
         :rtype: int
         """
-        return self._specialisme.get_specialisme_aantal(specialisme_code, self._begin_datum)
+        return self.__specialisme.get_specialisme_aantal(specialisme_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_diagnose_attribuut_telling(self, diagnose_attribuut_code):
@@ -248,7 +248,7 @@ class Subtraject:
 
         :rtype: int
         """
-        return self._diagnose.get_diagnose_attribute_aantal(diagnose_attribuut_code, self._begin_datum)
+        return self.__diagnose.get_diagnose_attribute_aantal(diagnose_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
     def set_zorg_product_groep_code(self, zorg_product_groep_code):
@@ -257,7 +257,7 @@ class Subtraject:
 
         :param str zorg_product_groep_code: De zorgproductgroepcode.
         """
-        self._zorg_product_groep_code = clean_code(zorg_product_groep_code, LEN_ZORG_PRODUCT_GROEP_CODE)
+        self.__zorg_product_groep_code = clean_code(zorg_product_groep_code, LEN_ZORG_PRODUCT_GROEP_CODE)
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_zorg_vraag_attribuut_telling(self, zorg_vraag_attribuut_code):
@@ -269,7 +269,7 @@ class Subtraject:
 
         :rtype: int
         """
-        return self._zorg_vraag.get_zorg_vraag_attribute_aantal(zorg_vraag_attribuut_code, self._begin_datum)
+        return self.__zorg_vraag.get_zorg_vraag_attribute_aantal(zorg_vraag_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_zorg_type_attribuut_telling(self, zorg_type_attribuut_code):
@@ -281,7 +281,7 @@ class Subtraject:
 
         :rtype: int
         """
-        return self._zorg_type.get_zorg_type_attribute_aantal(zorg_type_attribuut_code, self._begin_datum)
+        return self.__zorg_type.get_zorg_type_attribute_aantal(zorg_type_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_geslacht_code_telling(self, geslacht_code):
@@ -292,7 +292,7 @@ class Subtraject:
 
         :rtype: int
         """
-        if self._patient.get_geslacht_code() == geslacht_code:
+        if self.__patient.get_geslacht_code() == geslacht_code:
             return 1
 
         return 0
@@ -304,6 +304,6 @@ class Subtraject:
 
         :rtype: int
         """
-        return self._patient.get_leeftijd(self._begin_datum)
+        return self.__patient.get_leeftijd(self.__begin_datum)
 
 # ----------------------------------------------------------------------------------------------------------------------

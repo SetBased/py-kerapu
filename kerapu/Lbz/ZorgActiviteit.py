@@ -1,33 +1,31 @@
 """
 Kerapu
 """
-# ----------------------------------------------------------------------------------------------------------------------
 import csv
 
-from kerapu import *
+from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, clean_int, clean_str, clean_date, LEN_ZORG_PRODUCT_GROEP_CODE
 
 
-# ----------------------------------------------------------------------------------------------------------------------
 class ZorgActiviteit:
     """
     Klasse voor zorgactiviteiten.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    _zorg_activiteiten_tabel = {}
+    __zorg_activiteiten_tabel = {}
     """
     De zorgactiviteiten referentietabel.
 
     :type: dict[str,list[dict[str,str]]]
     """
 
-    _zorg_activiteiten_vertaal_tabel = {}
+    __zorg_activiteiten_vertaal_tabel = {}
     """
     De zorgactiviteiten vertaaltabel.
 
     :type: dict[str,list[dict[str,str]]]
     """
 
-    _behandel_klassen_tabel = {}
+    __behandel_klassen_tabel = {}
     """
     De behandelklassen referentietabel.
 
@@ -42,14 +40,14 @@ class ZorgActiviteit:
         :param str zorg_activiteit_code: De code van deze zorgactiviteit.
         :param int aantal: Het aantal malen dat deze zorgactiviteit is uitgevoerd.
         """
-        self._zorg_activiteit_code = clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE)
+        self.__zorg_activiteit_code = clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE)
         """
         De code van deze zorgactiviteit.
 
         :type: str
         """
 
-        self._aantal = clean_int(aantal, 0)
+        self.__aantal = clean_int(aantal, 0)
         """
         Het aantal malen dat deze zorgactiviteit is uitgevoerd.
 
@@ -58,7 +56,7 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _lees_zorgactiviteiten_tabel(folder):
+    def __lees_zorgactiviteiten_tabel(folder):
         """
         Leest de zorgactiviteiten referentietabel (opgeslagen in CSV).
         """
@@ -106,16 +104,16 @@ class ZorgActiviteit:
                        'begin_datum':                  begin_datum,
                        'eind_datum':                   eind_datum}
 
-                if sleutel not in ZorgActiviteit._zorg_activiteiten_tabel:
-                    ZorgActiviteit._zorg_activiteiten_tabel[sleutel] = []
+                if sleutel not in ZorgActiviteit.__zorg_activiteiten_tabel:
+                    ZorgActiviteit.__zorg_activiteiten_tabel[sleutel] = []
 
-                ZorgActiviteit._zorg_activiteiten_tabel[sleutel].append(rij)
+                ZorgActiviteit.__zorg_activiteiten_tabel[sleutel].append(rij)
 
         print("Aantal zorgactiviteiten: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _lees_zorg_activiteiten_vertaal_tabel(folder):
+    def __lees_zorg_activiteiten_vertaal_tabel(folder):
         """
         Leest de zorgactiviteiten vertaaltabel (opgeslagen in CSV).
         """
@@ -141,16 +139,16 @@ class ZorgActiviteit:
                        'begin_datum':              begin_datum,
                        'eind_datum':               eind_datum}
 
-                if sleutel not in ZorgActiviteit._zorg_activiteiten_vertaal_tabel:
-                    ZorgActiviteit._zorg_activiteiten_vertaal_tabel[sleutel] = []
+                if sleutel not in ZorgActiviteit.__zorg_activiteiten_vertaal_tabel:
+                    ZorgActiviteit.__zorg_activiteiten_vertaal_tabel[sleutel] = []
 
-                ZorgActiviteit._zorg_activiteiten_vertaal_tabel[sleutel].append(rij)
+                ZorgActiviteit.__zorg_activiteiten_vertaal_tabel[sleutel].append(rij)
 
         print("Aantal zorgactiviteit vertalingen: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _lees_behandel_klasse_tabel(folder):
+    def __lees_behandel_klasse_tabel(folder):
         """
         Leest de behandelklasse tabel (opgeslagen in CSV).
         """
@@ -178,10 +176,10 @@ class ZorgActiviteit:
                        'begin_datum':             begin_datum,
                        'eind_datum':              eind_datum}
 
-                if sleutel not in ZorgActiviteit._behandel_klassen_tabel:
-                    ZorgActiviteit._behandel_klassen_tabel[sleutel] = []
+                if sleutel not in ZorgActiviteit.__behandel_klassen_tabel:
+                    ZorgActiviteit.__behandel_klassen_tabel[sleutel] = []
 
-                ZorgActiviteit._behandel_klassen_tabel[sleutel].append(rij)
+                ZorgActiviteit.__behandel_klassen_tabel[sleutel].append(rij)
 
         print("Aantal behandelklassen: %d" % (regel_nummer - 1))
 
@@ -193,13 +191,13 @@ class ZorgActiviteit:
 
         :param str folder: De folder met alle goupertabellen.
         """
-        ZorgActiviteit._lees_behandel_klasse_tabel(folder)
-        ZorgActiviteit._lees_zorgactiviteiten_tabel(folder)
-        ZorgActiviteit._lees_zorg_activiteiten_vertaal_tabel(folder)
+        ZorgActiviteit.__lees_behandel_klasse_tabel(folder)
+        ZorgActiviteit.__lees_zorgactiviteiten_tabel(folder)
+        ZorgActiviteit.__lees_zorg_activiteiten_vertaal_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _vertaal_zorgactiviteit_code(zorg_activiteit_code, datum):
+    def __vertaal_zorgactiviteit_code(zorg_activiteit_code, datum):
         """
         Vertaalt een "nieuwe" zorgactiviteitcode naar een "oude" zorgactiviteitcode die geldig is ten tijde van het
         begin van het subtraject.
@@ -209,8 +207,8 @@ class ZorgActiviteit:
         """
         zorg_activiteit_code = clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE)
 
-        if zorg_activiteit_code in ZorgActiviteit._zorg_activiteiten_vertaal_tabel:
-            for vertaling in ZorgActiviteit._zorg_activiteiten_vertaal_tabel[zorg_activiteit_code]:
+        if zorg_activiteit_code in ZorgActiviteit.__zorg_activiteiten_vertaal_tabel:
+            for vertaling in ZorgActiviteit.__zorg_activiteiten_vertaal_tabel[zorg_activiteit_code]:
                 if vertaling['begin_datum'] <= datum <= vertaling['eind_datum']:
                     # Een geldige vertaling gevonden. geef de "oude" zorgactiviteitcode terug.
                     return vertaling['zorg_activiteit_code_oud']
@@ -223,7 +221,7 @@ class ZorgActiviteit:
             return zorg_activiteit_code
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_zorg_activiteit_referentie(self, datum):
+    def __get_zorg_activiteit_referentie(self, datum):
         """
         Zoekt de referentie data voor deze zorgactiviteit in de zorgactiviteiten referentietabel.
 
@@ -232,10 +230,10 @@ class ZorgActiviteit:
         :rtype: dict[str,str]
         """
         # Vertaal de zorgactiviteitcode naar een "oude" zorgactiviteitcode.
-        zorg_activiteit_code = ZorgActiviteit._vertaal_zorgactiviteit_code(self._zorg_activiteit_code, datum)
+        zorg_activiteit_code = ZorgActiviteit.__vertaal_zorgactiviteit_code(self.__zorg_activiteit_code, datum)
 
-        if zorg_activiteit_code in self._zorg_activiteiten_tabel:
-            for referentie in self._zorg_activiteiten_tabel[zorg_activiteit_code]:
+        if zorg_activiteit_code in self.__zorg_activiteiten_tabel:
+            for referentie in self.__zorg_activiteiten_tabel[zorg_activiteit_code]:
                 if referentie['begin_datum'] <= datum <= referentie['eind_datum']:
                     # Een geldige referentie rij gevonden.
                     return referentie
@@ -247,7 +245,7 @@ class ZorgActiviteit:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_behandel_klasse_referentie(self, zorg_product_groep_code, behandel_klasse_code, datum):
+    def __get_behandel_klasse_referentie(self, zorg_product_groep_code, behandel_klasse_code, datum):
         """
         Zoekt de referentie data voor deze zorgactiviteit in de behandelklasse referentietabel.
 
@@ -258,11 +256,11 @@ class ZorgActiviteit:
         :rtype: dict[str,str]
         """
         # Vertaal de zorgactiviteitcode naar een "oude" zorgactiviteitcode.
-        zorg_activiteit_code = ZorgActiviteit._vertaal_zorgactiviteit_code(self._zorg_activiteit_code, datum)
+        zorg_activiteit_code = ZorgActiviteit.__vertaal_zorgactiviteit_code(self.__zorg_activiteit_code, datum)
 
         sleutel = (zorg_product_groep_code, zorg_activiteit_code, behandel_klasse_code)
-        if sleutel in self._behandel_klassen_tabel:
-            for referentie in self._behandel_klassen_tabel[sleutel]:
+        if sleutel in self.__behandel_klassen_tabel:
+            for referentie in self.__behandel_klassen_tabel[sleutel]:
                 if referentie['begin_datum'] <= datum <= referentie['eind_datum']:
                     # Een geldige referentie rij gevonden.
                     return referentie
@@ -283,7 +281,7 @@ class ZorgActiviteit:
 
         :rtype: int
         """
-        referentie = self._get_behandel_klasse_referentie(zorg_product_groep_code, behandel_klasse_code, datum)
+        referentie = self.__get_behandel_klasse_referentie(zorg_product_groep_code, behandel_klasse_code, datum)
 
         if not referentie:
             # De (zorgproductgroepcode,zorgactiviteitcode,behandelklassecode) komt niet voor in de referentie tabel.
@@ -292,13 +290,13 @@ class ZorgActiviteit:
 
         if weeg_factor_nummer == 0:
             # Weegfactor is niet van toepassing.
-            return self._aantal
+            return self.__aantal
 
         if weeg_factor_nummer == 1:
-            return referentie['zorg_activiteit_weeg_factor1'] * self._aantal
+            return referentie['zorg_activiteit_weeg_factor1'] * self.__aantal
 
         if weeg_factor_nummer == 2:
-            return referentie['zorg_activiteit_weeg_factor2'] * self._aantal
+            return referentie['zorg_activiteit_weeg_factor2'] * self.__aantal
 
         raise RuntimeError("Onbekend weegfactornummer %d." % weeg_factor_nummer)
 
@@ -314,24 +312,24 @@ class ZorgActiviteit:
 
         :rtype: int
         """
-        referentie = self._get_zorg_activiteit_referentie(datum)
+        referentie = self.__get_zorg_activiteit_referentie(datum)
 
         if not referentie:
             # De zorgactiviteitcode komt niet voor in de referentie tabel. Geef 0 terug.
             return 0
 
-        if self._zorg_activiteit_code != clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE):
+        if self.__zorg_activiteit_code != clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE):
             return 0
 
         if weeg_factor_nummer == 0:
             # Weegfactor is niet van toepassing.
-            return self._aantal
+            return self.__aantal
 
         if weeg_factor_nummer == 1:
-            return referentie['zorg_activiteit_weeg_factor1'] * self._aantal
+            return referentie['zorg_activiteit_weeg_factor1'] * self.__aantal
 
         if weeg_factor_nummer == 2:
-            return referentie['zorg_activiteit_weeg_factor2'] * self._aantal
+            return referentie['zorg_activiteit_weeg_factor2'] * self.__aantal
 
         raise RuntimeError("Onbekend weegfactornummer %d." % weeg_factor_nummer)
 
@@ -348,7 +346,7 @@ class ZorgActiviteit:
 
         :rtype: int
         """
-        referentie = self._get_zorg_activiteit_referentie(datum)
+        referentie = self.__get_zorg_activiteit_referentie(datum)
 
         if not referentie:
             # De zorgactiviteitcode komt niet voor in de referentie tabel. Geef 0 terug.
@@ -361,13 +359,13 @@ class ZorgActiviteit:
 
             if weeg_factor_nummer == 0:
                 # Weegfactor is niet van toepassing.
-                return self._aantal
+                return self.__aantal
 
             if weeg_factor_nummer == 1:
-                return referentie['zorg_activiteit_weeg_factor1'] * self._aantal
+                return referentie['zorg_activiteit_weeg_factor1'] * self.__aantal
 
             if weeg_factor_nummer == 2:
-                return referentie['zorg_activiteit_weeg_factor2'] * self._aantal
+                return referentie['zorg_activiteit_weeg_factor2'] * self.__aantal
 
             raise RuntimeError("Onbekend weegfactornummer %d." % weeg_factor_nummer)
 

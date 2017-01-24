@@ -25,14 +25,14 @@ class Diagnose:
         :param str specialisme_code: De code van het uitvoerend specialisme.
         :param str diagnose_code: De code van deze diagnose.
         """
-        self._specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
+        self.__specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
 
         :type: str
         """
 
-        self._diagnose_code = clean_code(diagnose_code, LEN_DIAGNOSE_CODE)
+        self.__diagnose_code = clean_code(diagnose_code, LEN_DIAGNOSE_CODE)
         """
         De code van deze diagnose.
 
@@ -41,7 +41,7 @@ class Diagnose:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _lees_diagnose_tabel(folder):
+    def __lees_diagnose_tabel(folder):
         """
         Leest de diagnose referentietabel (opgeslagen in CSV).
 
@@ -98,7 +98,7 @@ class Diagnose:
 
         :param str folder: De folder met alle goupertabellen.
         """
-        Diagnose._lees_diagnose_tabel(folder)
+        Diagnose.__lees_diagnose_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
     def _get_diagnose_referentie(self, datum):
@@ -108,8 +108,8 @@ class Diagnose:
         :param str datum: De begindatum van het subtraject.
         :rtype: dict[str,str]
         """
-        if (self._specialisme_code, self._diagnose_code) in self._diagnose_tabel:
-            for referentie in self._diagnose_tabel[(self._specialisme_code, self._diagnose_code)]:
+        if (self.__specialisme_code, self.__diagnose_code) in self._diagnose_tabel:
+            for referentie in self._diagnose_tabel[(self.__specialisme_code, self.__diagnose_code)]:
                 if referentie['begin_datum'] <= datum <= referentie['eind_datum']:
                     # Een geldige referentie rij gevonden.
                     return referentie
@@ -127,7 +127,7 @@ class Diagnose:
 
         :rtype: str
         """
-        return self._diagnose_code
+        return self.__diagnose_code
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_diagnose_attribute_aantal(self, diagnose_attribute_code, datum):

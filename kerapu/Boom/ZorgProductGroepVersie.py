@@ -22,28 +22,28 @@ class ZorgProductGroepVersie:
         :param str begin_datum: Begindatum van het interval waarvoor deze versie van toepassing is.
         :param str eind_datum: Einddatum van het interval waarvoor deze versie van toepassing is.
         """
-        self._zorg_product_groep_code = zorg_product_groep_code
+        self.__zorg_product_groep_code = zorg_product_groep_code
         """
         De zorgproductgroepcode.
 
         :type: str
         """
 
-        self._beslis_regel = beslis_regel
+        self.__beslis_regel = beslis_regel
         """
         De beslisregel behoorden bij de zorgproductgroepcode.
 
         :type: kerapu.Boom.BeslisRegel.BeslisRegel
         """
 
-        self._begin_datum = begin_datum
+        self.__begin_datum = begin_datum
         """
         Begindatum van het interval waarvoor deze versie van toepassing is.
 
         :type: str
         """
 
-        self._eind_datum = eind_datum
+        self.__eind_datum = eind_datum
         """
         Einddatum van het interval waarvoor deze versie van toepassing is.
 
@@ -59,7 +59,7 @@ class ZorgProductGroepVersie:
 
         :rtype: bool
         """
-        return self._begin_datum <= subtraject.get_begin_datum() <= self._eind_datum
+        return self.__begin_datum <= subtraject.get_begin_datum() <= self.__eind_datum
 
     # ------------------------------------------------------------------------------------------------------------------
     def klim(self, subtraject):
@@ -70,6 +70,6 @@ class ZorgProductGroepVersie:
 
         :rtype: str
         """
-        return self._beslis_regel.klim(subtraject)
+        return self.__beslis_regel.klim(subtraject)
 
 # ----------------------------------------------------------------------------------------------------------------------

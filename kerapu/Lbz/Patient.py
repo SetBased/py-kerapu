@@ -16,8 +16,8 @@ class Patient:
         :param str geboorte_datum: De geboortedatum van de patiënt.
         :param str geslacht_code: Het geslacht van de patiënt.
         """
-        self._geboorte_datum = geboorte_datum
-        self._geslacht_code = Patient.normaliseer_geslacht_code(geslacht_code)
+        self.__geboorte_datum = geboorte_datum
+        self.__geslacht_code = Patient.normaliseer_geslacht_code(geslacht_code)
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
@@ -44,7 +44,7 @@ class Patient:
 
         :rtype: str
         """
-        return self._geslacht_code
+        return self.__geslacht_code
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_leeftijd(self, datum):
@@ -58,15 +58,15 @@ class Patient:
         if not datum:
             raise RuntimeError("Datum is niet gespecificeerd.")
 
-        if not self._geboorte_datum:
+        if not self.__geboorte_datum:
             raise RuntimeError("Geboortedatum is niet gespecificeerd.")
 
-        if datum < self._geboorte_datum:
+        if datum < self.__geboorte_datum:
             raise RuntimeError("Leeftijd van patient gevraagd op datum (%s) voor geboortedatum (%s)." %
-                               (datum, self._geboorte_datum))
+                               (datum, self.__geboorte_datum))
 
-        age = int(datum[0:4]) - int(self._geboorte_datum[0:4])
-        if datum[-5:] < self._geboorte_datum[-5:]:
+        age = int(datum[0:4]) - int(self.__geboorte_datum[0:4])
+        if datum[-5:] < self.__geboorte_datum[-5:]:
             age -= 1
 
         return age
