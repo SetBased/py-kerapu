@@ -30,7 +30,7 @@ Alvorens gebruik te kunnen maken van Kerapu moeten de boombestanden en referenti
 
 .. code:: sh
 
-   unzip -x 20170101\ Grouper\ Tabellen\ v20161117.zip
+   unzip -x "20170101 Grouper Tabellen v20161117.zip"
    
 * Converteer de XML-bestanden naar CSV (in het voorbeeld hieronder worden de CSV-bestanden weggeschreven in de folder ``var/lib``):
 
