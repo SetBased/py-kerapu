@@ -42,7 +42,7 @@ setup(
 
     entry_points={
        'console_scripts': [
-           'kerapu = kerapu.Shredder:main',
+           'kerapu = kerapu.application.kerapu:main',
        ],
     },
 

@@ -27,16 +27,9 @@ class KerapuApplication(Application):
         """
         commands = Application.get_default_commands(self)
 
-        # kerapu:
+        # Kerapu:
         commands.append(ShredderCommand())
 
         return commands
-
-# ----------------------------------------------------------------------------------------------------------------------
-if __name__ == "__main__":
-    application = KerapuApplication()
-    status = application.run()
-
-    exit(status)
 
 # ----------------------------------------------------------------------------------------------------------------------
