@@ -13,11 +13,11 @@ class VoorbeeldTest(TestCase):
         """
         Test voorbeeld 1.
         """
-        # Maak en initialiseer Grouper object.
+        # Maak een Grouper object en laad boombestanden en referentietabellen.
         grouper = Kerapu()
         grouper.init_static('test/var/lib')
 
-        # Maak Grouper object en laad boom- en referentietabellen.
+        # Maak een subtraject object.
         subtraject = Subtraject('1',  # Subtrajectnummer
                                 '0303',  # Zorgverlenerspecificatiecode
                                 '0280',  # Diagnosecode
@@ -27,7 +27,7 @@ class VoorbeeldTest(TestCase):
                                 '2000-01-01',  # Geboortedatum
                                 'M')  # Geslachtscode
 
-        # Maak Grouper object en laad Boom- en referentie tabellen.
+        # Voeg uitgevoerde zorgactiviteiten aan het subtraject toe.
         subtraject.add_zorg_activiteit('038940', 1)
         subtraject.add_zorg_activiteit('038941', 1)
         subtraject.add_zorg_activiteit('190012', 1)
