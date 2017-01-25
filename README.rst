@@ -5,10 +5,10 @@ Een implementatie van de Grouper in Python.
 
 |Scrutinizer Code Quality| |Build Status|
 
-.. |Scrutinizer Code Quality| image:: https://scrutinizer-ci.com/g/SetBased/Kerapu/badges/quality-score.png?b=master&s=65d8d14cd2f09dfd62dd631b1c953098ac210426
-   :target: https://scrutinizer-ci.com/g/SetBased/Kerapu/?branch=master
-.. |Build Status| image:: https://scrutinizer-ci.com/g/SetBased/Kerapu/badges/build.png?b=master&s=074278b1cacd9223d21ad5cd623f283cc31febdf
-   :target: https://scrutinizer-ci.com/g/SetBased/Kerapu/build-status/master
+.. |Scrutinizer Code Quality| image:: https://scrutinizer-ci.com/g/SetBased/py-kerapu/badges/quality-score.png?b=master
+   :target: https://scrutinizer-ci.com/g/SetBased/py-kerapu/?branch=master
+.. |Build Status| image:: https://scrutinizer-ci.com/g/SetBased/py-kerapu/badges/build.png?b=master
+   :target: https://scrutinizer-ci.com/g/SetBased/py-kerapu/build-status/master
 
 
 Installatie
@@ -30,7 +30,7 @@ Alvorens gebruik te kunnen maken van Kerapu moeten de boombestanden en referenti
 
 .. code:: sh
 
-   unzip -x 20170101\ Grouper\ Tabellen\ v20161117.zip
+   unzip -x "20170101 Grouper Tabellen v20161117.zip"
    
 * Converteer de XML-bestanden naar CSV (in het voorbeeld hieronder worden de CSV-bestanden weggeschreven in de folder ``var/lib``):
 
@@ -39,5 +39,41 @@ Alvorens gebruik te kunnen maken van Kerapu moeten de boombestanden en referenti
    kerapu shredder "20170101 BoomBestanden v20161117.xml" var/lib/
    kerapu shredder "20170101 Referenties v20161117.xml" var/lib/
    
- 
+Voorbeeld
+=========
+
+Hieronder een voorbeeld om de zorgproductcode van een subtraject af te leiden.
+
+.. code:: python
+
+   from kerapu.Kerapu import Kerapu
+   from kerapu.Lbz.Subtraject import Subtraject
+
+   # Maak en initialiseer Grouper object.
+   grouper = Kerapu()
+   grouper.init_static('var/lib')
+
+   # Maak Grouper object en laad boom- en referentietabellen.
+   subtraject = Subtraject('1',             # Subtrajectnummer
+                           '0303',          # Zorgverlenerspecificatiecode
+                           '0280',          # Diagnosecode
+                           '11',            # Zorgtypecode
+                           '000',           # Zorgvraagcode
+                           '2012-01-01',    # Begindatum subtraject
+                           '2000-01-01',    # Geboortedatum
+                           'M')             # Geslachtscode  
+
+   # Maak Grouper object en laad boom- en referentie tabellen.
+   subtraject.add_zorg_activiteit('038940', 1)
+   subtraject.add_zorg_activiteit('038941', 1)
+   subtraject.add_zorg_activiteit('190012', 1)
+   subtraject.add_zorg_activiteit('190015', 1)
+
+   # Bepaal zorgproductgroep en zorgproduct.
+   zorg_product_groep_code = grouper.bepaal_zorg_product_groep(subtraject)
+   if zorg_product_groep_code != '0':
+       zorg_product_code = grouper.bepaal_zorg_product(subtraject, zorg_product_groep_code)
+       print('Zorgproductcode: {}'.format(zorg_product_code))
+
+
 
