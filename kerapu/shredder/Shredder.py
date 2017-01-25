@@ -41,9 +41,9 @@ class Shredder:
 
         :rtype: str
         """
-        x = element.xpath(tag, namespaces={'soapenv': 'http://schemas.xmlsoap.org/soap/envelope/'})
-        if x:
-            return x[0].text
+        elements = element.xpath(tag, namespaces={'soapenv': 'http://schemas.xmlsoap.org/soap/envelope/'})
+        if elements:
+            return elements[0].text
 
         return ''
 
@@ -69,17 +69,17 @@ class Shredder:
         writer.writerow(fields)
 
         # Write all rows in the XML 'table'.
-        n = 0
+        row_count = 0
         for element in table:
             row = []
             for xpath in xpaths:
                 row.append(Shredder.extract_field(element, xpath))
             writer.writerow(row)
-            n += 1
+            row_count += 1
 
         # Close the file.
         file.close()
 
-        self._io.text('Wrote {:6d} rows to <fso>{}</fso>'.format(n, filename))
+        self._io.text('Wrote {:6d} rows to <fso>{}</fso>'.format(row_count, filename))
 
 # ----------------------------------------------------------------------------------------------------------------------
