@@ -18,6 +18,8 @@ class BoomBestandenShredder(Shredder):
 
         :param str filename: De filenaam van het XML bestand.
         """
+        self._io.title('Shredder')
+
         doc = etree.parse(filename)
 
         xpath = '/soapenv:Envelope/soapenv:Body/InlezenBoomBestanden/BoomBestanden/'

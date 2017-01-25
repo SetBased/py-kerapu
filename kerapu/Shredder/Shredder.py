@@ -10,13 +10,25 @@ class Shredder:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, target_dir):
+    def __init__(self, io, target_dir):
         """
         Object constructor.
 
         :param str target_dir: De folder waar de CSV-bestanden moeten worden opgeslagen.
         """
+        self._io = io
+        """
+        The output decorator.
+
+        :type: kerapu.style.KerapuStyle.KerapuStyle
+        """
+
         self.__target_dir = target_dir
+        """
+        De folder waar de CSV-bestanden moeten worden opgeslagen.
+
+        :type: str
+        """
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
@@ -68,6 +80,6 @@ class Shredder:
         # Close the file.
         file.close()
 
-        print("Wrote %6d rows to '%s'." % (n, filename))
+        self._io.text('Wrote {:6d} rows to <fso>{}</fso>'.format(n, filename))
 
 # ----------------------------------------------------------------------------------------------------------------------

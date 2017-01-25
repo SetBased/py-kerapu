@@ -42,9 +42,9 @@ setup(
 
     entry_points={
        'console_scripts': [
-           'kerapu-shredder = kerapu.Shredder:main',
+           'kerapu = kerapu.Shredder:main',
        ],
     },
 
-    requires=['lxml']
+    requires=['lxml', 'cleo==0.5.0']
 )
