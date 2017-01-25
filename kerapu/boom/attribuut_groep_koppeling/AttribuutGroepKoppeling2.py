@@ -1,7 +1,7 @@
 """
 Kerapu
 """
-from kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling import AttribuutGroepKoppeling
+from kerapu.boom.attribuut_groep_koppeling.AttribuutGroepKoppeling import AttribuutGroepKoppeling
 
 
 class AttribuutGroepKoppeling2(AttribuutGroepKoppeling):

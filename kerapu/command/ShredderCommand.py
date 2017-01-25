@@ -3,8 +3,8 @@ Kerapu
 """
 from cleo import Command
 
-from kerapu.Shredder.BoomBestandenShredder import BoomBestandenShredder
-from kerapu.Shredder.ReferentieShredder import ReferentieShredder
+from kerapu.shredder.BoomBestandenShredder import BoomBestandenShredder
+from kerapu.shredder.ReferentieShredder import ReferentieShredder
 from kerapu.style.KerapuStyle import KerapuStyle
 
 

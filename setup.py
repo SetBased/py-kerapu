@@ -38,7 +38,7 @@ setup(
 
     keywords='DBC,Grouper',
 
-    packages=find_packages(exclude=['build', 'test']),
+    packages=find_packages(exclude=['build', 'kerapu_test']),
 
     entry_points={
        'console_scripts': [

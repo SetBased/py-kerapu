@@ -1,8 +1,8 @@
 """
 Kerapu
 """
-from kerapu.Boom.Attribuut.Attribuut12 import Attribuut12
-from kerapu.Boom.Attribuut.Attribuut21 import Attribuut21
+from kerapu.boom.attribuut.Attribuut12 import Attribuut12
+from kerapu.boom.attribuut.Attribuut21 import Attribuut21
 
 
 def maak_attribuut(attribuut_id,

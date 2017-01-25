@@ -3,7 +3,7 @@ Kerapu
 """
 import abc
 
-from kerapu.Boom.BoomParameter import create_boom_parameter
+from kerapu.boom.boom_parameter import create_boom_parameter
 
 
 class Attribuut:

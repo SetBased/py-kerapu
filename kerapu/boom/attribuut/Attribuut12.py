@@ -1,42 +1,30 @@
 """
 Kerapu
 """
-from kerapu.Boom.Attribuut.Attribuut import Attribuut
+from kerapu.boom.attribuut.Attribuut import Attribuut
 
 
-class Attribuut21(Attribuut):
+class Attribuut12(Attribuut):
     """
-    Klasse voor attributen met toetswijze 2 (tussen) en waarde type 1 (numeriek).
+    Klasse voor attributen met toetswijze 1 (gelijk) en waarde type 2 (alfanumeriek).
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self,
-                 attribuut_id,
-                 boom_parameter_nummer,
-                 onder_filter_waarde,
-                 boven_filter_waarde):
+    def __init__(self, attribuut_id, boom_parameter_nummer, filter_waarde):
         """
         Object constructor.
 
         :param int attribuut_id: Het ID van dit attribuut.
         :param int boom_parameter_nummer: Het ID van de boomparameter van dit attribuut.
-        :param int onder_filter_waarde: De ondergrens.
-        :param int boven_filter_waarde: De bovengrens.
+        :param str filter_waarde: De filter waarde.
         """
         Attribuut.__init__(self, attribuut_id, boom_parameter_nummer)
 
-        self._onder_filter_waarde = onder_filter_waarde
+        self._filter_waarde = filter_waarde
         """
-        De ondergrens om dit attribuut te laten vuren.
+        De waarde om dit attribuut the laten vuren.
 
-        :type: int
-        """
-
-        self._boven_filter_waarde = boven_filter_waarde
-        """
-        De bovengrens om dit attribuut te laten vuren.
-
-        :type: int
+        :type: str
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -48,11 +36,6 @@ class Attribuut21(Attribuut):
 
         :rtype: int
         """
-        aantal = self._boom_parameter.tel(None, subtraject)
-
-        if self._onder_filter_waarde <= aantal <= self._boven_filter_waarde:
-            return 1
-
-        return 0
+        return self._boom_parameter.tel(self._filter_waarde, subtraject)
 
 # ----------------------------------------------------------------------------------------------------------------------

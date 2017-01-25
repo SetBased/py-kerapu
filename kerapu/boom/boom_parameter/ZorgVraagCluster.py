@@ -1,14 +1,14 @@
 """
 Kerapu
 """
-from kerapu.Boom.BoomParameter.BoomParameter import BoomParameter
+from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
 
 
-class DiagnoseCluster(BoomParameter):
+class ZorgVraagCluster(BoomParameter):
     """
-    Klasse voor boomparameter diagnosecluster.
+    Klasse voor boomparameter zorgvraagcluster.
 
-    Boomparameternummers: 232, 233, 234, 235, 236, 237.
+    Boomparameternummers: 221, 222.
     """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -16,21 +16,21 @@ class DiagnoseCluster(BoomParameter):
         """
         Object constructor.
 
-        :param int cluster_nummer: Het clusternummer (1..6).
+        :param int cluster_nummer: Het clusternummer (1..2):
         """
-        # @todo validate cluster_nummer = 1,.., 6
+        # @todo validate cluster_nummer = 1,..,2
         self._cluster_nummer = cluster_nummer
 
     # ------------------------------------------------------------------------------------------------------------------
     def tel(self, cluster_code, subtraject):
         """
-        Geeft het aantal malen (d.w.z. 0 of 1) dat een subtraject voldoet aan een diagnoseclustercode.
+        Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van een subtraject voorkomt in een zorgvraagcluster.
 
         :param str cluster_code: De cluster_code waartegen getest moet worden.
         :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """
-        return subtraject.get_diagnose_cluster_telling(cluster_code, self._cluster_nummer)
+        return subtraject.get_zorg_vraag_cluster_telling(cluster_code, self._cluster_nummer)
 
 # ----------------------------------------------------------------------------------------------------------------------

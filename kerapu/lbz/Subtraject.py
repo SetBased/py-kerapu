@@ -2,12 +2,12 @@
 Kerapu
 """
 from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, LEN_ZORG_PRODUCT_GROEP_CODE
-from kerapu.Lbz.Diagnose import Diagnose
-from kerapu.Lbz.Patient import Patient
-from kerapu.Lbz.Specialisme import Specialisme
-from kerapu.Lbz.ZorgActiviteit import ZorgActiviteit
-from kerapu.Lbz.ZorgType import ZorgType
-from kerapu.Lbz.ZorgVraag import ZorgVraag
+from kerapu.lbz.Diagnose import Diagnose
+from kerapu.lbz.Patient import Patient
+from kerapu.lbz.Specialisme import Specialisme
+from kerapu.lbz.ZorgActiviteit import ZorgActiviteit
+from kerapu.lbz.ZorgType import ZorgType
+from kerapu.lbz.ZorgVraag import ZorgVraag
 
 
 class Subtraject:

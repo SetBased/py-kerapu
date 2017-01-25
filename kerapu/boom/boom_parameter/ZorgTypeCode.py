@@ -1,7 +1,7 @@
 """
 Kerapu
 """
-from kerapu.Boom.BoomParameter.BoomParameter import BoomParameter
+from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
 
 
 class ZorgTypeCode(BoomParameter):

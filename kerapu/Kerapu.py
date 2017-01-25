@@ -4,17 +4,17 @@ Kerapu
 import csv
 
 from kerapu import clean_str, clean_int, clean_bool, clean_date
-from kerapu.Boom.Attribuut import maak_attribuut
-from kerapu.Boom.AttribuutGroep import AttribuutGroep
-from kerapu.Boom.AttribuutGroepKoppeling import maak_attribuut_groep_koppeling
-from kerapu.Boom.BeslisRegel import BeslisRegel
-from kerapu.Boom.ZorgProductGroep import ZorgProductGroep
-from kerapu.Boom.ZorgProductGroepVersie import ZorgProductGroepVersie
-from kerapu.Lbz.Diagnose import Diagnose
-from kerapu.Lbz.Specialisme import Specialisme
-from kerapu.Lbz.ZorgActiviteit import ZorgActiviteit
-from kerapu.Lbz.ZorgType import ZorgType
-from kerapu.Lbz.ZorgVraag import ZorgVraag
+from kerapu.boom.attribuut import maak_attribuut
+from kerapu.boom.AttribuutGroep import AttribuutGroep
+from kerapu.boom.attribuut_groep_koppeling import maak_attribuut_groep_koppeling
+from kerapu.boom.BeslisRegel import BeslisRegel
+from kerapu.boom.ZorgProductGroep import ZorgProductGroep
+from kerapu.boom.ZorgProductGroepVersie import ZorgProductGroepVersie
+from kerapu.lbz.Diagnose import Diagnose
+from kerapu.lbz.Specialisme import Specialisme
+from kerapu.lbz.ZorgActiviteit import ZorgActiviteit
+from kerapu.lbz.ZorgType import ZorgType
+from kerapu.lbz.ZorgVraag import ZorgVraag
 
 
 class Kerapu:

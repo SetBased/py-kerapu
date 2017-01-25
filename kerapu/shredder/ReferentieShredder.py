@@ -3,7 +3,7 @@ Kerapu
 """
 from lxml import etree
 
-from kerapu.Shredder.Shredder import Shredder
+from kerapu.shredder.Shredder import Shredder
 
 
 class ReferentieShredder(Shredder):

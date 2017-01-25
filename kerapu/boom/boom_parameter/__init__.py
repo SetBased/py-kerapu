@@ -1,19 +1,19 @@
 """
 Kerapu
 """
-from kerapu.Boom.BoomParameter.BehandelKlasse import BehandelKlasse
-from kerapu.Boom.BoomParameter.DiagnoseCluster import DiagnoseCluster
-from kerapu.Boom.BoomParameter.DiagnoseCode import DiagnoseCode
-from kerapu.Boom.BoomParameter.Geslacht import Geslacht
-from kerapu.Boom.BoomParameter.Leeftijd import Leeftijd
-from kerapu.Boom.BoomParameter.SpecialismeCluster import SpecialismeCluster
-from kerapu.Boom.BoomParameter.SpecialismeCode import SpecialismeCode
-from kerapu.Boom.BoomParameter.ZorgActiviteitCluster import ZorgActiviteitCluster
-from kerapu.Boom.BoomParameter.ZorgActiviteitCode import ZorgActiviteitCode
-from kerapu.Boom.BoomParameter.ZorgInstellingCode import ZorgInstellingCode
-from kerapu.Boom.BoomParameter.ZorgTypeCode import ZorgTypeCode
-from kerapu.Boom.BoomParameter.ZorgVraagCluster import ZorgVraagCluster
-from kerapu.Boom.BoomParameter.ZorgVraagCode import ZorgVraagCode
+from kerapu.boom.boom_parameter.BehandelKlasse import BehandelKlasse
+from kerapu.boom.boom_parameter.DiagnoseCluster import DiagnoseCluster
+from kerapu.boom.boom_parameter.DiagnoseCode import DiagnoseCode
+from kerapu.boom.boom_parameter.Geslacht import Geslacht
+from kerapu.boom.boom_parameter.Leeftijd import Leeftijd
+from kerapu.boom.boom_parameter.SpecialismeCluster import SpecialismeCluster
+from kerapu.boom.boom_parameter.SpecialismeCode import SpecialismeCode
+from kerapu.boom.boom_parameter.ZorgActiviteitCluster import ZorgActiviteitCluster
+from kerapu.boom.boom_parameter.ZorgActiviteitCode import ZorgActiviteitCode
+from kerapu.boom.boom_parameter.ZorgInstellingCode import ZorgInstellingCode
+from kerapu.boom.boom_parameter.ZorgTypeCode import ZorgTypeCode
+from kerapu.boom.boom_parameter.ZorgVraagCluster import ZorgVraagCluster
+from kerapu.boom.boom_parameter.ZorgVraagCode import ZorgVraagCode
 
 # ----------------------------------------------------------------------------------------------------------------------
 _boom_parameters = {}
