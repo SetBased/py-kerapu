@@ -1,8 +1,0 @@
-{
-  "require-dev": {
-    "setbased/phing-extensions": "2.*"
-  },
-  "config": {
-    "bin-dir": "bin"
-  }
-}
