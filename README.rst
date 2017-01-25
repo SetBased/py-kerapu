@@ -42,28 +42,28 @@ Alvorens gebruik te kunnen maken van Kerapu moeten de boombestanden en referenti
 Voorbeeld
 =========
 
-Hieronder een voorbeeld 
+Hieronder een voorbeeld om de zorgproductcode van een subtraject af te leiden.
 
 .. code:: python
 
    from kerapu.Kerapu import Kerapu
    from kerapu.Lbz.Subtraject import Subtraject
 
-   # Maak Grouper object en laad boom- en referentietabellen.
+   # Maak en initialiseer Grouper object.
    grouper = Kerapu()
    grouper.init_static('var/lib')
 
-   # Maak een subtraject object.
-   subtraject = Subtraject('1',
-                           '0303',
-                           '0280',
-                           '11',
-                           '000',
-                           '2012-01-01',
-                           '2000-01-01',
-                           'M')
+   # Maak Grouper object en laad boom- en referentietabellen.
+   subtraject = Subtraject('1',             # Subtrajectnummer
+                           '0303',          # Zorgverlenerspecificatiecode
+                           '0280',          # Diagnosecode
+                           '11',            # Zorgtypecode
+                           '000',           # Zorgvraagcode
+                           '2012-01-01',    # Begindatum subtraject
+                           '2000-01-01',    # Geboortedatum
+                           'M')             # Geslachtscode  
 
-   # Voeg uitgevoerde zorgactiviteiten toe aan het subtraject.
+   # Maak Grouper object en laad boom- en referentie tabellen.
    subtraject.add_zorg_activiteit('038940', 1)
    subtraject.add_zorg_activiteit('038941', 1)
    subtraject.add_zorg_activiteit('190012', 1)
@@ -74,5 +74,6 @@ Hieronder een voorbeeld
    if zorg_product_groep_code != '0':
        zorg_product_code = grouper.bepaal_zorg_product(subtraject, zorg_product_groep_code)
        print('Zorgproductcode: {}'.format(zorg_product_code))
+
 
 
