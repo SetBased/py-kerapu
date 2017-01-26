@@ -2,9 +2,9 @@
 import os
 import sys
 
-from kerapu.application.KerapuApplication import KerapuApplication
-
 sys.path.insert(0, os.path.realpath(os.path.dirname(os.path.realpath(__file__)) + '/..'))
+
+from kerapu.application.KerapuApplication import KerapuApplication
 
 application = KerapuApplication()
 status = application.run()

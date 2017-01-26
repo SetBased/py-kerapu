@@ -81,8 +81,8 @@ class ZorgActiviteit:
                 zorg_activiteit_cluster08 = clean_str(regel[9])
                 zorg_activiteit_cluster09 = clean_str(regel[10])
                 zorg_activiteit_cluster10 = clean_str(regel[11])
-                zorg_activiteit_weeg_factor1 = clean_str(regel[12])
-                zorg_activiteit_weeg_factor2 = clean_str(regel[13])
+                zorg_activiteit_weeg_factor1 = clean_int(regel[12])
+                zorg_activiteit_weeg_factor2 = clean_int(regel[13])
                 begin_datum = clean_date(regel[20])
                 eind_datum = clean_date(regel[21])
 

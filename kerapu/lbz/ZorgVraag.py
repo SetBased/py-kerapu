@@ -73,7 +73,7 @@ class ZorgVraag:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_vraag_attribute_aantal(self, zorg_vraag_attribute_code, datum):
+    def get_zorg_vraag_attribute_aantal(self, zorg_vraag_attribuut_code, datum):
         """
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voldoet aan een (specialismecode, zorgvraagcode)
         combinatie op een peildatum.
@@ -89,7 +89,7 @@ class ZorgVraag:
             # De diagnose komt niet voor in de referentie tabel. Geef 0 terug.
             return 0
 
-        if referentie['zorg_vraag_attribute_code'] == zorg_vraag_attribute_code:
+        if referentie['zorg_vraag_attribute_code'] == zorg_vraag_attribuut_code:
             return 1
 
         return 0
@@ -153,7 +153,7 @@ class ZorgVraag:
 
                 rij = {'specialisme_code':          specialisme_code,
                        'zorg_vraag_code':           zorg_vraag_code,
-                       'zorg_vraag_attribuut_code': zorg_vraag_attribuut_code,
+                       'zorg_vraag_attribute_code': zorg_vraag_attribuut_code,
                        'zorg_vraag_cluster1':       zorg_vraag_cluster01,
                        'zorg_vraag_cluster2':       zorg_vraag_cluster02,
                        'begin_datum':               begin_datum,
