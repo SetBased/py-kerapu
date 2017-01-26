@@ -172,7 +172,7 @@ class ReferentieShredder(Shredder):
                   'ZorgActiviteitCluster/ZorgActiviteitClusterItem[@Key=9]',
                   'ZorgActiviteitCluster/ZorgActiviteitClusterItem[@Key=10]',
                   'ZorgActiviteitWeegFactor/ZorgActiviteitWeegFactorItem[@Key=1]',
-                  'ZorgActiviteitWeegFactorZorgActiviteitWeegFactorItem[@Key=2]',
+                  'ZorgActiviteitWeegFactor/ZorgActiviteitWeegFactorItem[@Key=2]',
                   'WBMVCode',
                   'InnovatieCode',
                   'AanspraakCode',
