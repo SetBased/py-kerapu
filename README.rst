@@ -36,8 +36,8 @@ Alvorens gebruik te kunnen maken van Kerapu moeten de boombestanden en referenti
 
 .. code:: sh
 
-   kerapu shredder "20170101 BoomBestanden v20161117.xml" var/lib/
-   kerapu shredder "20170101 Referenties v20161117.xml" var/lib/
+   kerapu kerapu:shredder "20170101 BoomBestanden v20161117.xml" var/lib/
+   kerapu kerapu:shredder "20170101 Referenties v20161117.xml" var/lib/
 
 Voorbeeld
 =========
