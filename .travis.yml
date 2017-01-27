@@ -8,9 +8,9 @@ python:
 sudo: true
 
 install:
-  - pip3 install cleo
-  - pip3 install lxml
-  - pip3 install coverage
+  - pip install cleo
+  - pip install lxml
+  - pip install coverage
 
 script:
   - cd $TRAVIS_BUILD_DIR
