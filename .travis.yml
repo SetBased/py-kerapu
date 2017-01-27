@@ -13,4 +13,5 @@ install:
   - pip3 install coverage
 
 script:
+  - cd $TRAVIS_BUILD_DIR
   - python3 -m unittest discover -s test -p *Test.py
