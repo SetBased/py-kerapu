@@ -9,7 +9,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='Kerapu',
 
-    version='0.9.20',
+    version='0.9.30',
 
     description='Een implementatie van de grouper',
     long_description=long_description,
