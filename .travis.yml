@@ -14,4 +14,5 @@ install:
 
 script:
   - cd $TRAVIS_BUILD_DIR
+  - pwd
   - python3 -m unittest discover -s test -p *Test.py
