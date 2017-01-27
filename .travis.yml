@@ -1,0 +1,16 @@
+language: python
+python:
+  - '3.4'
+  - '3.5'
+  - '3.6'
+  - 'nightly'
+
+sudo: true
+
+install:
+  - pip3 install cleo
+  - pip3 install lxml
+  - pip3 install coverage
+
+script:
+  - python3 -m unittest discover -s test -p *Test.py
