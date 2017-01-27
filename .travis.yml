@@ -14,5 +14,7 @@ install:
 
 script:
   - cd $TRAVIS_BUILD_DIR
-  - pwd
+  - unzip -x test/var/lib/20170101\ Grouper\ Tabellen\ v20161117.zip -d test/var/lib/
+  - kerapu kerapu:shredder test/var/lib/20170101\ BoomBestanden\ v20161117.xml  test/var/lib/
+  - kerapu kerapu:shredder test/var/lib/20170101\ Referenties\ v20161117.xml test/var/lib/
   - python3 -m unittest discover -s test -p *Test.py
