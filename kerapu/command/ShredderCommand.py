@@ -28,19 +28,20 @@ class ShredderCommand(Command):
         folder = self.argument('folder')
 
         # Lees de eerste gedeelte van het XML-bestand en bepaal type.
-        kop = open(filename, 'rt').read(1024)
+        with open(filename, 'rt') as handle:
+            kop = handle.read(1024)
 
-        if '<InlezenBoomBestanden>' in kop:
-            shredder = BoomBestandenShredder(self.output, folder)
-            shredder.shred_xml_file(filename)
+            if '<InlezenBoomBestanden>' in kop:
+                shredder = BoomBestandenShredder(self.output, folder)
+                shredder.shred_xml_file(filename)
 
-        elif '<InlezenReferenties>' in kop:
-            shredder = ReferentieShredder(self.output, folder)
-            shredder.shred_xml_file(filename)
+            elif '<InlezenReferenties>' in kop:
+                shredder = ReferentieShredder(self.output, folder)
+                shredder.shred_xml_file(filename)
 
-        else:
-            raise RuntimeError("Tag <InlezenBoomBestanden> of <InlezenReferenties> niet gevonden in '{}'".
-                               format(filename))
+            else:
+                raise RuntimeError("Tag <InlezenBoomBestanden> of <InlezenReferenties> niet gevonden in '{}'".
+                                   format(filename))
 
         return 0
 
