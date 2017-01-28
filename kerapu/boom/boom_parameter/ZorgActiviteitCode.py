@@ -22,7 +22,6 @@ class ZorgActiviteitCode(BoomParameter):
                                        * 1: weegfactor 1
                                        * 2: weegfactor 2
         """
-        # @todo validate factor = 0, 1 ,2
         self._weeg_factor_nummer = weeg_factor_nummer
 
     # ------------------------------------------------------------------------------------------------------------------

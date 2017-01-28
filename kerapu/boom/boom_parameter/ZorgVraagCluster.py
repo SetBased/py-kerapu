@@ -18,7 +18,6 @@ class ZorgVraagCluster(BoomParameter):
 
         :param int cluster_nummer: Het clusternummer (1..2):
         """
-        # @todo validate cluster_nummer = 1,..,2
         self._cluster_nummer = cluster_nummer
 
     # ------------------------------------------------------------------------------------------------------------------

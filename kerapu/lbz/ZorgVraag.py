@@ -78,7 +78,7 @@ class ZorgVraag:
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voldoet aan een (specialismecode, zorgvraagcode)
         combinatie op een peildatum.
 
-        :param str zorg_vraag_attribute_code: De attribuutcode voor (specialismecode, diagnosecode) combinatie.
+        :param str zorg_vraag_attribuut_code: De attribuutcode voor (specialismecode, diagnosecode) combinatie.
         :param str datum: De peildatum.
 
         :rtype: int

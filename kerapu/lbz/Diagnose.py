@@ -14,6 +14,7 @@ class Diagnose:
     _diagnose_tabel = {}
     """
     De diagnosen referentietabel.
+
     :type: dict[(str,str),list[dict[str,str]]]
     """
 
@@ -157,7 +158,7 @@ class Diagnose:
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voorkomt in een diagnosecodecluster op een peildatum.
 
         :param str cluster_code: De diagnoseclustercode.
-        :param int cluster_nummer: De clusternummer (0..2).
+        :param int cluster_nummer: De clusternummer (0..6).
         :param str datum: De peildatum.
 
         :rtype: int

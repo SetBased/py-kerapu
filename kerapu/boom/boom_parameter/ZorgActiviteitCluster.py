@@ -23,8 +23,6 @@ class ZorgActiviteitCluster(BoomParameter):
                                        * 1: weegfactor 1
                                        * 2: weegfactor 2
         """
-        # @todo validate factor = 0, 1 ,2
-        # @todo validate cluster = 1,.., 10
         self._cluster_nummer = cluster_nummer
         self._weeg_factor_nummer = weeg_factor_nummer
 
