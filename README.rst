@@ -86,7 +86,7 @@ Bijdragen zijn uiteraard welkom, we werken volgens de GitHub Flow, zie de handle
 .. _Gitter: https://gitter.im/SetBased/py-kerapu
 .. _handleiding: https://guides.github.com/introduction/flow/
 
-Wie Gebruiken Kerupa?
+Wie Gebruiken Kerapu?
 =====================
 
 .. image:: https://avatars0.githubusercontent.com/u/12200736?v=3&s=200
