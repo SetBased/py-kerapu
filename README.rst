@@ -76,7 +76,7 @@ Hieronder een voorbeeld om de zorgproductcode van een subtraject af te leiden.
        zorg_product_code = grouper.bepaal_zorg_product(subtraject, zorg_product_groep_code)
        print('Zorgproductcode: {}'.format(zorg_product_code))
        
-Ondersteuning en Bijdragen
+Ondersteuning en bijdragen
 ==========================
 
 Ondersteining is beschikbaar via GitHub tickets, Gitter_ en email: support@setbased.nl.
@@ -86,7 +86,7 @@ Bijdragen zijn uiteraard welkom, we werken volgens de GitHub Flow, zie de handle
 .. _Gitter: https://gitter.im/SetBased/py-kerapu
 .. _handleiding: https://guides.github.com/introduction/flow/
 
-Wie Gebruiken Kerapu?
+Wie gebruiken Kerapu?
 =====================
 
 .. image:: https://avatars0.githubusercontent.com/u/12200736?v=3&s=200
