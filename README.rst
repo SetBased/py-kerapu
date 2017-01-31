@@ -90,6 +90,8 @@ Wie gebruiken Kerapu?
 =====================
 
 .. image:: https://avatars0.githubusercontent.com/u/12200736?v=3&s=200
+  :height: 100px
+  :width: 100px
   :target: https://github.com/NLHEALTHCARE/
 
 Licentie
