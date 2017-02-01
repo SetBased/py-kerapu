@@ -79,7 +79,7 @@ Hieronder een voorbeeld om de zorgproductcode van een subtraject af te leiden.
 Ondersteuning en bijdragen
 ==========================
 
-Ondersteining is beschikbaar via GitHub tickets, Gitter_ en email: support@setbased.nl.
+Ondersteuning is beschikbaar via GitHub tickets, Gitter_ en email: support@setbased.nl.
 
 Bijdragen zijn uiteraard welkom, we werken volgens de GitHub Flow, zie de handleiding_ voor het maken een pull request.
 
