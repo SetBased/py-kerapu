@@ -3,13 +3,13 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
+with open(path.join(here, 'README.rst'), encoding='utf-8') as handle:
+    long_description = handle.read()
 
 setup(
     name='Kerapu',
 
-    version='0.9.30',
+    version='1.0.0',
 
     description='Een implementatie van de grouper',
     long_description=long_description,
@@ -22,7 +22,7 @@ setup(
     license='MIT',
 
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
 
         'Intended Audience :: Developers',
 
@@ -36,7 +36,7 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
 
-    keywords='DBC,Grouper',
+    keywords='DBC Grouper',
 
     packages=find_packages(exclude=['build', 'test']),
 
