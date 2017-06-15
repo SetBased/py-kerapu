@@ -48,7 +48,7 @@ Hieronder een voorbeeld om de zorgproductcode van een subtraject af te leiden.
 .. code:: python
 
    from kerapu.Kerapu import Kerapu
-   from kerapu.Lbz.Subtraject import Subtraject
+   from kerapu.lbz.Subtraject import Subtraject
 
    # Maak een Grouper object en laad boombestanden en referentietabellen.
    grouper = Kerapu()
