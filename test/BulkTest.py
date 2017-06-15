@@ -42,7 +42,7 @@ class BulkTest(TestCase):
 
         :type: str filename The file with test cases.
         """
-        with open(filename, 'rt') as handle:
+        with open(filename, 'rt', encoding='utf-8') as handle:
             csv_reader = csv.reader(handle, lineterminator='\n', delimiter=',')
 
             vorige = None

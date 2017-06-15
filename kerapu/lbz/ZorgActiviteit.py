@@ -117,7 +117,7 @@ class ZorgActiviteit:
         """
         Leest de zorgactiviteiten vertaaltabel (opgeslagen in CSV).
         """
-        with open(folder + '/VertaalZorgActiviteiten.csv') as csv_file:
+        with open(folder + '/VertaalZorgActiviteiten.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
             regel_nummer = 0
             for regel in reader:
@@ -152,7 +152,7 @@ class ZorgActiviteit:
         """
         Leest de behandelklasse tabel (opgeslagen in CSV).
         """
-        with open(folder + '/BehandelKlassen.csv') as csv_file:
+        with open(folder + '/BehandelKlassen.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
             regel_nummer = 0
             for regel in reader:

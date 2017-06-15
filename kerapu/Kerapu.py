@@ -88,7 +88,7 @@ class Kerapu:
 
         :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
-        with open(folder + '/Attributen.csv') as csv_file:
+        with open(folder + '/Attributen.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
             regel_nummer = 0
             for regel in reader:
@@ -121,7 +121,7 @@ class Kerapu:
 
         :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
-        with open(folder + '/AttribuutGroepKoppelingen.csv') as csv_file:
+        with open(folder + '/AttribuutGroepKoppelingen.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
             regel_nummer = 0
             for regel in reader:
@@ -160,7 +160,7 @@ class Kerapu:
 
         :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
-        with open(folder + '/AttribuutGroepen.csv') as csv_file:
+        with open(folder + '/AttribuutGroepen.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
             regel_nummer = 0
             for regel in reader:
@@ -191,7 +191,7 @@ class Kerapu:
         :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
         verrijkingen = {}
-        with open(folder + '/BeslisRegels.csv') as csv_file:
+        with open(folder + '/BeslisRegels.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
             regel_nummer = 0
             for regel in reader:
@@ -235,7 +235,7 @@ class Kerapu:
 
         :type: str folder De folder met alle groupertabellen in CSV-formaat.
         """
-        with open(folder + '/ZorgProductGroepen.csv') as csv_file:
+        with open(folder + '/ZorgProductGroepen.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
             regel_nummer = 0
             for regel in reader:

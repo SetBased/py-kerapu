@@ -28,7 +28,7 @@ class ShredderCommand(Command):
         folder = self.argument('folder')
 
         # Lees de eerste gedeelte van het XML-bestand en bepaal type.
-        with open(filename, 'rt') as handle:
+        with open(filename, 'rt', encoding="ascii", errors="surrogateescape") as handle:
             kop = handle.read(1024)
 
             if '<InlezenBoomBestanden>' in kop:
