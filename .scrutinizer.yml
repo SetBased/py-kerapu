@@ -3,14 +3,14 @@ filter:
         - test/*
 
 before_commands:
-  - sudo pip3 install cleo==0.5.0
+  - sudo pip3 install cleo==0.6.1
   - sudo pip3 install lxml
   - sudo pip3 install coverage
 
 build:
     dependencies:
         before:
-        - pip3 install cleo==0.5.0
+        - pip3 install cleo==0.6.1
         - pip3 install lxml
         - pip3 install coverage
 
