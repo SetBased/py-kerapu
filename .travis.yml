@@ -7,7 +7,7 @@ python:
 sudo: true
 
 install:
-  - pip install cleo==0.5.0
+  - pip install cleo==0.6.1
   - pip install lxml
   - pip install coverage
 

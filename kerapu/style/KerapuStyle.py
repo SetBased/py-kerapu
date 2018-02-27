@@ -5,7 +5,6 @@ Copyright 2015-2016 Set Based IT Consultancy
 
 Licence MIT
 """
-from cleo import OutputFormatterStyle
 from cleo.styles import CleoStyle
 
 
@@ -25,12 +24,10 @@ class KerapuStyle(CleoStyle):
         CleoStyle.__init__(self, input, output)
 
         # Create style notes.
-        style = OutputFormatterStyle('yellow', None, ['bold'])
-        output.get_formatter().set_style('note', style)
+        output.get_formatter().add_style('note', 'yellow', None, ['bold'])
 
         # Create style for file and directory names.
-        style = OutputFormatterStyle('white', None, ['bold'])
-        output.get_formatter().set_style('fso', style)
+        output.get_formatter().add_style('fso', 'white', None, ['bold'])
 
     # ------------------------------------------------------------------------------------------------------------------
     def text(self, message):
