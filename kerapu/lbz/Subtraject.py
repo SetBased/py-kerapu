@@ -48,7 +48,7 @@ class Subtraject:
         """
         Het uitvoerend specialisme.
 
-        :type: kerapu.Lbz.Specialisme.Specialisme
+        :type: kerapu.lbz.Specialisme.Specialisme
         """
 
         self.__begin_datum = begin_datum
@@ -62,35 +62,35 @@ class Subtraject:
         """
         De patient.
 
-        :type: kerapu.Lbz.Patient.Patient
+        :type: kerapu.lbz.Patient.Patient
         """
 
         self.__zorg_type = ZorgType(specialisme_code, zorg_type_code)
         """
         Het zorgtype.
 
-        :type: kerapu.Lbz.ZorgType.ZorgType
+        :type: kerapu.lbz.ZorgType.ZorgType
         """
 
         self.__zorg_vraag = ZorgVraag(specialisme_code, zorg_vraag_code)
         """
         De zorgvraag.
 
-        :type: kerapu.Lbz.ZorgVraag.ZorgVraag
+        :type: kerapu.lbz.ZorgVraag.ZorgVraag
         """
 
         self.__diagnose = Diagnose(specialisme_code, diagnose_code)
         """
         De diagnose.
 
-        :type: kerapu.Lbz.Diagnose.Diagnose
+        :type: kerapu.lbz.Diagnose.Diagnose
         """
 
         self.__zorg_activiteiten = []
         """
         De zorgactiviteiten.
 
-        :type: list[kerapu.Lbz.ZorgActiviteit.ZorgActiviteit]
+        :type: list[kerapu.lbz.ZorgActiviteit.ZorgActiviteit]
         """
 
         self.__zorg_product_groep_code = ''

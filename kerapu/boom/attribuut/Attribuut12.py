@@ -32,7 +32,7 @@ class Attribuut12(Attribuut):
         """
         Geeft het aantal malen dat de boomparameter voldoet aan de voorwaarde van dit attribuut.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

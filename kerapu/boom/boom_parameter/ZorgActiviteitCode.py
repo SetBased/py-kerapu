@@ -31,7 +31,7 @@ class ZorgActiviteitCode(BoomParameter):
         zorgactiviteitcode.
 
         :param str zorg_activiteit_code: De zorgactiviteitcode.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

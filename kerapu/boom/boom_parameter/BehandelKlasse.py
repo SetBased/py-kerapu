@@ -31,7 +31,7 @@ class BehandelKlasse(BoomParameter):
         behandelklasse.
 
         :param str behandel_klasse_code: De behandelklassecode waartegen getest moet worden.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

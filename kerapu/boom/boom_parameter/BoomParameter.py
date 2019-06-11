@@ -16,7 +16,7 @@ class BoomParameter:
         Geeft het aantal malen dat de boomparameter voldoet aan een waarde.
 
         :param [int|str] waarde: De waarde waartegen getest moet worden.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

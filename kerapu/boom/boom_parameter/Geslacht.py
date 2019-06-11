@@ -17,7 +17,7 @@ class Geslacht(BoomParameter):
         Geeft het aantal malen (d.w.z. 0 of 1) dat de patient van een subtraject voldoet aan een geslacht.
 
         :param str geslacht_code: De geslachtscode waartegen getest moet worden.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

@@ -18,7 +18,7 @@ class ZorgTypeCode(BoomParameter):
         (specialismecode, zorgtypecode) combinatie.
 
         :param str zorg_type_attribuut_code: De attribuutcode voor (specialismecode, zorgtypecode) combinatie.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

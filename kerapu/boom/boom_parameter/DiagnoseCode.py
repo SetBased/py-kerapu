@@ -18,7 +18,7 @@ class DiagnoseCode(BoomParameter):
         (specialismecode, diagnosecode) combinatie.
 
         :param str diagnose_attribuut_code: De attribuutcode voor (specialismecode, diagnosecode) combinatie.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

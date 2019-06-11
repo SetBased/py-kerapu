@@ -18,7 +18,7 @@ class ZorgProductGroepVersie:
         Object constructor.
 
         :param str zorg_product_groep_code: De zorgproductgroepcode.
-        :param kerapu.Boom.BeslisRegel.BeslisRegel beslis_regel: De beslisregel behoorden bij de zorgproductgroepcode.
+        :param kerapu.boom.BeslisRegel.BeslisRegel beslis_regel: De beslisregel behoorden bij de zorgproductgroepcode.
         :param str begin_datum: Begindatum van het interval waarvoor deze versie van toepassing is.
         :param str eind_datum: Einddatum van het interval waarvoor deze versie van toepassing is.
         """
@@ -33,7 +33,7 @@ class ZorgProductGroepVersie:
         """
         De beslisregel behoorden bij de zorgproductgroepcode.
 
-        :type: kerapu.Boom.BeslisRegel.BeslisRegel
+        :type: kerapu.boom.BeslisRegel.BeslisRegel
         """
 
         self.__begin_datum = begin_datum
@@ -55,7 +55,7 @@ class ZorgProductGroepVersie:
         """
         Geeft True als deze versie actueel is voor een subtraject, anders False.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: bool
         """
@@ -66,7 +66,7 @@ class ZorgProductGroepVersie:
         """
         Klimt door de beslisboom een geeft het uiteindelijk gevonden label terug.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: str
         """

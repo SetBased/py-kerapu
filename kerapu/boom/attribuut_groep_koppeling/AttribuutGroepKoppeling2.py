@@ -19,7 +19,7 @@ class AttribuutGroepKoppeling2(AttribuutGroepKoppeling):
         Object constructor.
 
         :param int attribute_groep_id: Het ID van deze koppeling.
-        :param kerapu.Boom.Attribuut.Attribuut.Attribuut attribuut: Het attribuut van deze koppeling.
+        :param kerapu.boom.attribuut.Attribuut.Attribuut attribuut: Het attribuut van deze koppeling.
         :param int onder_toets_waarde: De ondergrens.
         :param int boven_toets_waarde: De bovengrens.
         """
@@ -44,7 +44,7 @@ class AttribuutGroepKoppeling2(AttribuutGroepKoppeling):
         """
         Test of een subtraject voldoet aan een attribuutgroepkoppeling.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: bool
         """

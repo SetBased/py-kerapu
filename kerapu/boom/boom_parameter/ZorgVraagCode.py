@@ -18,7 +18,7 @@ class ZorgVraagCode(BoomParameter):
         (specialismecode, zorgvraagcode).
 
         :param str zorg_vraag_attribuut_code: De attribuutcode voor (specialismecode, zorgvraagcode).
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

@@ -19,7 +19,7 @@ class BeslisRegel:
         Object constructor.
 
         :param int beslist_regel_id: Het ID van deze beslisregel.
-        :param kerapu.Boom.AttribuutGroep.AttribuutGroep attribuut_groep: De attribuutgroep van deze beslisregel.
+        :param kerapu.boom.AttribuutGroep.AttribuutGroep attribuut_groep: De attribuutgroep van deze beslisregel.
         :param str label_true: Label voor True.
         :param str label_false: Label voor False.
         :param bool indicatie_aanspraakbeperking: Vlag voor aanspraakbeperking.
@@ -27,8 +27,8 @@ class BeslisRegel:
         self._beslist_regel_id = beslist_regel_id
 
         self._attribuut_groep = attribuut_groep
-        """
-        :type: kerapu.Boom.AttribuutGroep.AttribuutGroep
+        """                 
+        :type: kerapu.boom.AttribuutGroep.AttribuutGroep
         """
 
         self._beslist_regel_true = None
@@ -50,8 +50,8 @@ class BeslisRegel:
         """
         Verrijkt deze beslisregel met beslisregels voor True and False.
 
-        :param kerapu.Boom.BeslisRegel.BeslisRegel beslist_regel_true: De beslisregel voor True.
-        :param kerapu.Boom.BeslisRegel.BeslisRegel beslist_regel_false: De beslisregel voor False.
+        :param kerapu.boom.BeslisRegel.BeslisRegel beslist_regel_true: De beslisregel voor True.
+        :param kerapu.boom.BeslisRegel.BeslisRegel beslist_regel_false: De beslisregel voor False.
         """
         self._beslist_regel_true = beslist_regel_true
         self._beslist_regel_false = beslist_regel_false
@@ -61,7 +61,7 @@ class BeslisRegel:
         """
         Klimt door de beslisboom een geeft het uiteindelijk gevonden label terug.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: str
         """

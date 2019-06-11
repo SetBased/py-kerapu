@@ -17,7 +17,7 @@ class Leeftijd(BoomParameter):
         Geeft de leeftijd van de patient van een subtraject.
 
         :param None leeg: Wordt niet gebruikt.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

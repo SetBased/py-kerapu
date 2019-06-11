@@ -27,7 +27,7 @@ class SpecialismeCluster(BoomParameter):
         specialismecluster.
 
         :param str cluster_code: De clustercode waartegen getest moet worden.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

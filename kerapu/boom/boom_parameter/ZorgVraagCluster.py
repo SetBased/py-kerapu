@@ -26,7 +26,7 @@ class ZorgVraagCluster(BoomParameter):
         Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van een subtraject voorkomt in een zorgvraagcluster.
 
         :param str cluster_code: De cluster_code waartegen getest moet worden.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

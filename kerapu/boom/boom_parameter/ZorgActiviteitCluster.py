@@ -33,7 +33,7 @@ class ZorgActiviteitCluster(BoomParameter):
         zorgactiviteitcluster.
 
         :param str cluster_code: De zorgactiviteitclustercode.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

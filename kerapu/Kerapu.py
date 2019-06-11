@@ -31,35 +31,35 @@ class Kerapu:
         """
         De zorgproductgroepboom. Sleutel is zorgproductgroepcode.
 
-        :type: dict[str,kerapu.Boom.ZorgProductGroep.ZorgProductGroep]
+        :type: dict[str,kerapu.boom.ZorgProductGroep.ZorgProductGroep]
         """
 
         self.__beslisregels = {}
         """
         Alle beslisregels. Sleutel is het ID van de beslisregel.
 
-        :type: dict[int,kerapu.Boom.BeslisRegel.BeslisRegel]
+        :type: dict[int,kerapu.boom.BeslisRegel.BeslisRegel]
         """
 
         self.__attribuutgroepen = {}
         """
         Alle attribuutgroepen. Sleutel is het ID van de attribuutgroep.
 
-        :type: dict[int,kerapu.Boom.AttribuutGroep.AttribuutGroep]
+        :type: dict[int,kerapu.boom.AttribuutGroep.AttribuutGroep]
         """
 
         self.__attribuut_groep_koppelingen = {}
         """
         Alle attribuutgroepkoppelingen. Sleutel is het ID van de attribuutgroep.
 
-        :type: dict[int,list[kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling]]
+        :type: dict[int,list[kerapu.boom.attribuut_groep_koppeling..AttribuutGroepKoppeling.AttribuutGroepKoppeling]]
         """
 
         self.__attributen = {}
         """
         Alle attributen. Sleutel is het ID van het attribuut.
 
-        :type: dict[int,kerapu.Boom.Attribuut.Attribuut.Attribuut]
+        :type: dict[int,kerapu.boom.attribuut.Attribuut.Attribuut]
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -266,7 +266,7 @@ class Kerapu:
         """
         Bepaalt de zorgproductgroep van een subtraject.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject waarvoor de zorgproductgroep moet worden
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject waarvoor de zorgproductgroep moet worden
                bepaalt.
 
         :rtype: str
@@ -280,7 +280,7 @@ class Kerapu:
         """
         Bepaalt de zorgproduct van een subtraject.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject waarvoor de zorgproductcode moet worden
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject waarvoor de zorgproductcode moet worden
                bepaalt.
         :param str zorg_product_groep_code: De zorgproductgroep van het subtraject.
 

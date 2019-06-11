@@ -18,7 +18,7 @@ class AttribuutGroep:
 
         :param int attribute_groep_id: Het ID van deze attribuutgroep.
         :param int aantal_voorwaarden_voor_true: Het minimale aantal voorwaarden waaraan moet worden voldaan.
-        :param list[kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling] koppelingen: De
+        :param list[kerapu.boom.attribuut_groep_koppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling] koppelingen: De
                attribuutgroepkoppelingen.
         """
         self._attribute_groep_id = attribute_groep_id
@@ -39,7 +39,7 @@ class AttribuutGroep:
         """
         De attribuutgroepkoppelingen.
 
-        :type: list[kerapu.Boom.AttribuutGroepKoppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling]
+        :type: list[kerapu.boom.attribuut_groep_koppeling..AttribuutGroepKoppeling.AttribuutGroepKoppeling]
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ class AttribuutGroep:
         """
         Test of een subtraject voldoet aan de voorwaarden van deze attribuutgroep.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: bool
         """

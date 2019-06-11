@@ -18,7 +18,7 @@ class SpecialismeCode(BoomParameter):
         specialismecode.
 
         :param str specialisme_code: De specialismecode.
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

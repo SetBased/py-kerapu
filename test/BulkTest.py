@@ -26,7 +26,7 @@ class BulkTest(TestCase):
         """
         Bepaalt de zorgproductcode van een subtraject.
 
-        :param kerapu.Lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
         """
         zorg_product_groep_code = self.__grouper.bepaal_zorg_product_groep(subtraject)
         subtraject.set_zorg_product_groep_code(zorg_product_groep_code)
