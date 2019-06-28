@@ -22,7 +22,7 @@ class ShredderTest(TestCase):
         command = application.find('kerapu:shredder')
         command_tester = CommandTester(command)
         status = command_tester.execute([('command', command.get_name()),
-                                         ('XML-bestand', 'test/var/lib/20170101 Referenties v20161117.xml'),
+                                         ('XML-bestand', 'test/var/lib/20190101 Referenties v20180920.xml'),
                                          ('folder', 'test/var/lib')])
 
         output = command_tester.get_display().rstrip()
@@ -39,7 +39,7 @@ class ShredderTest(TestCase):
                       'ZorgProductGroepen',
                       'ZorgTypen',
                       'ZorgVragen']:
-            self.assertRegex(output, 'Wrote \s*\d+ rows to {}.csv'.format(tabel), tabel)
+            self.assertRegex(output, r'Wrote \s*\d+ rows to {}.csv'.format(tabel), tabel)
 
     # ------------------------------------------------------------------------------------------------------------------
     def test_boom(self):
@@ -52,7 +52,7 @@ class ShredderTest(TestCase):
         command = application.find('kerapu:shredder')
         command_tester = CommandTester(command)
         status = command_tester.execute([('command', command.get_name()),
-                                         ('XML-bestand', 'test/var/lib/20170101 BoomBestanden v20161117.xml'),
+                                         ('XML-bestand', 'test/var/lib/20190101 BoomBestanden v20180920.xml'),
                                          ('folder', 'test/var/lib')])
 
         output = command_tester.get_display().rstrip()
@@ -64,6 +64,6 @@ class ShredderTest(TestCase):
                       'AttribuutGroepKoppelingen',
                       'Attributen',
                       'BoomParameters']:
-            self.assertRegex(output, 'Wrote \s*\d+ rows to {}.csv'.format(tabel), tabel)
+            self.assertRegex(output, r'Wrote \s*\d+ rows to {}.csv'.format(tabel), tabel)
 
 # ------------------------------------------------------------------------------------------------------------------
