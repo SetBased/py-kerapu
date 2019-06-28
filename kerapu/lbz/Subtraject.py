@@ -6,6 +6,7 @@ from kerapu.lbz.Diagnose import Diagnose
 from kerapu.lbz.Patient import Patient
 from kerapu.lbz.Specialisme import Specialisme
 from kerapu.lbz.ZorgActiviteit import ZorgActiviteit
+from kerapu.lbz.ZorgInstelling import ZorgInstelling
 from kerapu.lbz.ZorgType import ZorgType
 from kerapu.lbz.ZorgVraag import ZorgVraag
 
@@ -24,7 +25,8 @@ class Subtraject:
                  zorg_vraag_code,
                  begin_datum,
                  geboorte_datum,
-                 geslacht_code):
+                 geslacht_code,
+                 zorg_instelling_code=''):
         """
         Object constructor.
 
@@ -36,6 +38,7 @@ class Subtraject:
         :param str begin_datum:  De begindatum van het subtraject.
         :param str geboorte_datum: De geboortedatum van de patient.
         :param str geslacht_code: De code voor het geslacht van de patient.
+        :param str zorg_instelling_code: De AGB-code van de uitvoerende zorginstelling.
         """
         self.__subtraject_nummer = subtraject_nummer
         """
@@ -63,6 +66,13 @@ class Subtraject:
         De patient.
 
         :type: kerapu.lbz.Patient.Patient
+        """
+
+        self.__zorg_instelling = ZorgInstelling(zorg_instelling_code)
+        """
+        De zorginstelling.
+
+        :type: kerapu.lbz.ZorgInstelling.ZorgInstelling
         """
 
         self.__zorg_type = ZorgType(specialisme_code, zorg_type_code)
@@ -260,7 +270,18 @@ class Subtraject:
         self.__zorg_product_groep_code = clean_code(zorg_product_groep_code, LEN_ZORG_PRODUCT_GROEP_CODE)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_vraag_attribuut_telling(self, zorg_vraag_attribuut_code):
+    def get_zorg_instelling_telling(self, agb_code: str) -> int:
+        """
+        Geeft het aantal malen (d.w.z. 0 of 1) dat de zorginstelling van dit subtraject voldoet aan AGB-code.
+
+        :param str agb_code: De AGB-code waaraan de zorginstelling moet voldoen.
+
+        :rtype: int
+        """
+        return self.__zorg_instelling.get_zorg_instelling_aantal(agb_code)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def get_zorg_vraag_attribuut_telling(self, zorg_vraag_attribuut_code: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van dit subtraject voldoet aan een
         (specialismecode, zorgvraagcode) combinatie.

@@ -2,26 +2,26 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class ZorgInstellingCode(BoomParameter):
     """
     Klasse voor boomparameter zorginstelling.
 
-    Boomparameternummers: 110.
+    Boomparameternummer: 110.
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, waarde, subtraject):
+    def tel(self, zorg_instelling_code, subtraject: Subtraject):
         """
-        Niet geïmplementeerd.
+        Geeft het aantal malen (d.w.z. 0 of 1) dat het zorginstelling van een subtraject voldoet een zorginstellingcode.
 
-        :param int|str waarde: De waarde waartegen getest moet worden.
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param str zorg_instelling_code: De AGB-code waaraan de zorginstelling moet voldoen.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """
-        # Deze boomparameter komt slechts 4 keer voor in tabel attribuut.
-        raise NotImplementedError('Boomparameter 110 is niet geïmplementeerd.')
+        return subtraject.get_zorg_instelling_telling(zorg_instelling_code)
 
 # ----------------------------------------------------------------------------------------------------------------------
