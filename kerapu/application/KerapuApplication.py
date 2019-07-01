@@ -17,7 +17,7 @@ class KerapuApplication(Application):
         """
         Object constructor.
         """
-        Application.__init__(self, 'kerapu', '1.0.2')
+        Application.__init__(self, 'kerapu', '2.0.0')
 
     # ------------------------------------------------------------------------------------------------------------------
     def get_default_commands(self):
