@@ -1,5 +1,4 @@
 import csv
-import glob
 from unittest import TestCase
 
 from kerapu.Kerapu import Kerapu
@@ -45,28 +44,27 @@ class BulkTest(TestCase):
         with open(filename, 'rt', encoding='utf-8') as handle:
             csv_reader = csv.reader(handle, lineterminator='\n', delimiter=',')
 
-            vorige = None
             subtraject = None
+            zorg_product_code = None
             for rij in csv_reader:
-                if vorige and rij[0]:
-                    self.__bepaal_zorgproduct(subtraject, vorige[6])
-                    vorige = None
+                if subtraject and len(rij) > 2:
+                    self.__bepaal_zorgproduct(subtraject, zorg_product_code)
+                    subtraject = None
 
-                if not vorige:
-                    vorige = rij
-                    subtraject = Subtraject(rij[0], rij[1], rij[2], rij[3], rij[4], rij[5], rij[7], rij[8])
+                if len(rij) == 2:
+                    subtraject.add_zorg_activiteit(rij[0], rij[1])
+                else:
+                    subtraject = Subtraject(rij[0], rij[1], rij[2], rij[3], rij[4], rij[5], rij[6], rij[7], rij[8])
+                    zorg_product_code = rij[9]
 
-                subtraject.add_zorg_activiteit(rij[9], rij[10])
-
-            if vorige:
-                self.__bepaal_zorgproduct(subtraject, vorige[6])
+            if subtraject:
+                self.__bepaal_zorgproduct(subtraject, zorg_product_code)
 
     # ------------------------------------------------------------------------------------------------------------------
     def test01(self):
         """
         Bulk test.
         """
-        for filename in list(glob.glob('test/var/lib/bulk_test*.csv')):
-            self.bulk_test_file(filename)
+        self.bulk_test_file('test/var/lib/testset.csv')
 
 # ----------------------------------------------------------------------------------------------------------------------

@@ -24,21 +24,21 @@ Kerapu kan eenvoudig geïnstalleerd worden met pip:
 Voorbereiding
 =============
 
-Alvorens gebruik te kunnen maken van Kerapu moeten de boombestanden en referentietabellen worden geconverteerd  en opgeslagen. Ten tijde van schrijven van dit document was de meest recente versie van Grouper Tabellen ``v20161117``, vervang in de onderstaande tekst deze versie voor de meest recente versie.
+Alvorens gebruik te kunnen maken van Kerapu moeten de boombestanden en referentietabellen worden geconverteerd en opgeslagen. Ten tijde van schrijven van dit document was de meest recente versie van Grouper Tabellen ``v20180920``, vervang in de onderstaande tekst deze versie voor de meest recente versie.
 
-* Download het bestand ``Grouper Tabellen v20161117`` van http://werkenmetdbcs.nza.nl/zz-releases/algemeen-4/nu-geldende-documenten/menu-id-1954.
+* Download het bestand ``Grouper Tabellen v20180920`` van https://puc.overheid.nl/nza/doc/PUC_259930_22/.
 * Extract de XML-bestanden uit het ZIP-bestand:
 
 .. code:: sh
 
-   unzip -x "20170101 Grouper Tabellen v20161117.zip"
+   unzip -x "20190101 Groupertabellen v20180920.zip"
 
 * Converteer de XML-bestanden naar CSV (in het voorbeeld hieronder worden de CSV-bestanden weggeschreven in de folder ``var/lib``):
 
 .. code:: sh
 
-   kerapu kerapu:shredder "20170101 BoomBestanden v20161117.xml" var/lib/
-   kerapu kerapu:shredder "20170101 Referenties v20161117.xml" var/lib/
+   kerapu kerapu:shredder "20190101 BoomBestanden v20180920.xml" var/lib/
+   kerapu kerapu:shredder "20190101 Referenties v20180920.xml" var/lib/
 
 Voorbeeld
 =========
@@ -75,7 +75,18 @@ Hieronder een voorbeeld om de zorgproductcode van een subtraject af te leiden.
    if zorg_product_groep_code != '0':
        zorg_product_code = grouper.bepaal_zorg_product(subtraject, zorg_product_groep_code)
        print('Zorgproductcode: {}'.format(zorg_product_code))
-       
+
+Testset
+=======
+
+De grouperbestanden bevatten sinds 2019 een testset. Deze testset is terug te vinden in bestand ``var/lib/testset.csv`` en zijn een onderdeel van de unittesten van Kerapu.
+
+Het commando voor het converteren van de XML-bestanden met test data is:
+
+.. code:: sh
+
+   ./bin/kerapu kerapu:test-shredder ~/Downloads/20190101\ Testset\ Grouper\ RZ19b\ v20180920.zip  test/var/lib/testset.csv
+
 Ondersteuning en bijdragen
 ==========================
 

@@ -4,6 +4,7 @@ Kerapu
 from cleo import Application
 
 from kerapu.command.ShredderCommand import ShredderCommand
+from kerapu.command.TestsetShredderCommand import TestShredderCommand
 
 
 class KerapuApplication(Application):
@@ -29,6 +30,7 @@ class KerapuApplication(Application):
 
         # Kerapu:
         commands.append(ShredderCommand())
+        commands.append(TestShredderCommand())
 
         return commands
 
