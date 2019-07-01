@@ -16,9 +16,9 @@ build:
 
     tests:
         before:
-          - unzip -x test/var/lib/20170101\ Grouper\ Tabellen\ v20161117.zip -d test/var/lib/
-          - kerapu kerapu:shredder test/var/lib/20170101\ BoomBestanden\ v20161117.xml  test/var/lib/
-          - kerapu kerapu:shredder test/var/lib/20170101\ Referenties\ v20161117.xml test/var/lib/
+          - unzip -x  test/var/lib/20190101\ Groupertabellen\ v20180920.zip -d test/var/lib/
+          - kerapu kerapu:shredder test/var/lib/20190101\ BoomBestanden\ v20180920.xml  test/var/lib/
+          - kerapu kerapu:shredder test/var/lib/20190101\ Referenties\ v20180920.xml test/var/lib/
 
         override:
             -
