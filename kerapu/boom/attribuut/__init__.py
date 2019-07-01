@@ -1,16 +1,17 @@
 """
 Kerapu
 """
+from kerapu.boom.attribuut.Attribuut import Attribuut
 from kerapu.boom.attribuut.Attribuut12 import Attribuut12
 from kerapu.boom.attribuut.Attribuut21 import Attribuut21
 
 
-def maak_attribuut(attribuut_id,
-                   boom_parameter_nummer,
-                   filter_toets_wijze,
-                   filter_waarde_type,
-                   onder_filter_waarde,
-                   boven_filter_waarde):
+def maak_attribuut(attribuut_id: int,
+                   boom_parameter_nummer: int,
+                   filter_toets_wijze: int,
+                   filter_waarde_type: int,
+                   onder_filter_waarde: str,
+                   boven_filter_waarde: str) -> Attribuut:
     """
     Fabriek voor het maken van attributen.
 

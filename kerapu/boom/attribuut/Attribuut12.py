@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.attribuut.Attribuut import Attribuut
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class Attribuut12(Attribuut):
@@ -10,7 +11,7 @@ class Attribuut12(Attribuut):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, attribuut_id, boom_parameter_nummer, filter_waarde):
+    def __init__(self, attribuut_id: int, boom_parameter_nummer: int, filter_waarde: str):
         """
         Object constructor.
 
@@ -28,11 +29,11 @@ class Attribuut12(Attribuut):
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, subtraject):
+    def tel(self, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen dat de boomparameter voldoet aan de voorwaarde van dit attribuut.
 
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

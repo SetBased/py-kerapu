@@ -2,6 +2,7 @@
 Kerapu
 """
 import csv
+from typing import Optional
 
 from kerapu import clean_code, clean_date, clean_str, LEN_SPECIALISME_CODE
 
@@ -14,11 +15,12 @@ class Specialisme:
     _specialisme_tabel = {}
     """
     De specialismen referentietabel.
+    
     :type: dict[str,list[dict[str,str]]]
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, specialisme_code):
+    def __init__(self, specialisme_code: str):
         """
         Object constructor.
 
@@ -33,7 +35,7 @@ class Specialisme:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _lees_specialisme_tabel(folder):
+    def _lees_specialisme_tabel(folder: str):
         """
         Leest de specialisme referentietabel (opgeslagen in CSV).
 
@@ -70,7 +72,7 @@ class Specialisme:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def init_static(folder):
+    def init_static(folder: str):
         """
         Initialiseert alle statistische data.
 
@@ -79,7 +81,7 @@ class Specialisme:
         Specialisme._lees_specialisme_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __get_specialisme_referentie(self, datum):
+    def __get_specialisme_referentie(self, datum: str) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze specialisme in de specialismen referentietabel.
 
@@ -100,7 +102,7 @@ class Specialisme:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_specialisme_aantal(self, specialisme_code, datum):
+    def get_specialisme_aantal(self, specialisme_code: str, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat dit specialisme voldoet aan een attributecode op een gegeven datum
         .
@@ -121,7 +123,7 @@ class Specialisme:
         return 0
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_specialisme_cluster_aantal(self, cluster_code, cluster_nummer, datum):
+    def get_specialisme_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat dit specialisme voldoet aan een clustercode op een gegeven datum.
 

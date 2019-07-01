@@ -18,15 +18,15 @@ class Subtraject:
 
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
-                 subtraject_nummer,
-                 specialisme_code,
-                 diagnose_code,
-                 zorg_type_code,
-                 zorg_vraag_code,
-                 begin_datum,
-                 geboorte_datum,
-                 geslacht_code,
-                 zorg_instelling_code=''):
+                 subtraject_nummer: str,
+                 specialisme_code: str,
+                 diagnose_code: str,
+                 zorg_type_code: str,
+                 zorg_vraag_code: str,
+                 begin_datum: str,
+                 geboorte_datum: str,
+                 geslacht_code: str,
+                 zorg_instelling_code: str = ''):
         """
         Object constructor.
 
@@ -111,7 +111,7 @@ class Subtraject:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def add_zorg_activiteit(self, zorg_activiteit_code, aantal):
+    def add_zorg_activiteit(self, zorg_activiteit_code: str, aantal: int):
         """
         Voegt een zorgactiviteit toe and dit subtraject.
 
@@ -121,7 +121,7 @@ class Subtraject:
         self.__zorg_activiteiten.append(ZorgActiviteit(zorg_activiteit_code, aantal))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_subtraject_nummer(self):
+    def get_subtraject_nummer(self) -> str:
         """
         Geeft het subtrajectnummer van dit subtraject.
 
@@ -130,7 +130,7 @@ class Subtraject:
         return self.__subtraject_nummer
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_begin_datum(self):
+    def get_begin_datum(self) -> str:
         """
         Geeft de begindatum van dit subtraject.
 
@@ -139,7 +139,10 @@ class Subtraject:
         return self.__begin_datum
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_activiteit_cluster_telling(self, cluster_code, cluster_nummer, weeg_factor_nummer):
+    def get_zorg_activiteit_cluster_telling(self,
+                                            cluster_code: str,
+                                            cluster_nummer: int,
+                                            weeg_factor_nummer: int) -> int:
         """
         Geeft het aantal zorgactiviteiten (met inachtneming van weegfactor) dat in dit subtraject voorkomt in een
         zorgactiviteitcluster.
@@ -160,7 +163,7 @@ class Subtraject:
         return aantal
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_activiteit_telling(self, zorg_activiteit_code, weeg_factor_nummer):
+    def get_zorg_activiteit_telling(self, zorg_activiteit_code: str, weeg_factor_nummer: int) -> int:
         """
         Geeft het aantal zorgactiviteiten (met inachtneming van weegfactor) dat in dit subtraject voldoet aan een
         zorgactiviteitcode.
@@ -180,7 +183,7 @@ class Subtraject:
         return aantal
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_behandel_klasse_telling(self, behandel_klasse_code, weeg_factor_nummer):
+    def get_behandel_klasse_telling(self, behandel_klasse_code: str, weeg_factor_nummer: int) -> int:
         """
         Geeft het aantal zorgactiviteiten (met inachtneming van weegfactor) dat in dit subtraject voorkomt in een
         behandelklasse.
@@ -200,7 +203,7 @@ class Subtraject:
         return aantal
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_cluster_telling(self, cluster_code, cluster_nummer):
+    def get_diagnose_cluster_telling(self, cluster_code: str, cluster_nummer: int) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat in dit subtraject voldoet aan een diagnoseclustercode.
 
@@ -212,7 +215,7 @@ class Subtraject:
         return self.__diagnose.get_diagnose_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_specialisme_cluster_telling(self, cluster_code, cluster_nummer):
+    def get_specialisme_cluster_telling(self, cluster_code: str, cluster_nummer: int) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat het uitvoerend specialisme van dit subtraject voldoet aan een
         specialismecluster.
@@ -225,7 +228,7 @@ class Subtraject:
         return self.__specialisme.get_specialisme_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_vraag_cluster_telling(self, cluster_code, cluster_nummer):
+    def get_zorg_vraag_cluster_telling(self, cluster_code: str, cluster_nummer: int) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van een subtraject voorkomt in een zorgvraagcluster.
 
@@ -237,7 +240,7 @@ class Subtraject:
         return self.__zorg_vraag.get_zorg_vraag_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_specialisme_telling(self, specialisme_code):
+    def get_specialisme_telling(self, specialisme_code: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat het uitvoerend specialisme van dit subtraject voldoet aan een
         specialismecode.
@@ -249,7 +252,7 @@ class Subtraject:
         return self.__specialisme.get_specialisme_aantal(specialisme_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_attribuut_telling(self, diagnose_attribuut_code):
+    def get_diagnose_attribuut_telling(self, diagnose_attribuut_code: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de diagnose van dit subtraject voldoet aan een
         (specialismecode, diagnosecode) combinatie.
@@ -261,7 +264,7 @@ class Subtraject:
         return self.__diagnose.get_diagnose_attribute_aantal(diagnose_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def set_zorg_product_groep_code(self, zorg_product_groep_code):
+    def set_zorg_product_groep_code(self, zorg_product_groep_code: str):
         """
         Zet de zorgproductgroepcode van dit subtraject.
 
@@ -293,7 +296,7 @@ class Subtraject:
         return self.__zorg_vraag.get_zorg_vraag_attribute_aantal(zorg_vraag_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_type_attribuut_telling(self, zorg_type_attribuut_code):
+    def get_zorg_type_attribuut_telling(self, zorg_type_attribuut_code: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgtype van dit subtraject voldoet aan een
         (specialismecode, zorgtypecode) combinatie.
@@ -305,7 +308,7 @@ class Subtraject:
         return self.__zorg_type.get_zorg_type_attribute_aantal(zorg_type_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_geslacht_code_telling(self, geslacht_code):
+    def get_geslacht_code_telling(self, geslacht_code: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de patient van dit subtraject voldoet aan een geslacht.
 
@@ -319,7 +322,7 @@ class Subtraject:
         return 0
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_leeftijd(self):
+    def get_leeftijd(self) -> int:
         """
         Geeft de leeftijd van de patient van dit subtraject.
 

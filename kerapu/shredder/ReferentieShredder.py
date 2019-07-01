@@ -12,7 +12,7 @@ class ReferentieShredder(Shredder):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def shred_xml_file(self, filename):
+    def shred_xml_file(self, filename: str):
         """
         Slaat de referentietabellen op in CSV-formaat.
 

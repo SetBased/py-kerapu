@@ -3,6 +3,10 @@ Kerapu
 """
 import csv
 
+from lxml.etree import Element
+
+from kerapu.style.KerapuStyle import KerapuStyle
+
 
 class Shredder:
     """
@@ -10,7 +14,7 @@ class Shredder:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, io, target_dir):
+    def __init__(self, io: KerapuStyle, target_dir: str):
         """
         Object constructor.
 
@@ -20,7 +24,7 @@ class Shredder:
         """
         The output decorator.
 
-        :type: kerapu.style.KerapuStyle.KerapuStyle
+        :type: KerapuStyle
         """
 
         self.__target_dir = target_dir
@@ -32,11 +36,11 @@ class Shredder:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def extract_field(element, tag):
+    def extract_field(element: Element, tag: str) -> str:
         """
         Extracts de waarde van een XML element.
 
-        :param lxml.etree.Element element: Het parent XML element.
+        :param Element element: Het parent XML element.
         :param str tag: De tag van het gevraagde XML-element.
 
         :rtype: str
@@ -48,7 +52,7 @@ class Shredder:
         return ''
 
     # ------------------------------------------------------------------------------------------------------------------
-    def extract_table(self, table, filename, fields, xpaths):
+    def extract_table(self, table: Element, filename: str, fields: list, xpaths: list):
         """
         Extracts een groupertabel uit XML een slaat de tabel op in een CSV-bestand.
 

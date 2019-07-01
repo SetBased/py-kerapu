@@ -10,7 +10,7 @@ class ZorgInstelling:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, zorg_instelling_code):
+    def __init__(self, zorg_instelling_code: str):
         """
         Object constructor.
 
@@ -24,7 +24,7 @@ class ZorgInstelling:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_instelling_aantal(self, zorg_instelling_code):
+    def get_zorg_instelling_aantal(self, zorg_instelling_code: str) -> int:
         """
         Geeft het aantal malen (met inachtneming van weegfactor) dat deze zorginstelling voldoet aan een
         zorginstellingcode.

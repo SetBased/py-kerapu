@@ -1,6 +1,9 @@
-""" Kerapu
+"""
+Kerapu
 """
 # ----------------------------------------------------------------------------------------------------------------------
+from typing import Optional, Any
+
 LEN_DIAGNOSE_CODE = 4
 LEN_SPECIALISME_CODE = 4
 LEN_ZORG_ACTIVITEIT_CODE = 6
@@ -12,7 +15,7 @@ LEN_ZORG_VRAAG_CODE = 3
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-def clean_bool(x):
+def clean_bool(x: str) -> bool:
     if x == '0':
         return False
 
@@ -23,7 +26,7 @@ def clean_bool(x):
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-def clean_code(code, lengte):
+def clean_code(code: str, lengte: int) -> str:
     """
     Schoont een code van voor- en naloop whitespace en voorziet de code van het juiste aantal voorloop nullen.
 
@@ -36,15 +39,15 @@ def clean_code(code, lengte):
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-def clean_date(x):
+def clean_date(x: str) -> str:
     if x == '':
         return '9999-12-31'
 
-    return x
+    return str(x)
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-def clean_int(x, leeg=None):
+def clean_int(x: Any, leeg: Optional[int] = None) -> Optional[int]:
     if x == '' or not x:
         return leeg
 
@@ -52,10 +55,10 @@ def clean_int(x, leeg=None):
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-def clean_str(x):
+def clean_str(x: Any) -> Optional[str]:
     if x == '':
         return None
 
-    return x
+    return str(x)
 
 # ----------------------------------------------------------------------------------------------------------------------

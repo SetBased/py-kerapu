@@ -2,6 +2,7 @@
 Kerapu
 """
 import csv
+from typing import Optional
 
 from kerapu import clean_code, clean_date, clean_str, LEN_DIAGNOSE_CODE, LEN_SPECIALISME_CODE
 
@@ -19,7 +20,7 @@ class Diagnose:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, specialisme_code, diagnose_code):
+    def __init__(self, specialisme_code: str, diagnose_code: str):
         """
         Object constructor.
 
@@ -42,7 +43,7 @@ class Diagnose:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_diagnose_tabel(folder):
+    def __lees_diagnose_tabel(folder: str):
         """
         Leest de diagnose referentietabel (opgeslagen in CSV).
 
@@ -93,7 +94,7 @@ class Diagnose:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def init_static(folder):
+    def init_static(folder: str):
         """
         Initialiseert alle statistische data.
 
@@ -102,7 +103,7 @@ class Diagnose:
         Diagnose.__lees_diagnose_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_diagnose_referentie(self, datum):
+    def _get_diagnose_referentie(self, datum: str) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze diagnose in de diagnosen referentietabel.
 
@@ -122,7 +123,7 @@ class Diagnose:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_code(self):
+    def get_diagnose_code(self) -> str:
         """
         Geeft de diagnosecode van deze diagnose.
 
@@ -131,7 +132,7 @@ class Diagnose:
         return self.__diagnose_code
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_attribute_aantal(self, diagnose_attribute_code, datum):
+    def get_diagnose_attribute_aantal(self, diagnose_attribute_code: str, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voldoet aan een (specialismecode, diagnosecode)
         op een peildatum.
@@ -153,7 +154,7 @@ class Diagnose:
         return 0
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_cluster_aantal(self, cluster_code, cluster_nummer, datum):
+    def get_diagnose_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voorkomt in een diagnosecodecluster op een peildatum.
 

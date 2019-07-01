@@ -1,10 +1,9 @@
 """
 PyStratum
-
-Copyright 2015-2016 Set Based IT Consultancy
-
-Licence MIT
 """
+from typing import Union
+
+from cleo import Input, Output
 from cleo.styles import CleoStyle
 
 
@@ -14,12 +13,12 @@ class KerapuStyle(CleoStyle):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, input, output):
+    def __init__(self, input: Input, output: Output):
         """
         Object constructor.
 
-        :param cleo.inputs.input.Input input: The input object.
-        :param cleo.outputs.output.Output output: The output object.
+        :param Input input: The input object.
+        :param Output output: The output object.
         """
         CleoStyle.__init__(self, input, output)
 
@@ -30,7 +29,7 @@ class KerapuStyle(CleoStyle):
         output.get_formatter().add_style('fso', 'white', None, ['bold'])
 
     # ------------------------------------------------------------------------------------------------------------------
-    def text(self, message):
+    def text(self, message: Union[str, list, None]):
         if isinstance(message, list):
             messages = message
         else:

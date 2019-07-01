@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class ZorgActiviteitCluster(BoomParameter):
@@ -12,7 +13,7 @@ class ZorgActiviteitCluster(BoomParameter):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, cluster_nummer, weeg_factor_nummer):
+    def __init__(self, cluster_nummer: int, weeg_factor_nummer: int):
         """
         Object constructor.
 
@@ -27,13 +28,13 @@ class ZorgActiviteitCluster(BoomParameter):
         self._weeg_factor_nummer = weeg_factor_nummer
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, cluster_code, subtraject):
+    def tel(self, cluster_code: str, subtraject: Subtraject) -> int:
         """
         Geeft het aantal zorgactiviteiten (met inachtneming van weegfactor) in een subtraject voorkomt in een
         zorgactiviteitcluster.
 
         :param str cluster_code: De zorgactiviteitclustercode.
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

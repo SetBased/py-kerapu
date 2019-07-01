@@ -2,6 +2,7 @@
 Kerapu
 """
 import csv
+from typing import Optional
 
 from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, clean_int, clean_str, clean_date, LEN_ZORG_PRODUCT_GROEP_CODE
 
@@ -33,7 +34,7 @@ class ZorgActiviteit:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, zorg_activiteit_code, aantal):
+    def __init__(self, zorg_activiteit_code: str, aantal: int):
         """
         Object constructor.
 
@@ -56,9 +57,11 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_zorgactiviteiten_tabel(folder):
+    def __lees_zorgactiviteiten_tabel(folder: str):
         """
         Leest de zorgactiviteiten referentietabel (opgeslagen in CSV).
+
+        :param str folder: De folder met alle goupertabellen.
         """
         with open(folder + '/ZorgActiviteiten.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
@@ -113,9 +116,11 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_zorg_activiteiten_vertaal_tabel(folder):
+    def __lees_zorg_activiteiten_vertaal_tabel(folder: str):
         """
         Leest de zorgactiviteiten vertaaltabel (opgeslagen in CSV).
+
+        :param str folder: De folder met alle goupertabellen.
         """
         with open(folder + '/VertaalZorgActiviteiten.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
@@ -148,9 +153,11 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_behandel_klasse_tabel(folder):
+    def __lees_behandel_klasse_tabel(folder: str):
         """
         Leest de behandelklasse tabel (opgeslagen in CSV).
+
+        :param str folder: De folder met alle goupertabellen.
         """
         with open(folder + '/BehandelKlassen.csv', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file, )
@@ -185,7 +192,7 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def init_static(folder):
+    def init_static(folder: str):
         """
         Initialiseert alle statistische data.
 
@@ -197,7 +204,7 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __vertaal_zorgactiviteit_code(zorg_activiteit_code, datum):
+    def __vertaal_zorgactiviteit_code(zorg_activiteit_code: str, datum: str):
         """
         Vertaalt een "nieuwe" zorgactiviteitcode naar een "oude" zorgactiviteitcode die geldig is ten tijde van het
         begin van het subtraject.
@@ -221,13 +228,13 @@ class ZorgActiviteit:
             return zorg_activiteit_code
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __get_zorg_activiteit_referentie(self, datum):
+    def __get_zorg_activiteit_referentie(self, datum: str) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze zorgactiviteit in de zorgactiviteiten referentietabel.
 
         :param datum: De begindatum van het subtraject.
 
-        :rtype: dict[str,str]
+        :rtype: dict[str,int]
         """
         # Vertaal de zorgactiviteitcode naar een "oude" zorgactiviteitcode.
         zorg_activiteit_code = ZorgActiviteit.__vertaal_zorgactiviteit_code(self.__zorg_activiteit_code, datum)
@@ -245,7 +252,10 @@ class ZorgActiviteit:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __get_behandel_klasse_referentie(self, zorg_product_groep_code, behandel_klasse_code, datum):
+    def __get_behandel_klasse_referentie(self,
+                                         zorg_product_groep_code: str,
+                                         behandel_klasse_code: str,
+                                         datum: str) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze zorgactiviteit in de behandelklasse referentietabel.
 
@@ -253,7 +263,7 @@ class ZorgActiviteit:
         :param str behandel_klasse_code: De gevraagde behandelklassecode
         :param str datum: De begindatum van het subtraject.
 
-        :rtype: dict[str,str]
+        :rtype: dict[str,int]
         """
         # Vertaal de zorgactiviteitcode naar een "oude" zorgactiviteitcode.
         zorg_activiteit_code = ZorgActiviteit.__vertaal_zorgactiviteit_code(self.__zorg_activiteit_code, datum)
@@ -269,7 +279,11 @@ class ZorgActiviteit:
         return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_behandel_klasse_aantal(self, zorg_product_groep_code, behandel_klasse_code, weeg_factor_nummer, datum):
+    def get_behandel_klasse_aantal(self,
+                                   zorg_product_groep_code: str,
+                                   behandel_klasse_code: str,
+                                   weeg_factor_nummer: int,
+                                   datum: str) -> int:
         """
         Geeft het aantal malen (met inachtneming van weegfactor) dat deze zorgactiviteit voorkomt in een
         behandleklasse op een peildatum.
@@ -301,7 +315,7 @@ class ZorgActiviteit:
         raise RuntimeError("Onbekend weegfactornummer %d." % weeg_factor_nummer)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_activiteit_aantal(self, zorg_activiteit_code, weeg_factor_nummer, datum):
+    def get_zorg_activiteit_aantal(self, zorg_activiteit_code: str, weeg_factor_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (met inachtneming van weegfactor) dat deze zorgactiviteit voldoet aan een
         zorgactiviteitcode.
@@ -334,7 +348,11 @@ class ZorgActiviteit:
         raise RuntimeError("Onbekend weegfactornummer %d." % weeg_factor_nummer)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_activiteit_cluster_aantal(self, cluster_code, cluster_nummer, weeg_factor_nummer, datum):
+    def get_zorg_activiteit_cluster_aantal(self,
+                                           cluster_code: str,
+                                           cluster_nummer: int,
+                                           weeg_factor_nummer: int,
+                                           datum: str) -> int:
         """
         Geeft het aantal malen (met inachtneming van weegfactor) dat deze zorgactiviteit voorkomt in een
         zorgactiviteitcluster.

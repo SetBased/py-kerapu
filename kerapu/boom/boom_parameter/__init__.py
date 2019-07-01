@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BehandelKlasse import BehandelKlasse
+from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
 from kerapu.boom.boom_parameter.DiagnoseCluster import DiagnoseCluster
 from kerapu.boom.boom_parameter.DiagnoseCode import DiagnoseCode
 from kerapu.boom.boom_parameter.Geslacht import Geslacht
@@ -23,14 +24,14 @@ Poel met alle boomparameters
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-def create_boom_parameter(boom_parameter_nummer):
+def create_boom_parameter(boom_parameter_nummer: int) -> BoomParameter:
     """
     Een fabriek met hergebruik voor het maken van boomparameters. Het aanroepen van deze functie met hetzelfde
     boomparameternummer zal tekens het zelfde object opleveren.
 
     :param int boom_parameter_nummer: Het nummer van de boomparameter.
 
-    :rtype: kerapu.boom.BoomParameter.BoomParameter.BoomParameter
+    :rtype: BoomParameter
     """
     if boom_parameter_nummer in _boom_parameters:
         return _boom_parameters[boom_parameter_nummer]
@@ -41,7 +42,7 @@ def create_boom_parameter(boom_parameter_nummer):
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-def _create_boom_parameter(boom_parameter_nummer):
+def _create_boom_parameter(boom_parameter_nummer: int) -> BoomParameter:
     """
     Een fabriek voor het maken van boomparameters.
 

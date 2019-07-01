@@ -2,6 +2,7 @@
 Kerapu
 """
 import csv
+from typing import Optional
 
 from kerapu import clean_code, LEN_SPECIALISME_CODE, LEN_ZORG_TYPE_CODE, clean_str, clean_date
 
@@ -19,7 +20,7 @@ class ZorgType:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, specialisme_code, zorg_type_code):
+    def __init__(self, specialisme_code: str, zorg_type_code: str):
         """
         Object constructor.
 
@@ -42,7 +43,7 @@ class ZorgType:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def init_static(folder):
+    def init_static(folder: str):
         """
         Initialiseert alle statistische data.
 
@@ -51,7 +52,7 @@ class ZorgType:
         ZorgType.__lees_zorg_type_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __get_zorg_type_referentie(self, datum):
+    def __get_zorg_type_referentie(self, datum: str) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze zorg_type in de zorgtype referentietabel.
 
@@ -73,7 +74,7 @@ class ZorgType:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_type_attribute_aantal(self, zorg_type_attribute_code, datum):
+    def get_zorg_type_attribute_aantal(self, zorg_type_attribute_code: str, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voldoet aan een (specialismecode, zorgtypecode)
         combinatie op een peildatum.
@@ -95,7 +96,7 @@ class ZorgType:
         return 0
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_type_cluster_aantal(self, cluster_code, cluster_nummer, datum):
+    def get_zorg_type_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat deze zorgtype voorkomt in een zorgtypecluster op een peildatum.
 
@@ -125,7 +126,7 @@ class ZorgType:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_zorg_type_tabel(folder):
+    def __lees_zorg_type_tabel(folder: str):
         """
         Leest de zorg_type referentietabel (opgeslagen in CSV).
 

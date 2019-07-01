@@ -4,6 +4,7 @@ Kerapu
 import abc
 
 from kerapu.boom.boom_parameter import create_boom_parameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class Attribuut:
@@ -12,7 +13,7 @@ class Attribuut:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, attribuut_id, boom_parameter_nummer):
+    def __init__(self, attribuut_id: int, boom_parameter_nummer: int):
         """
         Object constructor.
 
@@ -34,11 +35,11 @@ class Attribuut:
 
     # ------------------------------------------------------------------------------------------------------------------
     @abc.abstractmethod
-    def tel(self, subtraject):
+    def tel(self, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen dat de boomparameter voldoet aan de voorwaarde van dit attribuut.
 
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

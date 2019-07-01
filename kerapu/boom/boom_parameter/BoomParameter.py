@@ -3,6 +3,8 @@ Kerapu
 """
 import abc
 
+from kerapu.lbz.Subtraject import Subtraject
+
 
 class BoomParameter:
     """
@@ -11,7 +13,7 @@ class BoomParameter:
 
     # ------------------------------------------------------------------------------------------------------------------
     @abc.abstractmethod
-    def tel(self, waarde, subtraject):
+    def tel(self, waarde, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen dat de boomparameter voldoet aan een waarde.
 

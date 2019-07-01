@@ -12,6 +12,7 @@ from kerapu.boom.ZorgProductGroep import ZorgProductGroep
 from kerapu.boom.ZorgProductGroepVersie import ZorgProductGroepVersie
 from kerapu.lbz.Diagnose import Diagnose
 from kerapu.lbz.Specialisme import Specialisme
+from kerapu.lbz.Subtraject import Subtraject
 from kerapu.lbz.ZorgActiviteit import ZorgActiviteit
 from kerapu.lbz.ZorgType import ZorgType
 from kerapu.lbz.ZorgVraag import ZorgVraag
@@ -63,7 +64,7 @@ class Kerapu:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def init_static(self, folder):
+    def init_static(self, folder: str):
         """
         Initialiseert alle statistische data.
 
@@ -82,7 +83,7 @@ class Kerapu:
         ZorgVraag.init_static(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_attribuut_tabel(self, folder):
+    def __lees_attribuut_tabel(self, folder: str):
         """
         Leest de attribuuttabel (opgeslagen in CSV).
 
@@ -115,7 +116,7 @@ class Kerapu:
         print("Aantal attributen: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_attribuut_groep_koppeling_tabel(self, folder):
+    def __lees_attribuut_groep_koppeling_tabel(self, folder: str):
         """
         Leest de  attribuutgroepkoppelingen (opgeslagen in CSV).
 
@@ -154,7 +155,7 @@ class Kerapu:
         print("Aantal attribuutgroepkoppelingen: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_attribuut_groepen_tabel(self, folder):
+    def __lees_attribuut_groepen_tabel(self, folder: str):
         """
         Leest de attribuutgroepen (opgeslagen in CSV).
 
@@ -184,7 +185,7 @@ class Kerapu:
         print("Aantal attributen: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_beslis_regel_tabel(self, folder):
+    def __lees_beslis_regel_tabel(self, folder: str):
         """
         Leest de beslisregels (opgeslagen in CSV).
 
@@ -229,7 +230,7 @@ class Kerapu:
         print("Aantal beslisregels: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_zorg_product_groepen(self, folder):
+    def __lees_zorg_product_groepen(self, folder: str):
         """
         Leest de zorgproductgroepen (opgeslagen in CSV).
 
@@ -262,12 +263,11 @@ class Kerapu:
         print("Aantal zorgproductgroep versies: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def bepaal_zorg_product_groep(self, subtraject):
+    def bepaal_zorg_product_groep(self, subtraject: Subtraject) -> str:
         """
         Bepaalt de zorgproductgroep van een subtraject.
 
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject waarvoor de zorgproductgroep moet worden
-               bepaalt.
+        :param Subtraject subtraject: Het subtraject waarvoor de zorgproductgroep moet worden bepaalt.
 
         :rtype: str
         """
@@ -276,12 +276,11 @@ class Kerapu:
         return top_boom.klim(subtraject)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def bepaal_zorg_product(self, subtraject, zorg_product_groep_code):
+    def bepaal_zorg_product(self, subtraject: Subtraject, zorg_product_groep_code: str) -> str:
         """
         Bepaalt de zorgproduct van een subtraject.
 
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject waarvoor de zorgproductcode moet worden
-               bepaalt.
+        :param Subtraject subtraject: Het subtraject waarvoor de zorgproductcode moet worden bepaalt.
         :param str zorg_product_groep_code: De zorgproductgroep van het subtraject.
 
         :rtype: str

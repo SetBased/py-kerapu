@@ -1,6 +1,8 @@
 """
 Kerapu
 """
+from kerapu.boom.BeslisRegel import BeslisRegel
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class ZorgProductGroepVersie:
@@ -10,15 +12,15 @@ class ZorgProductGroepVersie:
 
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
-                 zorg_product_groep_code,
-                 beslis_regel,
-                 begin_datum,
-                 eind_datum):
+                 zorg_product_groep_code: str,
+                 beslis_regel: BeslisRegel,
+                 begin_datum: str,
+                 eind_datum: str):
         """
         Object constructor.
 
         :param str zorg_product_groep_code: De zorgproductgroepcode.
-        :param kerapu.boom.BeslisRegel.BeslisRegel beslis_regel: De beslisregel behoorden bij de zorgproductgroepcode.
+        :param BeslisRegel beslis_regel: De beslisregel behoorden bij de zorgproductgroepcode.
         :param str begin_datum: Begindatum van het interval waarvoor deze versie van toepassing is.
         :param str eind_datum: Einddatum van het interval waarvoor deze versie van toepassing is.
         """
@@ -51,22 +53,22 @@ class ZorgProductGroepVersie:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def is_actueel(self, subtraject):
+    def is_actueel(self, subtraject: Subtraject):
         """
         Geeft True als deze versie actueel is voor een subtraject, anders False.
 
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: bool
         """
         return self.__begin_datum <= subtraject.get_begin_datum() <= self.__eind_datum
 
     # ------------------------------------------------------------------------------------------------------------------
-    def klim(self, subtraject):
+    def klim(self, subtraject: Subtraject) -> str:
         """
         Klimt door de beslisboom een geeft het uiteindelijk gevonden label terug.
 
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: str
         """

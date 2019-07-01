@@ -1,6 +1,7 @@
 """
 Kerapu
 """
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class AttribuutGroep:
@@ -10,16 +11,16 @@ class AttribuutGroep:
 
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
-                 attribute_groep_id,
-                 aantal_voorwaarden_voor_true,
-                 koppelingen):
+                 attribute_groep_id: int,
+                 aantal_voorwaarden_voor_true: int,
+                 koppelingen: list):
         """
         Object constructor.
 
         :param int attribute_groep_id: Het ID van deze attribuutgroep.
         :param int aantal_voorwaarden_voor_true: Het minimale aantal voorwaarden waaraan moet worden voldaan.
-        :param list[kerapu.boom.attribuut_groep_koppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling] koppelingen: De
-               attribuutgroepkoppelingen.
+        :param list[kerapu.boom.attribuut_groep_koppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling] koppelingen:
+               De attribuutgroepkoppelingen.
         """
         self._attribute_groep_id = attribute_groep_id
         """
@@ -43,11 +44,11 @@ class AttribuutGroep:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def test(self, subtraject):
+    def test(self, subtraject: Subtraject) -> bool:
         """
         Test of een subtraject voldoet aan de voorwaarden van deze attribuutgroep.
 
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: bool
         """

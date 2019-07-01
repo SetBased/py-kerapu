@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class SpecialismeCluster(BoomParameter):
@@ -12,7 +13,7 @@ class SpecialismeCluster(BoomParameter):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, cluster_nummer):
+    def __init__(self, cluster_nummer: int):
         """
         Object constructor.
 
@@ -21,13 +22,13 @@ class SpecialismeCluster(BoomParameter):
         self._cluster_nummer = cluster_nummer
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, cluster_code, subtraject):
+    def tel(self, cluster_code: str, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat het uitvoerend specialisme van een subtraject voldoet aan een
         specialismecluster.
 
         :param str cluster_code: De clustercode waartegen getest moet worden.
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

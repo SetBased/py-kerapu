@@ -1,6 +1,8 @@
 """
 Kerapu
 """
+from kerapu.boom.AttribuutGroep import AttribuutGroep
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class BeslisRegel:
@@ -10,11 +12,11 @@ class BeslisRegel:
 
     # ------------------------------------------------------------------------------------------------------------------
     def __init__(self,
-                 beslist_regel_id,
-                 attribuut_groep,
-                 label_true,
-                 label_false,
-                 indicatie_aanspraakbeperking):
+                 beslist_regel_id: int,
+                 attribuut_groep: AttribuutGroep,
+                 label_true: str,
+                 label_false: str,
+                 indicatie_aanspraakbeperking: bool):
         """
         Object constructor.
 
@@ -27,7 +29,7 @@ class BeslisRegel:
         self._beslist_regel_id = beslist_regel_id
 
         self._attribuut_groep = attribuut_groep
-        """                 
+        """
         :type: kerapu.boom.AttribuutGroep.AttribuutGroep
         """
 
@@ -57,11 +59,11 @@ class BeslisRegel:
         self._beslist_regel_false = beslist_regel_false
 
     # ------------------------------------------------------------------------------------------------------------------
-    def klim(self, subtraject):
+    def klim(self, subtraject: Subtraject) -> str:
         """
         Klimt door de beslisboom een geeft het uiteindelijk gevonden label terug.
 
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: str
         """

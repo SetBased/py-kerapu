@@ -9,7 +9,7 @@ class Patient:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, geboorte_datum, geslacht_code):
+    def __init__(self, geboorte_datum: str, geslacht_code: str):
         """
         Object constructor.
 
@@ -21,7 +21,7 @@ class Patient:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def normaliseer_geslacht_code(geslacht_code):
+    def normaliseer_geslacht_code(geslacht_code: str) -> str:
         """
         Normaliseert een geslachtscode naar 1 (man), 2 (vrouw) of 9 (anders).
 
@@ -38,7 +38,7 @@ class Patient:
         return '9'
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_geslacht_code(self):
+    def get_geslacht_code(self) -> str:
         """
         Geeft het geslacht van deze patiënt.
 
@@ -47,7 +47,7 @@ class Patient:
         return self.__geslacht_code
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_leeftijd(self, datum):
+    def get_leeftijd(self, datum: str) -> int:
         """
         Geeft de leeftijd van deze patient op een peildatum.
 

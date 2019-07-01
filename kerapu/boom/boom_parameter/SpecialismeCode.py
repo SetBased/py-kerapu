@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class SpecialismeCode(BoomParameter):
@@ -12,13 +13,13 @@ class SpecialismeCode(BoomParameter):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, specialisme_code, subtraject):
+    def tel(self, specialisme_code: str, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat het uitvoerend specialisme van een subtraject voldoet aan een
         specialismecode.
 
         :param str specialisme_code: De specialismecode.
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

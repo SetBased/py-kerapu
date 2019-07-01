@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class BehandelKlasse(BoomParameter):
@@ -12,7 +13,7 @@ class BehandelKlasse(BoomParameter):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, weeg_factor_nummer):
+    def __init__(self, weeg_factor_nummer: int):
         """
         Object contructor.
 
@@ -25,13 +26,13 @@ class BehandelKlasse(BoomParameter):
         self._weeg_factor_nummer = weeg_factor_nummer
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, behandel_klasse_code, subtraject):
+    def tel(self, behandel_klasse_code: str, subtraject: Subtraject) -> int:
         """
         Geeft het aantal zorgactiviteiten (met inachtneming van weegfactor) in een subtraject voorkomt in een
         behandelklasse.
 
         :param str behandel_klasse_code: De behandelklassecode waartegen getest moet worden.
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

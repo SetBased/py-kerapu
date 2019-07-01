@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class ZorgVraagCode(BoomParameter):
@@ -12,13 +13,13 @@ class ZorgVraagCode(BoomParameter):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, zorg_vraag_attribuut_code, subtraject):
+    def tel(self, zorg_vraag_attribuut_code: str, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van een subtraject voldoet aan een
         (specialismecode, zorgvraagcode).
 
         :param str zorg_vraag_attribuut_code: De attribuutcode voor (specialismecode, zorgvraagcode).
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

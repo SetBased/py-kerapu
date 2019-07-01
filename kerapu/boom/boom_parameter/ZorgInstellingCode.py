@@ -13,7 +13,7 @@ class ZorgInstellingCode(BoomParameter):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, zorg_instelling_code, subtraject: Subtraject):
+    def tel(self, zorg_instelling_code: str, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat het zorginstelling van een subtraject voldoet een zorginstellingcode.
 

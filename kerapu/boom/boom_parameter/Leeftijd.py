@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class Leeftijd(BoomParameter):
@@ -12,12 +13,12 @@ class Leeftijd(BoomParameter):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, leeg, subtraject):
+    def tel(self, leeg, subtraject: Subtraject) -> int:
         """
         Geeft de leeftijd van de patient van een subtraject.
 
         :param None leeg: Wordt niet gebruikt.
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """

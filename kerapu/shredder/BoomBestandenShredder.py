@@ -12,7 +12,7 @@ class BoomBestandenShredder(Shredder):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def shred_xml_file(self, filename):
+    def shred_xml_file(self, filename: str):
         """
         Slaat de boombestanden op in CSV-formaat.
 

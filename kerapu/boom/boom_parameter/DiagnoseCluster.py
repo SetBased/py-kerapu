@@ -2,6 +2,7 @@
 Kerapu
 """
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
+from kerapu.lbz.Subtraject import Subtraject
 
 
 class DiagnoseCluster(BoomParameter):
@@ -12,7 +13,7 @@ class DiagnoseCluster(BoomParameter):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, cluster_nummer):
+    def __init__(self, cluster_nummer: int):
         """
         Object constructor.
 
@@ -21,12 +22,12 @@ class DiagnoseCluster(BoomParameter):
         self._cluster_nummer = cluster_nummer
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, cluster_code, subtraject):
+    def tel(self, cluster_code: str, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat een subtraject voldoet aan een diagnoseclustercode.
 
         :param str cluster_code: De cluster_code waartegen getest moet worden.
-        :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
+        :param Subtraject subtraject: Het subtraject.
 
         :rtype: int
         """
