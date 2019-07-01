@@ -31,6 +31,6 @@ class DiagnoseCluster(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_diagnose_cluster_telling(cluster_code, self._cluster_nummer)
+        return subtraject.telling_diagnose_cluster(cluster_code, self._cluster_nummer)
 
 # ----------------------------------------------------------------------------------------------------------------------

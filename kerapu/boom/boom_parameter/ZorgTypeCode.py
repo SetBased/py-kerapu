@@ -23,6 +23,6 @@ class ZorgTypeCode(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_zorg_type_attribuut_telling(zorg_type_attribuut_code)
+        return subtraject.telling_zorg_type_attribuut(zorg_type_attribuut_code)
 
 # ----------------------------------------------------------------------------------------------------------------------

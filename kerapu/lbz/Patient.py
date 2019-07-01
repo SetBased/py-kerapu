@@ -20,25 +20,8 @@ class Patient:
         self.__geslacht_code = Patient.normaliseer_geslacht_code(geslacht_code)
 
     # ------------------------------------------------------------------------------------------------------------------
-    @staticmethod
-    def normaliseer_geslacht_code(geslacht_code: str) -> str:
-        """
-        Normaliseert een geslachtscode naar 1 (man), 2 (vrouw) of 9 (anders).
-
-        :param str geslacht_code: De geslachtscode.
-
-        :rtype: str
-        """
-        if geslacht_code.upper() in ('1', 'M'):
-            return '1'
-
-        if geslacht_code.upper() in ('2', 'V', 'F'):
-            return '2'
-
-        return '9'
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_geslacht_code(self) -> str:
+    @property
+    def geslacht_code(self) -> str:
         """
         Geeft het geslacht van deze patiënt.
 
@@ -47,7 +30,7 @@ class Patient:
         return self.__geslacht_code
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_leeftijd(self, datum: str) -> int:
+    def leeftijd(self, datum: str) -> int:
         """
         Geeft de leeftijd van deze patient op een peildatum.
 
@@ -70,5 +53,23 @@ class Patient:
             age -= 1
 
         return age
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @staticmethod
+    def normaliseer_geslacht_code(geslacht_code: str) -> str:
+        """
+        Normaliseert een geslachtscode naar 1 (man), 2 (vrouw) of 9 (anders).
+
+        :param str geslacht_code: De geslachtscode.
+
+        :rtype: str
+        """
+        if geslacht_code.upper() in ('1', 'M'):
+            return '1'
+
+        if geslacht_code.upper() in ('2', 'V', 'F'):
+            return '2'
+
+        return '9'
 
 # ----------------------------------------------------------------------------------------------------------------------

@@ -36,6 +36,6 @@ class ZorgActiviteitCode(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_zorg_activiteit_telling(zorg_activiteit_code, self._weeg_factor_nummer)
+        return subtraject.telling_zorg_activiteit(zorg_activiteit_code, self._weeg_factor_nummer)
 
 # ----------------------------------------------------------------------------------------------------------------------

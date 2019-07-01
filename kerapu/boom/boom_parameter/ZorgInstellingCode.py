@@ -22,6 +22,6 @@ class ZorgInstellingCode(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_zorg_instelling_telling(zorg_instelling_code)
+        return subtraject.telling_zorg_instelling(zorg_instelling_code)
 
 # ----------------------------------------------------------------------------------------------------------------------

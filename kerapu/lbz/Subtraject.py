@@ -45,57 +45,41 @@ class Subtraject:
         self.__subtraject_nummer = subtraject_nummer
         """
         Het subtrajectnummer.
-
-        :type: str
         """
 
         self.__specialisme = Specialisme(specialisme_code)
         """
         Het uitvoerend specialisme.
-
-        :type: kerapu.lbz.Specialisme.Specialisme
         """
 
         self.__begin_datum = begin_datum
         """
         De begindatum van het subtraject.
-
-        :type: str
         """
 
         self.__patient = Patient(geboorte_datum, geslacht_code)
         """
         De patient.
-
-        :type: kerapu.lbz.Patient.Patient
         """
 
         self.__zorg_instelling = ZorgInstelling(zorg_instelling_code)
         """
         De zorginstelling.
-
-        :type: kerapu.lbz.ZorgInstelling.ZorgInstelling
         """
 
         self.__zorg_type = ZorgType(specialisme_code, zorg_type_code)
         """
         Het zorgtype.
-
-        :type: kerapu.lbz.ZorgType.ZorgType
         """
 
         self.__zorg_vraag = ZorgVraag(specialisme_code, zorg_vraag_code)
         """
         De zorgvraag.
-
-        :type: kerapu.lbz.ZorgVraag.ZorgVraag
         """
 
         self.__diagnose = Diagnose(specialisme_code, diagnose_code)
         """
         De diagnose.
-
-        :type: kerapu.lbz.Diagnose.Diagnose
         """
 
         self.__zorg_activiteiten = []
@@ -130,16 +114,8 @@ class Subtraject:
         self.__zorg_activiteiten.append(ZorgActiviteit(zorg_activiteit_code, aantal))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_subtraject_nummer(self) -> str:
-        """
-        Geeft het subtrajectnummer van dit subtraject.
-
-        :rtype: str
-        """
-        return self.__subtraject_nummer
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_begin_datum(self) -> str:
+    @property
+    def begin_datum(self) -> str:
         """
         Geeft de begindatum van dit subtraject.
 
@@ -148,31 +124,110 @@ class Subtraject:
         return self.__begin_datum
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_activiteit_cluster_telling(self,
-                                            cluster_code: str,
-                                            cluster_nummer: int,
-                                            weeg_factor_nummer: int) -> int:
+    @property
+    def leeftijd(self) -> int:
+        """
+        Geeft de leeftijd van de patient van dit subtraject.
+
+        :rtype: int
+        """
+        return self.__patient.leeftijd(self.__begin_datum)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @property
+    def subtraject_nummer(self) -> str:
+        """
+        Geeft het subtrajectnummer van dit subtraject.
+
+        :rtype: str
+        """
+        return self.__subtraject_nummer
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def telling_behandel_klasse(self, behandel_klasse_code: str, weeg_factor_nummer: int) -> int:
         """
         Geeft het aantal zorgactiviteiten (met inachtneming van weegfactor) dat in dit subtraject voorkomt in een
-        zorgactiviteitcluster.
+        behandelklasse.
 
-        :param str cluster_code: De zorgactiviteitclustercode.
-        :param int cluster_nummer: Het clusternummer (1..10).
+        :param str behandel_klasse_code: De behandelklassecode waartegen getest moet worden.
         :param int weeg_factor_nummer: Het weegfactornummer (0..2).
 
         :rtype: int
         """
         aantal = 0
         for zorg_activiteit in self.__zorg_activiteiten:
-            aantal += zorg_activiteit.get_zorg_activiteit_cluster_aantal(cluster_code,
-                                                                         cluster_nummer,
-                                                                         weeg_factor_nummer,
-                                                                         self.__begin_datum)
+            aantal += zorg_activiteit.behandel_klasse_aantal(self.__zorg_product_groep_code,
+                                                             behandel_klasse_code,
+                                                             weeg_factor_nummer,
+                                                             self.__begin_datum)
 
         return aantal
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_activiteit_telling(self, zorg_activiteit_code: str, weeg_factor_nummer: int) -> int:
+    def telling_diagnose_attribuut(self, diagnose_attribuut_code: str) -> int:
+        """
+        Geeft het aantal malen (d.w.z. 0 of 1) dat de diagnose van dit subtraject voldoet aan een
+        (specialismecode, diagnosecode) combinatie.
+
+        :param str diagnose_attribuut_code: De attribuutcode voor de (specialismecode, diagnosecode) combinatie.
+
+        :rtype: int
+        """
+        return self.__diagnose.diagnose_attribute_aantal(diagnose_attribuut_code, self.__begin_datum)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def telling_diagnose_cluster(self, cluster_code: str, cluster_nummer: int) -> int:
+        """
+        Geeft het aantal malen (d.w.z. 0 of 1) dat in dit subtraject voldoet aan een diagnoseclustercode.
+
+        :param str cluster_code: De cluster_code waartegen getest moet worden.
+        :param int cluster_nummer: Het clusternummer (1..6).
+
+        :rtype: int
+        """
+        return self.__diagnose.diagnose_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def telling_geslacht_code(self, geslacht_code: str) -> int:
+        """
+        Geeft het aantal malen (d.w.z. 0 of 1) dat de patient van dit subtraject voldoet aan een geslacht.
+
+        :param str geslacht_code: De geslachtscode waartegen getest moet worden.
+
+        :rtype: int
+        """
+        if self.__patient.geslacht_code == geslacht_code:
+            return 1
+
+        return 0
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def telling_specialisme(self, specialisme_code: str) -> int:
+        """
+        Geeft het aantal malen (d.w.z. 0 of 1) dat het uitvoerend specialisme van dit subtraject voldoet aan een
+        specialismecode.
+
+        :param str specialisme_code: De specialismecode.
+
+        :rtype: int
+        """
+        return self.__specialisme.specialisme_aantal(specialisme_code, self.__begin_datum)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def telling_specialisme_cluster(self, cluster_code: str, cluster_nummer: int) -> int:
+        """
+        Geeft het aantal malen (d.w.z. 0 of 1) dat het uitvoerend specialisme van dit subtraject voldoet aan een
+        specialismecluster.
+
+        :param str cluster_code: De clustercode waartegen getest moet worden.
+        :param int cluster_nummer: Het clusternummer (1..2).
+
+        :rtype: int
+        """
+        return self.__specialisme.specialisme_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def telling_zorg_activiteit(self, zorg_activiteit_code: str, weeg_factor_nummer: int) -> int:
         """
         Geeft het aantal zorgactiviteiten (met inachtneming van weegfactor) dat in dit subtraject voldoet aan een
         zorgactiviteitcode.
@@ -185,95 +240,38 @@ class Subtraject:
         aantal = 0
         zorg_activiteit_code = clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE)
         for zorg_activiteit in self.__zorg_activiteiten:
-            aantal += zorg_activiteit.get_zorg_activiteit_aantal(zorg_activiteit_code,
-                                                                 weeg_factor_nummer,
-                                                                 self.__begin_datum)
+            aantal += zorg_activiteit.zorg_activiteit_aantal(zorg_activiteit_code,
+                                                             weeg_factor_nummer,
+                                                             self.__begin_datum)
 
         return aantal
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_behandel_klasse_telling(self, behandel_klasse_code: str, weeg_factor_nummer: int) -> int:
+    def telling_zorg_activiteit_cluster(self,
+                                        cluster_code: str,
+                                        cluster_nummer: int,
+                                        weeg_factor_nummer: int) -> int:
         """
         Geeft het aantal zorgactiviteiten (met inachtneming van weegfactor) dat in dit subtraject voorkomt in een
-        behandelklasse.
+        zorgactiviteitcluster.
 
-        :param str behandel_klasse_code: De behandelklassecode waartegen getest moet worden.
+        :param str cluster_code: De zorgactiviteitclustercode.
+        :param int cluster_nummer: Het clusternummer (1..10).
         :param int weeg_factor_nummer: Het weegfactornummer (0..2).
 
         :rtype: int
         """
         aantal = 0
         for zorg_activiteit in self.__zorg_activiteiten:
-            aantal += zorg_activiteit.get_behandel_klasse_aantal(self.__zorg_product_groep_code,
-                                                                 behandel_klasse_code,
-                                                                 weeg_factor_nummer,
-                                                                 self.__begin_datum)
+            aantal += zorg_activiteit.zorg_activiteit_cluster_aantal(cluster_code,
+                                                                     cluster_nummer,
+                                                                     weeg_factor_nummer,
+                                                                     self.__begin_datum)
 
         return aantal
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_cluster_telling(self, cluster_code: str, cluster_nummer: int) -> int:
-        """
-        Geeft het aantal malen (d.w.z. 0 of 1) dat in dit subtraject voldoet aan een diagnoseclustercode.
-
-        :param str cluster_code: De cluster_code waartegen getest moet worden.
-        :param int cluster_nummer: Het clusternummer (1..6).
-
-        :rtype: int
-        """
-        return self.__diagnose.get_diagnose_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_specialisme_cluster_telling(self, cluster_code: str, cluster_nummer: int) -> int:
-        """
-        Geeft het aantal malen (d.w.z. 0 of 1) dat het uitvoerend specialisme van dit subtraject voldoet aan een
-        specialismecluster.
-
-        :param str cluster_code: De clustercode waartegen getest moet worden.
-        :param int cluster_nummer: Het clusternummer (1..2).
-
-        :rtype: int
-        """
-        return self.__specialisme.get_specialisme_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_vraag_cluster_telling(self, cluster_code: str, cluster_nummer: int) -> int:
-        """
-        Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van een subtraject voorkomt in een zorgvraagcluster.
-
-        :param str cluster_code: De cluster_code waartegen getest moet worden.
-        :param int cluster_nummer: Het clusternummer (1..2).
-
-        :rtype: int
-        """
-        return self.__zorg_vraag.get_zorg_vraag_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_specialisme_telling(self, specialisme_code: str) -> int:
-        """
-        Geeft het aantal malen (d.w.z. 0 of 1) dat het uitvoerend specialisme van dit subtraject voldoet aan een
-        specialismecode.
-
-        :param str specialisme_code: De specialismecode.
-
-        :rtype: int
-        """
-        return self.__specialisme.get_specialisme_aantal(specialisme_code, self.__begin_datum)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_attribuut_telling(self, diagnose_attribuut_code: str) -> int:
-        """
-        Geeft het aantal malen (d.w.z. 0 of 1) dat de diagnose van dit subtraject voldoet aan een
-        (specialismecode, diagnosecode) combinatie.
-
-        :param str diagnose_attribuut_code: De attribuutcode voor de (specialismecode, diagnosecode) combinatie.
-
-        :rtype: int
-        """
-        return self.__diagnose.get_diagnose_attribute_aantal(diagnose_attribuut_code, self.__begin_datum)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_instelling_telling(self, agb_code: str) -> int:
+    def telling_zorg_instelling(self, agb_code: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de zorginstelling van dit subtraject voldoet aan AGB-code.
 
@@ -281,22 +279,10 @@ class Subtraject:
 
         :rtype: int
         """
-        return self.__zorg_instelling.get_zorg_instelling_aantal(agb_code)
+        return self.__zorg_instelling.zorg_instelling_aantal(agb_code)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_vraag_attribuut_telling(self, zorg_vraag_attribuut_code: str) -> int:
-        """
-        Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van dit subtraject voldoet aan een
-        (specialismecode, zorgvraagcode) combinatie.
-
-        :param str zorg_vraag_attribuut_code: De attribuutcode voor de (specialismecode, zorgvraagcode) combinatie.
-
-        :rtype: int
-        """
-        return self.__zorg_vraag.get_zorg_vraag_attribute_aantal(zorg_vraag_attribuut_code, self.__begin_datum)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_type_attribuut_telling(self, zorg_type_attribuut_code: str) -> int:
+    def telling_zorg_type_attribuut(self, zorg_type_attribuut_code: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgtype van dit subtraject voldoet aan een
         (specialismecode, zorgtypecode) combinatie.
@@ -305,30 +291,31 @@ class Subtraject:
 
         :rtype: int
         """
-        return self.__zorg_type.get_zorg_type_attribute_aantal(zorg_type_attribuut_code, self.__begin_datum)
+        return self.__zorg_type.zorg_type_attribute_aantal(zorg_type_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_geslacht_code_telling(self, geslacht_code: str) -> int:
+    def telling_zorg_vraag_attribuut(self, zorg_vraag_attribuut_code: str) -> int:
         """
-        Geeft het aantal malen (d.w.z. 0 of 1) dat de patient van dit subtraject voldoet aan een geslacht.
+        Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van dit subtraject voldoet aan een
+        (specialismecode, zorgvraagcode) combinatie.
 
-        :param str geslacht_code: De geslachtscode waartegen getest moet worden.
+        :param str zorg_vraag_attribuut_code: De attribuutcode voor de (specialismecode, zorgvraagcode) combinatie.
 
         :rtype: int
         """
-        if self.__patient.get_geslacht_code() == geslacht_code:
-            return 1
-
-        return 0
+        return self.__zorg_vraag.zorg_vraag_attribute_aantal(zorg_vraag_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_leeftijd(self) -> int:
+    def telling_zorg_vraag_cluster(self, cluster_code: str, cluster_nummer: int) -> int:
         """
-        Geeft de leeftijd van de patient van dit subtraject.
+        Geeft het aantal malen (d.w.z. 0 of 1) dat de zorgvraag van een subtraject voorkomt in een zorgvraagcluster.
+
+        :param str cluster_code: De cluster_code waartegen getest moet worden.
+        :param int cluster_nummer: Het clusternummer (1..2).
 
         :rtype: int
         """
-        return self.__patient.get_leeftijd(self.__begin_datum)
+        return self.__zorg_vraag.zorg_vraag_cluster_aantal(cluster_code, cluster_nummer, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
     @property

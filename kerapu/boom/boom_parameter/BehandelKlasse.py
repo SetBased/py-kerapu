@@ -36,6 +36,6 @@ class BehandelKlasse(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_behandel_klasse_telling(behandel_klasse_code, self._weeg_factor_nummer)
+        return subtraject.telling_behandel_klasse(behandel_klasse_code, self._weeg_factor_nummer)
 
 # ----------------------------------------------------------------------------------------------------------------------

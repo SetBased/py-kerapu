@@ -23,6 +23,6 @@ class DiagnoseCode(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_diagnose_attribuut_telling(diagnose_attribuut_code)
+        return subtraject.telling_diagnose_attribuut(diagnose_attribuut_code)
 
 # ----------------------------------------------------------------------------------------------------------------------

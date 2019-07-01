@@ -74,7 +74,7 @@ class ZorgType:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_type_attribute_aantal(self, zorg_type_attribute_code: str, datum: str) -> int:
+    def zorg_type_attribute_aantal(self, zorg_type_attribute_code: str, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voldoet aan een (specialismecode, zorgtypecode)
         combinatie op een peildatum.
@@ -96,7 +96,7 @@ class ZorgType:
         return 0
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_type_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
+    def zorg_type_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat deze zorgtype voorkomt in een zorgtypecluster op een peildatum.
 

@@ -66,6 +66,6 @@ class ZorgProductGroep:
 
         raise RuntimeError(
             "Er kan geen actuele versie van zorgproductgroep '%s' gevonden worden voor subtraject '%s" % (
-                self._zorg_product_groep_code, subtraject.get_subtraject_nummer()))
+                self._zorg_product_groep_code, subtraject.subtraject_nummer))
 
 # ----------------------------------------------------------------------------------------------------------------------

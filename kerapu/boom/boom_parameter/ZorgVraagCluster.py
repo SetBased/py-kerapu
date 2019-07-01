@@ -31,6 +31,6 @@ class ZorgVraagCluster(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_zorg_vraag_cluster_telling(cluster_code, self._cluster_nummer)
+        return subtraject.telling_zorg_vraag_cluster(cluster_code, self._cluster_nummer)
 
 # ----------------------------------------------------------------------------------------------------------------------

@@ -32,6 +32,6 @@ class SpecialismeCluster(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_specialisme_cluster_telling(cluster_code, self._cluster_nummer)
+        return subtraject.telling_specialisme_cluster(cluster_code, self._cluster_nummer)
 
 # ----------------------------------------------------------------------------------------------------------------------

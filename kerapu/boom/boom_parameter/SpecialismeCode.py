@@ -23,6 +23,6 @@ class SpecialismeCode(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_specialisme_telling(specialisme_code)
+        return subtraject.telling_specialisme(specialisme_code)
 
 # ----------------------------------------------------------------------------------------------------------------------

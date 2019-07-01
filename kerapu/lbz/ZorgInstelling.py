@@ -24,7 +24,7 @@ class ZorgInstelling:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_instelling_aantal(self, zorg_instelling_code: str) -> int:
+    def zorg_instelling_aantal(self, zorg_instelling_code: str) -> int:
         """
         Geeft het aantal malen (met inachtneming van weegfactor) dat deze zorginstelling voldoet aan een
         zorginstellingcode.

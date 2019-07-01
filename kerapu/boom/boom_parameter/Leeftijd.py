@@ -22,6 +22,6 @@ class Leeftijd(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_leeftijd()
+        return subtraject.leeftijd
 
 # ----------------------------------------------------------------------------------------------------------------------

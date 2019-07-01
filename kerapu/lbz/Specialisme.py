@@ -35,7 +35,7 @@ class Specialisme:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def _lees_specialisme_tabel(folder: str):
+    def __lees_specialisme_tabel(folder: str):
         """
         Leest de specialisme referentietabel (opgeslagen in CSV).
 
@@ -78,7 +78,7 @@ class Specialisme:
 
         :param str folder: De folder met alle goupertabellen.
         """
-        Specialisme._lees_specialisme_tabel(folder)
+        Specialisme.__lees_specialisme_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
     def __get_specialisme_referentie(self, datum: str) -> Optional[dict]:
@@ -102,7 +102,7 @@ class Specialisme:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_specialisme_aantal(self, specialisme_code: str, datum: str) -> int:
+    def specialisme_aantal(self, specialisme_code: str, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat dit specialisme voldoet aan een attributecode op een gegeven datum
         .
@@ -123,7 +123,7 @@ class Specialisme:
         return 0
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_specialisme_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
+    def specialisme_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat dit specialisme voldoet aan een clustercode op een gegeven datum.
 

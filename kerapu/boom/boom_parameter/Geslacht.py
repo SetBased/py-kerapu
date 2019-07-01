@@ -22,6 +22,6 @@ class Geslacht(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_geslacht_code_telling(geslacht_code)
+        return subtraject.telling_geslacht_code(geslacht_code)
 
 # ----------------------------------------------------------------------------------------------------------------------

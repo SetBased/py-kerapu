@@ -12,7 +12,7 @@ class Diagnose:
     Klasse voor diagnosen.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    _diagnose_tabel = {}
+    __diagnose_tabel = {}
     """
     De diagnosen referentietabel.
 
@@ -85,10 +85,10 @@ class Diagnose:
                        'begin_datum':             begin_datum,
                        'eind_datum':              eind_datum}
 
-                if sleutel not in Diagnose._diagnose_tabel:
-                    Diagnose._diagnose_tabel[sleutel] = []
+                if sleutel not in Diagnose.__diagnose_tabel:
+                    Diagnose.__diagnose_tabel[sleutel] = []
 
-                Diagnose._diagnose_tabel[sleutel].append(rij)
+                Diagnose.__diagnose_tabel[sleutel].append(rij)
 
         print("Aantal diagnosen: %d" % (regel_nummer - 1))
 
@@ -103,15 +103,15 @@ class Diagnose:
         Diagnose.__lees_diagnose_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_diagnose_referentie(self, datum: str) -> Optional[dict]:
+    def __diagnose_referentie(self, datum: str) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze diagnose in de diagnosen referentietabel.
 
         :param str datum: De begindatum van het subtraject.
         :rtype: dict[str,str]
         """
-        if (self.__specialisme_code, self.__diagnose_code) in self._diagnose_tabel:
-            for referentie in self._diagnose_tabel[(self.__specialisme_code, self.__diagnose_code)]:
+        if (self.__specialisme_code, self.__diagnose_code) in self.__diagnose_tabel:
+            for referentie in self.__diagnose_tabel[(self.__specialisme_code, self.__diagnose_code)]:
                 if referentie['begin_datum'] <= datum <= referentie['eind_datum']:
                     # Een geldige referentie rij gevonden.
                     return referentie
@@ -123,16 +123,7 @@ class Diagnose:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_code(self) -> str:
-        """
-        Geeft de diagnosecode van deze diagnose.
-
-        :rtype: str
-        """
-        return self.__diagnose_code
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_attribute_aantal(self, diagnose_attribute_code: str, datum: str) -> int:
+    def diagnose_attribute_aantal(self, diagnose_attribute_code: str, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voldoet aan een (specialismecode, diagnosecode)
         op een peildatum.
@@ -142,7 +133,7 @@ class Diagnose:
 
         :rtype: int
         """
-        referentie = self._get_diagnose_referentie(datum)
+        referentie = self.__diagnose_referentie(datum)
 
         if not referentie:
             # De diagnose komt niet voor in de referentie tabel. Geef 0 terug.
@@ -154,7 +145,7 @@ class Diagnose:
         return 0
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_diagnose_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
+    def diagnose_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voorkomt in een diagnosecodecluster op een peildatum.
 
@@ -164,7 +155,7 @@ class Diagnose:
 
         :rtype: int
         """
-        referentie = self._get_diagnose_referentie(datum)
+        referentie = self.__diagnose_referentie(datum)
 
         if not referentie:
             # De diagnose komt niet voor in de referentie tabel. Geef 0 terug.

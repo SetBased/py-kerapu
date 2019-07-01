@@ -52,7 +52,7 @@ class ZorgVraag:
         ZorgVraag.__lees_zorg_vraag_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __get_zorg_vraag_referentie(self, datum) -> Optional[dict]:
+    def __zorg_vraag_referentie(self, datum) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze zorg_vraag in de zorgvraag referentietabel.
 
@@ -74,7 +74,7 @@ class ZorgVraag:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_vraag_attribute_aantal(self, zorg_vraag_attribuut_code: str, datum: str) -> int:
+    def zorg_vraag_attribute_aantal(self, zorg_vraag_attribuut_code: str, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) data deze diagnose voldoet aan een (specialismecode, zorgvraagcode)
         combinatie op een peildatum.
@@ -84,7 +84,7 @@ class ZorgVraag:
 
         :rtype: int
         """
-        referentie = self.__get_zorg_vraag_referentie(datum)
+        referentie = self.__zorg_vraag_referentie(datum)
 
         if not referentie:
             # De diagnose komt niet voor in de referentie tabel. Geef 0 terug.
@@ -96,7 +96,7 @@ class ZorgVraag:
         return 0
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_vraag_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
+    def zorg_vraag_cluster_aantal(self, cluster_code: str, cluster_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat deze zorgvraag voorkomt in een zorgvraagcluster op een peildatum.
 
@@ -106,7 +106,7 @@ class ZorgVraag:
 
         :rtype: int
         """
-        referentie = self.__get_zorg_vraag_referentie(datum)
+        referentie = self.__zorg_vraag_referentie(datum)
 
         if not referentie:
             # Deze zorgvraag komt niet voor in de referentie tabel. Geef 0 terug.

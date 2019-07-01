@@ -23,6 +23,6 @@ class ZorgVraagCode(BoomParameter):
 
         :rtype: int
         """
-        return subtraject.get_zorg_vraag_attribuut_telling(zorg_vraag_attribuut_code)
+        return subtraject.telling_zorg_vraag_attribuut(zorg_vraag_attribuut_code)
 
 # ----------------------------------------------------------------------------------------------------------------------

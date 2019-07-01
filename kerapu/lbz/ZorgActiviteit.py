@@ -228,7 +228,7 @@ class ZorgActiviteit:
             return zorg_activiteit_code
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __get_zorg_activiteit_referentie(self, datum: str) -> Optional[dict]:
+    def __zorg_activiteit_referentie(self, datum: str) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze zorgactiviteit in de zorgactiviteiten referentietabel.
 
@@ -252,10 +252,10 @@ class ZorgActiviteit:
             return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __get_behandel_klasse_referentie(self,
-                                         zorg_product_groep_code: str,
-                                         behandel_klasse_code: str,
-                                         datum: str) -> Optional[dict]:
+    def __behandel_klasse_referentie(self,
+                                     zorg_product_groep_code: str,
+                                     behandel_klasse_code: str,
+                                     datum: str) -> Optional[dict]:
         """
         Zoekt de referentie data voor deze zorgactiviteit in de behandelklasse referentietabel.
 
@@ -279,11 +279,11 @@ class ZorgActiviteit:
         return None
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_behandel_klasse_aantal(self,
-                                   zorg_product_groep_code: str,
-                                   behandel_klasse_code: str,
-                                   weeg_factor_nummer: int,
-                                   datum: str) -> int:
+    def behandel_klasse_aantal(self,
+                               zorg_product_groep_code: str,
+                               behandel_klasse_code: str,
+                               weeg_factor_nummer: int,
+                               datum: str) -> int:
         """
         Geeft het aantal malen (met inachtneming van weegfactor) dat deze zorgactiviteit voorkomt in een
         behandleklasse op een peildatum.
@@ -295,7 +295,7 @@ class ZorgActiviteit:
 
         :rtype: int
         """
-        referentie = self.__get_behandel_klasse_referentie(zorg_product_groep_code, behandel_klasse_code, datum)
+        referentie = self.__behandel_klasse_referentie(zorg_product_groep_code, behandel_klasse_code, datum)
 
         if not referentie:
             # De (zorgproductgroepcode,zorgactiviteitcode,behandelklassecode) komt niet voor in de referentie tabel.
@@ -315,7 +315,7 @@ class ZorgActiviteit:
         raise RuntimeError("Onbekend weegfactornummer %d." % weeg_factor_nummer)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_activiteit_aantal(self, zorg_activiteit_code: str, weeg_factor_nummer: int, datum: str) -> int:
+    def zorg_activiteit_aantal(self, zorg_activiteit_code: str, weeg_factor_nummer: int, datum: str) -> int:
         """
         Geeft het aantal malen (met inachtneming van weegfactor) dat deze zorgactiviteit voldoet aan een
         zorgactiviteitcode.
@@ -326,7 +326,7 @@ class ZorgActiviteit:
 
         :rtype: int
         """
-        referentie = self.__get_zorg_activiteit_referentie(datum)
+        referentie = self.__zorg_activiteit_referentie(datum)
 
         if not referentie:
             # De zorgactiviteitcode komt niet voor in de referentie tabel. Geef 0 terug.
@@ -348,11 +348,11 @@ class ZorgActiviteit:
         raise RuntimeError("Onbekend weegfactornummer %d." % weeg_factor_nummer)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def get_zorg_activiteit_cluster_aantal(self,
-                                           cluster_code: str,
-                                           cluster_nummer: int,
-                                           weeg_factor_nummer: int,
-                                           datum: str) -> int:
+    def zorg_activiteit_cluster_aantal(self,
+                                       cluster_code: str,
+                                       cluster_nummer: int,
+                                       weeg_factor_nummer: int,
+                                       datum: str) -> int:
         """
         Geeft het aantal malen (met inachtneming van weegfactor) dat deze zorgactiviteit voorkomt in een
         zorgactiviteitcluster.
@@ -364,7 +364,7 @@ class ZorgActiviteit:
 
         :rtype: int
         """
-        referentie = self.__get_zorg_activiteit_referentie(datum)
+        referentie = self.__zorg_activiteit_referentie(datum)
 
         if not referentie:
             # De zorgactiviteitcode komt niet voor in de referentie tabel. Geef 0 terug.

@@ -61,7 +61,7 @@ class ZorgProductGroepVersie:
 
         :rtype: bool
         """
-        return self.__begin_datum <= subtraject.get_begin_datum() <= self.__eind_datum
+        return self.__begin_datum <= subtraject.begin_datum <= self.__eind_datum
 
     # ------------------------------------------------------------------------------------------------------------------
     def klim(self, subtraject: Subtraject) -> str:
