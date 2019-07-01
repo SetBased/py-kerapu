@@ -27,12 +27,8 @@ class BulkTest(TestCase):
 
         :param kerapu.lbz.Subtraject.Subtraject subtraject: Het subtraject.
         """
-        zorg_product_groep_code = self.__grouper.bepaal_zorg_product_groep(subtraject)
-        subtraject.set_zorg_product_groep_code(zorg_product_groep_code)
-
-        if zorg_product_groep_code != '0':
-            zorg_product_code = self.__grouper.bepaal_zorg_product(subtraject, zorg_product_groep_code)
-            self.assertEqual(zorg_product_code, expected, subtraject.get_subtraject_nummer())
+        zorg_product_code = self.__grouper.bepaal_zorg_product(subtraject)
+        self.assertEqual(zorg_product_code, expected, subtraject.get_subtraject_nummer())
 
     # ------------------------------------------------------------------------------------------------------------------
     def bulk_test_file(self, filename):

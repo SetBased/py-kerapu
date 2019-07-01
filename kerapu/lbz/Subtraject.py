@@ -1,7 +1,9 @@
 """
 Kerapu
 """
-from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, LEN_ZORG_PRODUCT_GROEP_CODE
+from typing import Optional
+
+from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, LEN_ZORG_PRODUCT_GROEP_CODE, LEN_ZORG_PRODUCT_CODE
 from kerapu.lbz.Diagnose import Diagnose
 from kerapu.lbz.Patient import Patient
 from kerapu.lbz.Specialisme import Specialisme
@@ -26,7 +28,7 @@ class Subtraject:
                  begin_datum: str,
                  geboorte_datum: str,
                  geslacht_code: str,
-                 zorg_instelling_code: str = ''):
+                 zorg_instelling_code: str):
         """
         Object constructor.
 
@@ -103,11 +105,18 @@ class Subtraject:
         :type: list[kerapu.lbz.ZorgActiviteit.ZorgActiviteit]
         """
 
-        self.__zorg_product_groep_code = ''
+        self.__zorg_product_code = None
+        """
+        De zorgproductcode (zoals afgeleid door Kerapu).
+
+        :type: str|None
+        """
+
+        self.__zorg_product_groep_code = None
         """
         De zorgproductgroepcode (zoals afgeleid door Kerapu).
 
-        :type: str
+        :type: str|None
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -264,15 +273,6 @@ class Subtraject:
         return self.__diagnose.get_diagnose_attribute_aantal(diagnose_attribuut_code, self.__begin_datum)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def set_zorg_product_groep_code(self, zorg_product_groep_code: str):
-        """
-        Zet de zorgproductgroepcode van dit subtraject.
-
-        :param str zorg_product_groep_code: De zorgproductgroepcode.
-        """
-        self.__zorg_product_groep_code = clean_code(zorg_product_groep_code, LEN_ZORG_PRODUCT_GROEP_CODE)
-
-    # ------------------------------------------------------------------------------------------------------------------
     def get_zorg_instelling_telling(self, agb_code: str) -> int:
         """
         Geeft het aantal malen (d.w.z. 0 of 1) dat de zorginstelling van dit subtraject voldoet aan AGB-code.
@@ -329,5 +329,51 @@ class Subtraject:
         :rtype: int
         """
         return self.__patient.get_leeftijd(self.__begin_datum)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @property
+    def zorg_product_code(self) -> Optional[str]:
+        """
+        Geeft de zorgproductcode van dit subtraject.
+
+        :rtype: str|None
+        """
+        return self.__zorg_product_code
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @zorg_product_code.setter
+    def zorg_product_code(self, zorg_product_code: Optional[str]) -> None:
+        """
+        Zet de zorgproductcode van dit subtraject.
+
+        :param str zorg_product_code: De zorgproductcode.
+        """
+        if zorg_product_code != '' and zorg_product_code is not None:
+            self.__zorg_product_code = clean_code(zorg_product_code, LEN_ZORG_PRODUCT_CODE)
+        else:
+            self.__zorg_product_groep_code = None
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @property
+    def zorg_product_groep_code(self) -> Optional[str]:
+        """
+        Geeft de zorgproductgroepcode van dit subtraject.
+
+        :rtype: str|None
+        """
+        return self.__zorg_product_groep_code
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @zorg_product_groep_code.setter
+    def zorg_product_groep_code(self, zorg_product_groep_code: Optional[str]):
+        """
+        Zet de zorgproductgroepcode van dit subtraject.
+
+        :param str zorg_product_groep_code: De zorgproductgroepcode.
+        """
+        if zorg_product_groep_code != '' and zorg_product_groep_code is not None:
+            self.__zorg_product_groep_code = clean_code(zorg_product_groep_code, LEN_ZORG_PRODUCT_GROEP_CODE)
+        else:
+            self.__zorg_product_groep_code = None
 
 # ----------------------------------------------------------------------------------------------------------------------

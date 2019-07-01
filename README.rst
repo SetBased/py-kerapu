@@ -62,7 +62,8 @@ Hieronder een voorbeeld om de zorgproductcode van een subtraject af te leiden.
                            '000',           # Zorgvraagcode
                            '2012-01-01',    # Begindatum subtraject
                            '2000-01-01',    # Geboortedatum
-                           'M')             # Geslachtscode
+                           'M'              # Geslachtscode
+                           '01234567')      # AGB-code zorginstelling
 
    # Voeg uitgevoerde zorgactiviteiten aan het subtraject toe.
    subtraject.add_zorg_activiteit('038940', 1)
@@ -71,10 +72,10 @@ Hieronder een voorbeeld om de zorgproductcode van een subtraject af te leiden.
    subtraject.add_zorg_activiteit('190015', 1)
 
    # Bepaal zorgproductgroep en zorgproduct.
-   zorg_product_groep_code = grouper.bepaal_zorg_product_groep(subtraject)
-   if zorg_product_groep_code != '0':
-       zorg_product_code = grouper.bepaal_zorg_product(subtraject, zorg_product_groep_code)
-       print('Zorgproductcode: {}'.format(zorg_product_code))
+   zorg_product_code = grouper.bepaal_zorg_product(subtraject)
+
+   print('Zorgproductgroepcode: {}'.format(subtraject.zorg_product_groep_code))
+   print('Zorgproductcode: {}'.format(subtraject.zorg_product_code))
 
 Testset
 =======

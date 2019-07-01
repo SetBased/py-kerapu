@@ -272,21 +272,27 @@ class Kerapu:
         :rtype: str
         """
         top_boom = self.__zorgproductgroep_boom['0']
+        subtraject.zorg_product_groep_code = top_boom.klim(subtraject)
 
-        return top_boom.klim(subtraject)
+        return subtraject.zorg_product_groep_code
 
     # ------------------------------------------------------------------------------------------------------------------
-    def bepaal_zorg_product(self, subtraject: Subtraject, zorg_product_groep_code: str) -> str:
+    def bepaal_zorg_product(self, subtraject: Subtraject) -> str:
         """
         Bepaalt de zorgproduct van een subtraject.
 
         :param Subtraject subtraject: Het subtraject waarvoor de zorgproductcode moet worden bepaalt.
-        :param str zorg_product_groep_code: De zorgproductgroep van het subtraject.
 
         :rtype: str
         """
-        top_boom = self.__zorgproductgroep_boom[zorg_product_groep_code]
+        zorg_product_groep_code = self.bepaal_zorg_product_groep(subtraject)
 
-        return top_boom.klim(subtraject)
+        if zorg_product_groep_code is not None:
+            top_boom = self.__zorgproductgroep_boom[zorg_product_groep_code]
+            subtraject.zorg_product_code = top_boom.klim(subtraject)
+        else:
+            subtraject.zorg_product_code = None
+
+        return subtraject.zorg_product_code
 
 # ----------------------------------------------------------------------------------------------------------------------
