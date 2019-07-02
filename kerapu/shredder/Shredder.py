@@ -66,7 +66,7 @@ class Shredder:
             raise ValueError("fields and xpaths must have equal length")
 
         # Open the file and create CSV writer.
-        file = open(self.__target_dir + '/' + filename, 'wt', encoding='utf-8')
+        file = open(self.__target_dir + '/' + filename, 'w', encoding='utf-8')
         writer = csv.writer(file)
 
         # Write header row.

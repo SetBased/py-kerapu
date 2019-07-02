@@ -260,8 +260,8 @@ class TestShredderCommand(Command):
         self.__extract_zip_file(zip_filename, tmp_dir)
         files = self.__lees_test_cases_lijst(tmp_dir)
 
-        with open(csv_filename, 'wt', encoding='utf-8') as handle:
-            csv_writer = csv.writer(handle, lineterminator='\n', delimiter=',')
+        with open(csv_filename, 'w', encoding='utf-8') as handle:
+            csv_writer = csv.writer(handle, dialect=csv.unix_dialect)
             self.__extract_files(csv_writer, files)
 
         shutil.rmtree(tmp_dir)

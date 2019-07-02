@@ -37,8 +37,8 @@ class BulkTest(TestCase):
 
         :type: str filename The file with test cases.
         """
-        with open(filename, 'rt', encoding='utf-8') as handle:
-            csv_reader = csv.reader(handle, lineterminator='\n', delimiter=',')
+        with open(filename, 'r', encoding='utf-8') as handle:
+            csv_reader = csv.reader(handle, dialect=csv.unix_dialect)
 
             subtraject = None
             zorg_product_code = None
