@@ -41,8 +41,8 @@ class Specialisme:
 
         :param str folder: De folder met alle goupertabellen.
         """
-        with open(folder + '/Specialismen.csv', encoding='utf-8') as csv_file:
-            reader = csv.reader(csv_file, )
+        with open(folder + '/Specialismen.csv', 'r', encoding='utf-8') as csv_file:
+            reader = csv.reader(csv_file)
             regel_nummer = 0
             for regel in reader:
                 regel_nummer += 1
