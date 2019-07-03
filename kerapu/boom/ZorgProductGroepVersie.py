@@ -45,7 +45,7 @@ class ZorgProductGroepVersie:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def is_actueel(self, subtraject: Subtraject):
+    def is_actueel(self, subtraject: Subtraject) -> bool:
         """
         Geeft True als deze versie actueel is voor een subtraject, anders False.
 

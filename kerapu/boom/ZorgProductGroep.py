@@ -30,7 +30,7 @@ class ZorgProductGroep:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def versie_toevoegen(self, versie: ZorgProductGroepVersie):
+    def versie_toevoegen(self, versie: ZorgProductGroepVersie) -> None:
         """
         Voegt een versie toe aan de lijst met versies voor dit zorgproductgroep.
 

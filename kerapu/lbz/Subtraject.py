@@ -28,7 +28,7 @@ class Subtraject:
                  begin_datum: str,
                  geboorte_datum: str,
                  geslacht_code: str,
-                 zorg_instelling_code: str):
+                 zorg_instelling_code: str) -> None:
         """
         Object constructor.
 
@@ -98,7 +98,7 @@ class Subtraject:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def add_zorg_activiteit(self, zorg_activiteit_code: str, aantal: int):
+    def add_zorg_activiteit(self, zorg_activiteit_code: str, aantal: int) -> None:
         """
         Voegt een zorgactiviteit toe and dit subtraject.
 
@@ -346,7 +346,7 @@ class Subtraject:
 
     # ------------------------------------------------------------------------------------------------------------------
     @zorg_product_groep_code.setter
-    def zorg_product_groep_code(self, zorg_product_groep_code: Optional[str]):
+    def zorg_product_groep_code(self, zorg_product_groep_code: Optional[str]) -> None:
         """
         Zet de zorgproductgroepcode van dit subtraject.
 

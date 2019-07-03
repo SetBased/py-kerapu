@@ -47,7 +47,7 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_zorgactiviteiten_tabel(folder: str):
+    def __lees_zorgactiviteiten_tabel(folder: str) -> None:
         """
         Leest de zorgactiviteiten referentietabel (opgeslagen in CSV).
 
@@ -106,7 +106,7 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_zorg_activiteiten_vertaal_tabel(folder: str):
+    def __lees_zorg_activiteiten_vertaal_tabel(folder: str) -> None:
         """
         Leest de zorgactiviteiten vertaaltabel (opgeslagen in CSV).
 
@@ -143,7 +143,7 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_behandel_klasse_tabel(folder: str):
+    def __lees_behandel_klasse_tabel(folder: str) -> None:
         """
         Leest de behandelklasse tabel (opgeslagen in CSV).
 
@@ -182,7 +182,7 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def init_static(folder: str):
+    def init_static(folder: str) -> None:
         """
         Initialiseert alle statistische data.
 
@@ -194,7 +194,7 @@ class ZorgActiviteit:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __vertaal_zorgactiviteit_code(zorg_activiteit_code: str, datum: str):
+    def __vertaal_zorgactiviteit_code(zorg_activiteit_code: str, datum: str) -> str:
         """
         Vertaalt een "nieuwe" zorgactiviteitcode naar een "oude" zorgactiviteitcode die geldig is ten tijde van het
         begin van het subtraject.

@@ -37,7 +37,7 @@ class Diagnose:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_diagnose_tabel(folder: str):
+    def __lees_diagnose_tabel(folder: str) -> None:
         """
         Leest de diagnose referentietabel (opgeslagen in CSV).
 
@@ -88,7 +88,7 @@ class Diagnose:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def init_static(folder: str):
+    def init_static(folder: str) -> None:
         """
         Initialiseert alle statistische data.
 

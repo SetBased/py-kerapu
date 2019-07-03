@@ -18,7 +18,7 @@ class ShredderCommand(Command):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def handle(self):
+    def handle(self) -> int:
         """
         Executes the command.
         """

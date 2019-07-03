@@ -13,7 +13,7 @@ class KerapuStyle(CleoStyle):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, input_object: Input, output_object: Output):
+    def __init__(self, input_object: Input, output_object: Output) -> None:
         """
         Object constructor.
 
@@ -29,7 +29,7 @@ class KerapuStyle(CleoStyle):
         output_object.get_formatter().add_style('fso', 'white', None, ['bold'])
 
     # ------------------------------------------------------------------------------------------------------------------
-    def text(self, message: Union[str, list, None]):
+    def text(self, message: Union[str, list, None]) -> None:
         if isinstance(message, list):
             messages = message
         else:

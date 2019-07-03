@@ -211,7 +211,7 @@ class TestShredderCommand(Command):
 
     # ----------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __write_subtraject(writer, subtraject: Dict):
+    def __write_subtraject(writer, subtraject: Dict) -> None:
         """
         Schrijft het subtraject met alle zorgactiviteiten naar een CSV-bestand.
 
@@ -233,7 +233,7 @@ class TestShredderCommand(Command):
             writer.writerow((zorgactiviteit[0], zorgactiviteit[1]))
 
     # ----------------------------------------------------------------------------------------------------------------------
-    def __extract_files(self, writer, filenames: List):
+    def __extract_files(self, writer, filenames: List) -> None:
         """
         Extract de data van een lijst met XML-bestanden met test cases en schrijft deze data naar een CSV-bestand.
 
@@ -245,7 +245,7 @@ class TestShredderCommand(Command):
             self.__write_subtraject(writer, subtraject)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def handle(self):
+    def handle(self) -> int:
         """
         Executes the command.
         """

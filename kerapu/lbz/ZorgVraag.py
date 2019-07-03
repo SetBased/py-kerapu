@@ -37,7 +37,7 @@ class ZorgVraag:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def init_static(folder: str):
+    def init_static(folder: str) -> None:
         """
         Initialiseert alle statistische data.
 
@@ -120,7 +120,7 @@ class ZorgVraag:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_zorg_vraag_tabel(folder: str):
+    def __lees_zorg_vraag_tabel(folder: str) -> None:
         """
         Leest de zorg_vraag referentietabel (opgeslagen in CSV).
 

@@ -64,7 +64,7 @@ class BeslisRegel:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def verrijk(self, beslist_regel_true, beslist_regel_false):
+    def verrijk(self, beslist_regel_true, beslist_regel_false) -> None:
         """
         Verrijkt deze beslisregel met beslisregels voor True and False.
 

@@ -18,7 +18,7 @@ class Specialisme:
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, specialisme_code: str):
+    def __init__(self, specialisme_code: str) -> None:
         """
         Object constructor.
 
@@ -31,7 +31,7 @@ class Specialisme:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __lees_specialisme_tabel(folder: str):
+    def __lees_specialisme_tabel(folder: str) -> None:
         """
         Leest de specialisme referentietabel (opgeslagen in CSV).
 
@@ -68,7 +68,7 @@ class Specialisme:
 
     # ------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def init_static(folder: str):
+    def init_static(folder: str) -> None:
         """
         Initialiseert alle statistische data.
 

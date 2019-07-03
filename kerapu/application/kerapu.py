@@ -4,7 +4,7 @@ Kerapu
 from kerapu.application.KerapuApplication import KerapuApplication
 
 
-def main():
+def main() -> None:
     """
     Entry point for the kerapu console script.
     """

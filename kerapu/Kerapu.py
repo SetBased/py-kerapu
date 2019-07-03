@@ -55,7 +55,7 @@ class Kerapu:
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def init_static(self, folder: str):
+    def init_static(self, folder: str) -> None:
         """
         Initialiseert alle statistische data.
 
@@ -74,7 +74,7 @@ class Kerapu:
         ZorgVraag.init_static(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_attribuut_tabel(self, folder: str):
+    def __lees_attribuut_tabel(self, folder: str) -> None:
         """
         Leest de attribuuttabel (opgeslagen in CSV).
 
@@ -107,7 +107,7 @@ class Kerapu:
         print("Aantal attributen: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_attribuut_groep_koppeling_tabel(self, folder: str):
+    def __lees_attribuut_groep_koppeling_tabel(self, folder: str) -> None:
         """
         Leest de  attribuutgroepkoppelingen (opgeslagen in CSV).
 
@@ -146,7 +146,7 @@ class Kerapu:
         print("Aantal attribuutgroepkoppelingen: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_attribuut_groepen_tabel(self, folder: str):
+    def __lees_attribuut_groepen_tabel(self, folder: str) -> None:
         """
         Leest de attribuutgroepen (opgeslagen in CSV).
 
@@ -176,7 +176,7 @@ class Kerapu:
         print("Aantal attributen: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_beslis_regel_tabel(self, folder: str):
+    def __lees_beslis_regel_tabel(self, folder: str) -> None:
         """
         Leest de beslisregels (opgeslagen in CSV).
 
@@ -221,7 +221,7 @@ class Kerapu:
         print("Aantal beslisregels: %d" % (regel_nummer - 1))
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_zorg_product_groepen(self, folder: str):
+    def __lees_zorg_product_groepen(self, folder: str) -> None:
         """
         Leest de zorgproductgroepen (opgeslagen in CSV).
 

@@ -15,7 +15,7 @@ class Attribuut21(Attribuut):
                  attribuut_id: int,
                  boom_parameter_nummer: int,
                  onder_filter_waarde: int,
-                 boven_filter_waarde: int):
+                 boven_filter_waarde: int) -> None:
         """
         Object constructor.
 
@@ -37,7 +37,7 @@ class Attribuut21(Attribuut):
         """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def tel(self, subtraject: Subtraject):
+    def tel(self, subtraject: Subtraject) -> int:
         """
         Geeft het aantal malen dat de boomparameter voldoet aan de voorwaarde van dit attribuut.
 

@@ -49,7 +49,7 @@ class Shredder:
         return ''
 
     # ------------------------------------------------------------------------------------------------------------------
-    def extract_table(self, table: Element, filename: str, fields: List, xpaths: List):
+    def extract_table(self, table: Element, filename: str, fields: List, xpaths: List) -> None:
         """
         Extracts een groupertabel uit XML een slaat de tabel op in een CSV-bestand.
 
