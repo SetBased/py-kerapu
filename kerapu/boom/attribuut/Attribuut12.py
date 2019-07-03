@@ -21,11 +21,9 @@ class Attribuut12(Attribuut):
         """
         Attribuut.__init__(self, attribuut_id, boom_parameter_nummer)
 
-        self._filter_waarde = filter_waarde
+        self._filter_waarde: str = filter_waarde
         """
         De waarde om dit attribuut the laten vuren.
-
-        :type: str
         """
 
     # ------------------------------------------------------------------------------------------------------------------

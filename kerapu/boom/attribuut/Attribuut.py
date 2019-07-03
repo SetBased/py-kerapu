@@ -3,7 +3,7 @@ Kerapu
 """
 import abc
 
-from kerapu.boom.boom_parameter import create_boom_parameter
+from kerapu.boom.boom_parameter import create_boom_parameter, BoomParameter
 from kerapu.lbz.Subtraject import Subtraject
 
 
@@ -20,17 +20,14 @@ class Attribuut:
         :param int attribuut_id: Het ID van dit attribuut.
         :param int boom_parameter_nummer: Het ID van de boomparameter va dit attribuut.
         """
-        self._attribuut_id = attribuut_id
+        self._attribuut_id: int = attribuut_id
         """
         Het ID van dit attribuut.
-
-        :type: int
         """
-        self._boom_parameter = create_boom_parameter(boom_parameter_nummer)
+
+        self._boom_parameter: BoomParameter = create_boom_parameter(boom_parameter_nummer)
         """
         De boomparameter van dit attribuut.
-
-        :type: BoomParameter
         """
 
     # ------------------------------------------------------------------------------------------------------------------

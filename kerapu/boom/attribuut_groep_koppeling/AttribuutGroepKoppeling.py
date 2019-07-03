@@ -20,18 +20,14 @@ class AttribuutGroepKoppeling:
         :param int attribute_groep_id: Het ID van deze koppeling.
         :param Attribuut attribuut: Het attribuut van deze koppeling.
         """
-        self._attribute_groep_id = attribute_groep_id
+        self._attribute_groep_id: int = attribute_groep_id
         """
         Het ID van deze attribuutgroepkoppeling.
-
-        :type: int
         """
 
-        self._attribuut = attribuut
+        self._attribuut: Attribuut = attribuut
         """
         Het attribuut van deze koppeling.
-
-        :type: kerapu.boom.attribuut.Attribuut.Attribuut
         """
 
     # ------------------------------------------------------------------------------------------------------------------

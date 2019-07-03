@@ -1,6 +1,8 @@
 """
 Kerapu
 """
+from typing import List
+
 from kerapu.boom.ZorgProductGroepVersie import ZorgProductGroepVersie
 from kerapu.lbz.Subtraject import Subtraject
 
@@ -17,18 +19,14 @@ class ZorgProductGroep:
 
         :param str zorg_product_groep_code: De zorgproductgroepcode.
         """
-        self._zorg_product_groep_code = zorg_product_groep_code
+        self._zorg_product_groep_code: str = zorg_product_groep_code
         """
         De zorgproductgroepcode.
-
-        :type: str
         """
 
-        self._versies = []
+        self._versies: List[ZorgProductGroepVersie] = []
         """
         De versies van de zorgproductgroep.
-
-        :type: list[ZorgProductGroepVersie]
         """
 
     # ------------------------------------------------------------------------------------------------------------------

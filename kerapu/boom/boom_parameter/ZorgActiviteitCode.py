@@ -23,7 +23,10 @@ class ZorgActiviteitCode(BoomParameter):
                                        * 1: weegfactor 1
                                        * 2: weegfactor 2
         """
-        self._weeg_factor_nummer = weeg_factor_nummer
+        self._weeg_factor_nummer: int = weeg_factor_nummer
+        """
+        Weegfactornummer.
+        """
 
     # ------------------------------------------------------------------------------------------------------------------
     def tel(self, zorg_activiteit_code: str, subtraject: Subtraject) -> int:

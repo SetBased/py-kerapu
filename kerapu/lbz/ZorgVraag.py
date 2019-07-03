@@ -2,7 +2,7 @@
 Kerapu
 """
 import csv
-from typing import Optional
+from typing import Optional, Dict, List, Tuple
 
 from kerapu import clean_code, LEN_SPECIALISME_CODE, LEN_ZORG_VRAAG_CODE, clean_str, clean_date
 
@@ -12,11 +12,9 @@ class ZorgVraag:
     Klasse voor zorgvragen.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    __zorg_vraag_tabel = {}
+    __zorg_vraag_tabel: Dict[Tuple[str, str], List[Dict[str, str]]] = {}
     """
     De zorgvragen referentietabel.
-
-    :type: dict[(str,str),list[dict[str,str]]]
     """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -27,18 +25,14 @@ class ZorgVraag:
         :param str specialisme_code: De code van het uitvoerend specialisme.
         :param str zorg_vraag_code: De code van deze zorgvraag.
         """
-        self.__specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
+        self.__specialisme_code: str = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
-
-        :type: str
         """
 
-        self.__zorg_vraag_code = clean_code(zorg_vraag_code, LEN_ZORG_VRAAG_CODE)
+        self.__zorg_vraag_code: str = clean_code(zorg_vraag_code, LEN_ZORG_VRAAG_CODE)
         """
         De code van deze zorgvraag.
-
-        :type: str
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -52,7 +46,7 @@ class ZorgVraag:
         ZorgVraag.__lees_zorg_vraag_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __zorg_vraag_referentie(self, datum) -> Optional[dict]:
+    def __zorg_vraag_referentie(self, datum: str) -> Optional[Dict[str, str]]:
         """
         Zoekt de referentie data voor deze zorg_vraag in de zorgvraag referentietabel.
 

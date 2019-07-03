@@ -2,7 +2,7 @@
 Kerapu
 """
 import csv
-from typing import Optional
+from typing import Optional, Dict, List, Tuple
 
 from kerapu import clean_code, clean_date, clean_str, LEN_DIAGNOSE_CODE, LEN_SPECIALISME_CODE
 
@@ -12,11 +12,9 @@ class Diagnose:
     Klasse voor diagnosen.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    __diagnose_tabel = {}
+    __diagnose_tabel: Dict[Tuple[str, str], List[Dict[str, str]]] = {}
     """
     De diagnosen referentietabel.
-
-    :type: dict[(str,str),list[dict[str,str]]]
     """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -27,18 +25,14 @@ class Diagnose:
         :param str specialisme_code: De code van het uitvoerend specialisme.
         :param str diagnose_code: De code van deze diagnose.
         """
-        self.__specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
+        self.__specialisme_code: str = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
-
-        :type: str
         """
 
-        self.__diagnose_code = clean_code(diagnose_code, LEN_DIAGNOSE_CODE)
+        self.__diagnose_code: str = clean_code(diagnose_code, LEN_DIAGNOSE_CODE)
         """
         De code van deze diagnose.
-
-        :type: str
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -103,7 +97,7 @@ class Diagnose:
         Diagnose.__lees_diagnose_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __diagnose_referentie(self, datum: str) -> Optional[dict]:
+    def __diagnose_referentie(self, datum: str) -> Optional[Dict]:
         """
         Zoekt de referentie data voor deze diagnose in de diagnosen referentietabel.
 

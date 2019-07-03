@@ -1,7 +1,7 @@
 """
 Kerapu
 """
-from typing import Optional
+from typing import Optional, List
 
 from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, LEN_ZORG_PRODUCT_GROEP_CODE, LEN_ZORG_PRODUCT_CODE
 from kerapu.lbz.Diagnose import Diagnose
@@ -42,65 +42,59 @@ class Subtraject:
         :param str geslacht_code: De code voor het geslacht van de patient.
         :param str zorg_instelling_code: De AGB-code van de uitvoerende zorginstelling.
         """
-        self.__subtraject_nummer = subtraject_nummer
+        self.__subtraject_nummer: str = subtraject_nummer
         """
         Het subtrajectnummer.
         """
 
-        self.__specialisme = Specialisme(specialisme_code)
+        self.__specialisme: Specialisme = Specialisme(specialisme_code)
         """
         Het uitvoerend specialisme.
         """
 
-        self.__begin_datum = begin_datum
+        self.__begin_datum: str = begin_datum
         """
         De begindatum van het subtraject.
         """
 
-        self.__patient = Patient(geboorte_datum, geslacht_code)
+        self.__patient: Patient = Patient(geboorte_datum, geslacht_code)
         """
         De patient.
         """
 
-        self.__zorg_instelling = ZorgInstelling(zorg_instelling_code)
+        self.__zorg_instelling: ZorgInstelling = ZorgInstelling(zorg_instelling_code)
         """
         De zorginstelling.
         """
 
-        self.__zorg_type = ZorgType(specialisme_code, zorg_type_code)
+        self.__zorg_type: ZorgType = ZorgType(specialisme_code, zorg_type_code)
         """
         Het zorgtype.
         """
 
-        self.__zorg_vraag = ZorgVraag(specialisme_code, zorg_vraag_code)
+        self.__zorg_vraag: ZorgVraag = ZorgVraag(specialisme_code, zorg_vraag_code)
         """
         De zorgvraag.
         """
 
-        self.__diagnose = Diagnose(specialisme_code, diagnose_code)
+        self.__diagnose: Diagnose = Diagnose(specialisme_code, diagnose_code)
         """
         De diagnose.
         """
 
-        self.__zorg_activiteiten = []
+        self.__zorg_activiteiten: List[ZorgActiviteit] = []
         """
         De zorgactiviteiten.
-
-        :type: list[kerapu.lbz.ZorgActiviteit.ZorgActiviteit]
         """
 
-        self.__zorg_product_code = None
+        self.__zorg_product_code: Optional[str] = None
         """
         De zorgproductcode (zoals afgeleid door Kerapu).
-
-        :type: str|None
         """
 
-        self.__zorg_product_groep_code = None
+        self.__zorg_product_groep_code: Optional[str] = None
         """
         De zorgproductgroepcode (zoals afgeleid door Kerapu).
-
-        :type: str|None
         """
 
     # ------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 Kerapu
 """
 import csv
-from typing import Optional
+from typing import Optional, Dict, List, Tuple
 
 from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, clean_int, clean_str, clean_date, LEN_ZORG_PRODUCT_GROEP_CODE
 
@@ -12,25 +12,19 @@ class ZorgActiviteit:
     Klasse voor zorgactiviteiten.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    __zorg_activiteiten_tabel = {}
+    __zorg_activiteiten_tabel: Dict[str, List[Dict[str, str]]] = {}
     """
     De zorgactiviteiten referentietabel.
-
-    :type: dict[str,list[dict[str,str]]]
     """
 
-    __zorg_activiteiten_vertaal_tabel = {}
+    __zorg_activiteiten_vertaal_tabel: Dict[str, List[Dict[str, str]]] = {}
     """
     De zorgactiviteiten vertaaltabel.
-
-    :type: dict[str,list[dict[str,str]]]
     """
 
-    __behandel_klassen_tabel = {}
+    __behandel_klassen_tabel: Dict[Tuple[str, str, str], List[Dict[str, str]]] = {}
     """
     De behandelklassen referentietabel.
-
-    :type: dict[(str,str,str),list[dict[str,str]]]
     """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -41,18 +35,14 @@ class ZorgActiviteit:
         :param str zorg_activiteit_code: De code van deze zorgactiviteit.
         :param int aantal: Het aantal malen dat deze zorgactiviteit is uitgevoerd.
         """
-        self.__zorg_activiteit_code = clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE)
+        self.__zorg_activiteit_code: str = clean_code(zorg_activiteit_code, LEN_ZORG_ACTIVITEIT_CODE)
         """
         De code van deze zorgactiviteit.
-
-        :type: str
         """
 
-        self.__aantal = clean_int(aantal, 0)
+        self.__aantal: int = clean_int(aantal, 0)
         """
         Het aantal malen dat deze zorgactiviteit is uitgevoerd.
-
-        :type: int
         """
 
     # ------------------------------------------------------------------------------------------------------------------

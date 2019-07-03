@@ -8,7 +8,7 @@ import random
 import shutil
 import string
 import zipfile
-from typing import Iterable
+from typing import Iterable, List, Dict
 
 from cleo import Command
 from lxml import etree
@@ -51,7 +51,7 @@ class TestShredderCommand(Command):
         return int(parts[6])
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __lees_test_cases_lijst(self, folder: str) -> list:
+    def __lees_test_cases_lijst(self, folder: str) -> List:
         """
         Geeft een lijst met alle bestanden in een folder.
 
@@ -115,7 +115,7 @@ class TestShredderCommand(Command):
         return date.isoformat()
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __shred_xml_bestand(self, filename: str) -> dict:
+    def __shred_xml_bestand(self, filename: str) -> Dict:
         """
         Leest de relevante data in een XML-bestand met een test case.
 
@@ -211,7 +211,7 @@ class TestShredderCommand(Command):
 
     # ----------------------------------------------------------------------------------------------------------------------
     @staticmethod
-    def __write_subtraject(writer, subtraject: dict):
+    def __write_subtraject(writer, subtraject: Dict):
         """
         Schrijft het subtraject met alle zorgactiviteiten naar een CSV-bestand.
 
@@ -233,7 +233,7 @@ class TestShredderCommand(Command):
             writer.writerow((zorgactiviteit[0], zorgactiviteit[1]))
 
     # ----------------------------------------------------------------------------------------------------------------------
-    def __extract_files(self, writer, filenames: list):
+    def __extract_files(self, writer, filenames: List):
         """
         Extract de data van een lijst met XML-bestanden met test cases en schrijft deze data naar een CSV-bestand.
 

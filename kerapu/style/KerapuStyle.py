@@ -13,20 +13,20 @@ class KerapuStyle(CleoStyle):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __init__(self, input: Input, output: Output):
+    def __init__(self, input_object: Input, output_object: Output):
         """
         Object constructor.
 
-        :param Input input: The input object.
-        :param Output output: The output object.
+        :param Input input_object: The input object.
+        :param Output output_object: The output object.
         """
-        CleoStyle.__init__(self, input, output)
+        CleoStyle.__init__(self, input_object, output_object)
 
         # Create style notes.
-        output.get_formatter().add_style('note', 'yellow', None, ['bold'])
+        output_object.get_formatter().add_style('note', 'yellow', None, ['bold'])
 
         # Create style for file and directory names.
-        output.get_formatter().add_style('fso', 'white', None, ['bold'])
+        output_object.get_formatter().add_style('fso', 'white', None, ['bold'])
 
     # ------------------------------------------------------------------------------------------------------------------
     def text(self, message: Union[str, list, None]):

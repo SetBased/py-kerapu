@@ -27,18 +27,14 @@ class AttribuutGroepKoppeling2(AttribuutGroepKoppeling):
         """
         AttribuutGroepKoppeling.__init__(self, attribute_groep_id, attribuut)
 
-        self._onder_toets_waarde = onder_toets_waarde
+        self._onder_toets_waarde: int = onder_toets_waarde
         """
         De ondergrens om deze koppeling the laten vuren.
-
-        :type: int
         """
 
-        self._boven_toets_waarde = boven_toets_waarde
+        self._boven_toets_waarde: int = boven_toets_waarde
         """
         De bovengrens om deze koppeling the laten vuren.
-
-        :type: int
         """
 
     # ------------------------------------------------------------------------------------------------------------------

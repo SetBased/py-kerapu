@@ -16,11 +16,9 @@ class ZorgInstelling:
 
         :param str zorg_instelling_code: De code van deze zorginstelling.
         """
-        self.__zorg_instelling_code = clean_code(zorg_instelling_code, LEN_ZORG_INSTELLING_CODE)
+        self.__zorg_instelling_code: str = clean_code(zorg_instelling_code, LEN_ZORG_INSTELLING_CODE)
         """
         De code van deze zorginstelling.
-
-        :type: str
         """
 
     # ------------------------------------------------------------------------------------------------------------------

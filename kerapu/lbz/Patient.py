@@ -16,8 +16,15 @@ class Patient:
         :param str geboorte_datum: De geboortedatum van de patiënt.
         :param str geslacht_code: Het geslacht van de patiënt.
         """
-        self.__geboorte_datum = geboorte_datum
-        self.__geslacht_code = Patient.normaliseer_geslacht_code(geslacht_code)
+        self.__geboorte_datum: str = geboorte_datum
+        """
+        De geboortedatum van de patiënt.
+        """
+
+        self.__geslacht_code: str = Patient.normaliseer_geslacht_code(geslacht_code)
+        """
+        Het geslacht van de patiënt.
+        """
 
     # ------------------------------------------------------------------------------------------------------------------
     @property

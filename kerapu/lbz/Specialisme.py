@@ -2,7 +2,7 @@
 Kerapu
 """
 import csv
-from typing import Optional
+from typing import Optional, Dict, List
 
 from kerapu import clean_code, clean_date, clean_str, LEN_SPECIALISME_CODE
 
@@ -12,11 +12,9 @@ class Specialisme:
     Klasse voor specialismen.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    _specialisme_tabel = {}
+    _specialisme_tabel: Dict[str, List[Dict[str, str]]] = {}
     """
     De specialismen referentietabel.
-    
-    :type: dict[str,list[dict[str,str]]]
     """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -26,11 +24,9 @@ class Specialisme:
 
         :param str specialisme_code: De code van het specialisme.
         """
-        self.__specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
+        self.__specialisme_code: str = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
-
-        :type: str
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -81,7 +77,7 @@ class Specialisme:
         Specialisme.__lees_specialisme_tabel(folder)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __get_specialisme_referentie(self, datum: str) -> Optional[dict]:
+    def __get_specialisme_referentie(self, datum: str) -> Optional[Dict]:
         """
         Zoekt de referentie data voor deze specialisme in de specialismen referentietabel.
 

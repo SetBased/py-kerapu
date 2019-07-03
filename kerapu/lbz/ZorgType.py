@@ -2,7 +2,7 @@
 Kerapu
 """
 import csv
-from typing import Optional
+from typing import Optional, Dict, List, Tuple
 
 from kerapu import clean_code, LEN_SPECIALISME_CODE, LEN_ZORG_TYPE_CODE, clean_str, clean_date
 
@@ -12,11 +12,9 @@ class ZorgType:
     Klasse voor zorgtypen.
     """
     # ------------------------------------------------------------------------------------------------------------------
-    __zorg_type_tabel = {}
+    __zorg_type_tabel: Dict[Tuple[str, str], List[Dict[str, str]]] = {}
     """
     De zorgtypen referentietabel.
-
-    :type: dict[(str,str),list[dict[str,str]]]
     """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -27,18 +25,14 @@ class ZorgType:
         :param str specialisme_code: De code van het uitvoerend specialisme.
         :param str zorg_type_code: De code van deze zorgtype.
         """
-        self.__specialisme_code = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
+        self.__specialisme_code: str = clean_code(specialisme_code, LEN_SPECIALISME_CODE)
         """
         De code van het uitvoerend specialisme.
-
-        :type: str
         """
 
-        self.__zorg_type_code = clean_code(zorg_type_code, LEN_ZORG_TYPE_CODE)
+        self.__zorg_type_code: str = clean_code(zorg_type_code, LEN_ZORG_TYPE_CODE)
         """
         De code van deze zorgtype.
-
-        :type: str
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -117,7 +111,7 @@ class ZorgType:
 
         if 1 <= cluster_nummer <= 2:
             if referentie['zorg_type_cluster%d' % cluster_nummer] == cluster_code:
-                # Deze zorgtype komt voor in het getypede cluster.
+                # Deze zorgtype komt voor in het zorgtype cluster.
                 return 1
 
             return 0

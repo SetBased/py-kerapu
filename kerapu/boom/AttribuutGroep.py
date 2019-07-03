@@ -1,6 +1,9 @@
 """
 Kerapu
 """
+from typing import List
+
+from kerapu.boom.attribuut_groep_koppeling import AttribuutGroepKoppeling
 from kerapu.lbz.Subtraject import Subtraject
 
 
@@ -13,7 +16,7 @@ class AttribuutGroep:
     def __init__(self,
                  attribute_groep_id: int,
                  aantal_voorwaarden_voor_true: int,
-                 koppelingen: list):
+                 koppelingen: List[AttribuutGroepKoppeling]):
         """
         Object constructor.
 
@@ -22,25 +25,19 @@ class AttribuutGroep:
         :param list[kerapu.boom.attribuut_groep_koppeling.AttribuutGroepKoppeling.AttribuutGroepKoppeling] koppelingen:
                De attribuutgroepkoppelingen.
         """
-        self._attribute_groep_id = attribute_groep_id
+        self._attribute_groep_id: int = attribute_groep_id
         """
         Het ID van deze attribuutgroep.
-
-        :type: int
         """
 
-        self._aantal_voorwaarden_voor_true = aantal_voorwaarden_voor_true
+        self._aantal_voorwaarden_voor_true: int = aantal_voorwaarden_voor_true
         """
         Het minimale aantal voorwaarden waaraan moet worden voldaan om deze attribuutgroep te laten vuren.
-
-        :type: int
         """
 
-        self._koppelingen = koppelingen
+        self._koppelingen: List[AttribuutGroepKoppeling] = koppelingen
         """
         De attribuutgroepkoppelingen.
-
-        :type: list[kerapu.boom.attribuut_groep_koppeling..AttribuutGroepKoppeling.AttribuutGroepKoppeling]
         """
 
     # ------------------------------------------------------------------------------------------------------------------

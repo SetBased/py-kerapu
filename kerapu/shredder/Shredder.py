@@ -2,6 +2,7 @@
 Kerapu
 """
 import csv
+from typing import List
 
 from lxml.etree import Element
 
@@ -20,18 +21,14 @@ class Shredder:
 
         :param str target_dir: De folder waar de CSV-bestanden moeten worden opgeslagen.
         """
-        self._io = io
+        self._io: KerapuStyle = io
         """
         The output decorator.
-
-        :type: KerapuStyle
         """
 
-        self.__target_dir = target_dir
+        self.__target_dir: str = target_dir
         """
         De folder waar de CSV-bestanden moeten worden opgeslagen.
-
-        :type: str
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -52,7 +49,7 @@ class Shredder:
         return ''
 
     # ------------------------------------------------------------------------------------------------------------------
-    def extract_table(self, table: Element, filename: str, fields: list, xpaths: list):
+    def extract_table(self, table: Element, filename: str, fields: List, xpaths: List):
         """
         Extracts een groupertabel uit XML een slaat de tabel op in een CSV-bestand.
 

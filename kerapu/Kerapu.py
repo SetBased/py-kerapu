@@ -2,11 +2,12 @@
 Kerapu
 """
 import csv
+from typing import Dict, List
 
 from kerapu import clean_str, clean_int, clean_bool, clean_date
-from kerapu.boom.attribuut import maak_attribuut
+from kerapu.boom.attribuut import maak_attribuut, Attribuut
 from kerapu.boom.AttribuutGroep import AttribuutGroep
-from kerapu.boom.attribuut_groep_koppeling import maak_attribuut_groep_koppeling
+from kerapu.boom.attribuut_groep_koppeling import maak_attribuut_groep_koppeling, AttribuutGroepKoppeling
 from kerapu.boom.BeslisRegel import BeslisRegel
 from kerapu.boom.ZorgProductGroep import ZorgProductGroep
 from kerapu.boom.ZorgProductGroepVersie import ZorgProductGroepVersie
@@ -28,39 +29,29 @@ class Kerapu:
         """
         Object constructor.
         """
-        self.__zorgproductgroep_boom = {}
+        self.__zorgproductgroep_boom: Dict[str, ZorgProductGroep] = {}
         """
         De zorgproductgroepboom. Sleutel is zorgproductgroepcode.
-
-        :type: dict[str,kerapu.boom.ZorgProductGroep.ZorgProductGroep]
         """
 
-        self.__beslisregels = {}
+        self.__beslisregels: Dict[int, BeslisRegel] = {}
         """
         Alle beslisregels. Sleutel is het ID van de beslisregel.
-
-        :type: dict[int,kerapu.boom.BeslisRegel.BeslisRegel]
         """
 
-        self.__attribuutgroepen = {}
+        self.__attribuutgroepen: Dict[int, AttribuutGroep] = {}
         """
         Alle attribuutgroepen. Sleutel is het ID van de attribuutgroep.
-
-        :type: dict[int,kerapu.boom.AttribuutGroep.AttribuutGroep]
         """
 
-        self.__attribuut_groep_koppelingen = {}
+        self.__attribuut_groep_koppelingen: Dict[int, List[AttribuutGroepKoppeling]] = {}
         """
         Alle attribuutgroepkoppelingen. Sleutel is het ID van de attribuutgroep.
-
-        :type: dict[int,list[kerapu.boom.attribuut_groep_koppeling..AttribuutGroepKoppeling.AttribuutGroepKoppeling]]
         """
 
-        self.__attributen = {}
+        self.__attributen: Dict[int, Attribuut] = {}
         """
         Alle attributen. Sleutel is het ID van het attribuut.
-
-        :type: dict[int,kerapu.boom.attribuut.Attribuut.Attribuut]
         """
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -87,7 +78,7 @@ class Kerapu:
         """
         Leest de attribuuttabel (opgeslagen in CSV).
 
-        :type: str folder De folder met alle groupertabellen in CSV-formaat.
+        :param str folder: De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/Attributen.csv', 'r', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file)
@@ -120,7 +111,7 @@ class Kerapu:
         """
         Leest de  attribuutgroepkoppelingen (opgeslagen in CSV).
 
-        :type: str folder De folder met alle groupertabellen in CSV-formaat.
+        :param str folder: De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/AttribuutGroepKoppelingen.csv', 'r', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file)
@@ -159,7 +150,7 @@ class Kerapu:
         """
         Leest de attribuutgroepen (opgeslagen in CSV).
 
-        :type: str folder De folder met alle groupertabellen in CSV-formaat.
+        :param str folder: De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/AttribuutGroepen.csv', 'r', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file)
@@ -189,7 +180,7 @@ class Kerapu:
         """
         Leest de beslisregels (opgeslagen in CSV).
 
-        :type: str folder De folder met alle groupertabellen in CSV-formaat.
+        :param str folder: De folder met alle groupertabellen in CSV-formaat.
         """
         verrijkingen = {}
         with open(folder + '/BeslisRegels.csv', 'r', encoding='utf-8') as csv_file:
@@ -234,7 +225,7 @@ class Kerapu:
         """
         Leest de zorgproductgroepen (opgeslagen in CSV).
 
-        :type: str folder De folder met alle groupertabellen in CSV-formaat.
+        :param str folder: De folder met alle groupertabellen in CSV-formaat.
         """
         with open(folder + '/ZorgProductGroepen.csv', 'r', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file)

@@ -1,6 +1,8 @@
 """
 Kerapu
 """
+from typing import Optional
+
 from kerapu.boom.AttribuutGroep import AttribuutGroep
 from kerapu.lbz.Subtraject import Subtraject
 
@@ -21,31 +23,45 @@ class BeslisRegel:
         Object constructor.
 
         :param int beslist_regel_id: Het ID van deze beslisregel.
-        :param kerapu.boom.AttribuutGroep.AttribuutGroep attribuut_groep: De attribuutgroep van deze beslisregel.
+        :param AttribuutGroep attribuut_groep: De attribuutgroep van deze beslisregel.
         :param str label_true: Label voor True.
         :param str label_false: Label voor False.
         :param bool indicatie_aanspraakbeperking: Vlag voor aanspraakbeperking.
         """
-        self._beslist_regel_id = beslist_regel_id
-
-        self._attribuut_groep = attribuut_groep
+        self._beslist_regel_id: int = beslist_regel_id
         """
-        :type: kerapu.boom.AttribuutGroep.AttribuutGroep
+         Het ID van deze beslisregel.
         """
 
-        self._beslist_regel_true = None
+        self._attribuut_groep: AttribuutGroep = attribuut_groep
         """
-        :type: BeslisRegel
-        """
-
-        self._beslist_regel_false = None
-        """
-        :type: BeslisRegel
+        De attribuutgroep van deze beslisregel.
         """
 
-        self._label_true = label_true
-        self._label_false = label_false
-        self._indicatie_aanspraakbeperking = indicatie_aanspraakbeperking
+        self._beslist_regel_true: Optional[BeslisRegel] = None
+        """
+        De beslisregel die gevolgt moet worden als deze beslisregel True is.
+        """
+
+        self._beslist_regel_false: Optional[BeslisRegel] = None
+        """
+        De beslisregel die gevolgt moet worden als deze beslisregel False is.
+        """
+
+        self._label_true: str = label_true
+        """
+        Label voor True.
+        """
+
+        self._label_false: str = label_false
+        """
+        Label voor False.
+        """
+
+        self._indicatie_aanspraakbeperking: bool = indicatie_aanspraakbeperking
+        """
+        Vlag voor aanspraakbeperking.
+        """
 
     # ------------------------------------------------------------------------------------------------------------------
     def verrijk(self, beslist_regel_true, beslist_regel_false):

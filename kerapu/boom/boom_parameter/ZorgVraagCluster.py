@@ -17,9 +17,12 @@ class ZorgVraagCluster(BoomParameter):
         """
         Object constructor.
 
-        :param int cluster_nummer: Het clusternummer (1..2):
+        :param int cluster_nummer: Het clusternummer (1..2).
         """
-        self._cluster_nummer = cluster_nummer
+        self._cluster_nummer: int = cluster_nummer
+        """
+        Het clusternummer (1..2).
+        """
 
     # ------------------------------------------------------------------------------------------------------------------
     def tel(self, cluster_code: str, subtraject: Subtraject) -> int:
