@@ -45,5 +45,5 @@ setup(
        ],
     },
 
-    install_requires=['lxml', 'cleo==0.6.1']
+    install_requires=['lxml', 'cleo==0.6.8']
 )
