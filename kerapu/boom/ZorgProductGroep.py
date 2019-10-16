@@ -36,7 +36,7 @@ class ZorgProductGroep:
         self._versies.append(versie)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def klim(self, subtraject: Subtraject)-> str:
+    def klim(self, subtraject: Subtraject) -> str:
         """
         Bepaalt de zorgproductgroepcode van een subtraject.
 
