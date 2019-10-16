@@ -1,8 +1,3 @@
-"""
-Kerapu
-"""
-
-
 class Patient:
     """
     Klasse voor patiëntenn.

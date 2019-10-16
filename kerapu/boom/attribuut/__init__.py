@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from kerapu.boom.attribuut.Attribuut import Attribuut
 from kerapu.boom.attribuut.Attribuut12 import Attribuut12
 from kerapu.boom.attribuut.Attribuut21 import Attribuut21

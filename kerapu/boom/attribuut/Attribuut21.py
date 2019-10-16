@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from kerapu.boom.attribuut.Attribuut import Attribuut
 from kerapu.lbz.Subtraject import Subtraject
 

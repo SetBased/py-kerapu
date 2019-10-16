@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from kerapu.boom.BeslisRegel import BeslisRegel
 from kerapu.lbz.Subtraject import Subtraject
 

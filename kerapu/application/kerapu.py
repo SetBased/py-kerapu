@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from kerapu.application.KerapuApplication import KerapuApplication
 
 

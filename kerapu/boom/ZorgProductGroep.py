@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from typing import List
 
 from kerapu.boom.ZorgProductGroepVersie import ZorgProductGroepVersie

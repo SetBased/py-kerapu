@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 import abc
 
 from kerapu.boom.boom_parameter import create_boom_parameter, BoomParameter

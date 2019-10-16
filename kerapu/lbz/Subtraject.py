@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from typing import Optional, List
 
 from kerapu import clean_code, LEN_ZORG_ACTIVITEIT_CODE, LEN_ZORG_PRODUCT_GROEP_CODE, LEN_ZORG_PRODUCT_CODE

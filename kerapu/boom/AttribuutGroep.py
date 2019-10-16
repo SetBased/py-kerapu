@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from typing import List
 
 from kerapu.boom.attribuut_groep_koppeling import AttribuutGroepKoppeling

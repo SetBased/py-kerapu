@@ -1,6 +1,3 @@
-"""
-PyStratum
-"""
 from typing import Union
 
 from cleo import Input, Output

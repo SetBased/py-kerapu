@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from kerapu import clean_code, LEN_ZORG_INSTELLING_CODE
 
 

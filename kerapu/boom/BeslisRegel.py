@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from typing import Optional
 
 from kerapu.boom.AttribuutGroep import AttribuutGroep

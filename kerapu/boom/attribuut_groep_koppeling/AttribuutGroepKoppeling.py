@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 import abc
 
 from kerapu.boom.attribuut.Attribuut import Attribuut

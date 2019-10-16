@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from cleo import Command
 
 from kerapu.shredder.BoomBestandenShredder import BoomBestandenShredder

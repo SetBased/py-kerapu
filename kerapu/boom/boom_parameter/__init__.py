@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from kerapu.boom.boom_parameter.BehandelKlasse import BehandelKlasse
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
 from kerapu.boom.boom_parameter.DiagnoseCluster import DiagnoseCluster

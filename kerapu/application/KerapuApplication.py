@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from typing import List
 
 from cleo import Application, Command

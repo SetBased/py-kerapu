@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 import abc
 
 from kerapu.lbz.Subtraject import Subtraject

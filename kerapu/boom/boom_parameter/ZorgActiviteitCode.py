@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from kerapu.boom.boom_parameter.BoomParameter import BoomParameter
 from kerapu.lbz.Subtraject import Subtraject
 

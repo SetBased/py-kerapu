@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from kerapu.boom.attribuut.Attribuut import Attribuut
 from kerapu.boom.attribuut_groep_koppeling.AttribuutGroepKoppeling import AttribuutGroepKoppeling
 from kerapu.boom.attribuut_groep_koppeling.AttribuutGroepKoppeling2 import AttribuutGroepKoppeling2

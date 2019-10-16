@@ -1,6 +1,3 @@
-"""
-Kerapu
-"""
 from lxml import etree
 
 from kerapu.shredder.Shredder import Shredder
