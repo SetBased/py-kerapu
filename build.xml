@@ -55,20 +55,10 @@
         <exec command="coverage3 html" passthru="true" checkreturn="true"/>
     </target>
 
-    <!-- Generates the API documentation -->
-    <target name="apidoc">
-        <delete includeemptydirs="true" verbose="false" failonerror="true">
-            <fileset dir="source">
-                <include name="**"/>
-                <exclude name="conf.py"/>
-                <exclude name="index.rst"/>
-                <exclude name="Makefile"/>
-                <exclude name="modules.rst"/>
-                <exclude name="_static"/>
-            </fileset>
-        </delete>
-        <exec command="sphinx-apidoc-3 -f kerapu/ -d 4 -e -P -o source/" passthru="true" checkreturn="true"/>
-        <exec command="sphinx-build-3 -b html -d build/doctrees source build/html" passthru="true" checkreturn="true"/>
+    <!-- Generates the documentation -->
+    <target name="docs">
+        <exec command="/usr/local/bin/sphinx-apidoc -o api --force --doc-project API --no-toc ../kerapu" dir="docs" passthru="true" checkreturn="true"/>
+        <exec command="make html" dir="docs" passthru="true" checkreturn="true"/>
     </target>
 
     <!-- Default target -->

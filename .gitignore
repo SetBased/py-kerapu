@@ -6,6 +6,7 @@
 /build/
 /composer.lock
 /dist/
+/docs/_build/
 /source/
 /test/html/
 /test/var/lib/AfsluitRedenen.csv
