@@ -22,7 +22,7 @@ class ShredderTest(TestCase):
         command = application.find('kerapu:shredder')
         command_tester = CommandTester(command)
         status = command_tester.execute([('command', command.get_name()),
-                                         ('XML-bestand', 'test/var/lib/20190101 Referenties v20180920.xml'),
+                                         ('XML-bestand', 'test/var/lib/20200101 Referenties v20190919.xml'),
                                          ('folder', 'test/var/lib')])
 
         output = command_tester.get_display().rstrip()
@@ -52,7 +52,7 @@ class ShredderTest(TestCase):
         command = application.find('kerapu:shredder')
         command_tester = CommandTester(command)
         status = command_tester.execute([('command', command.get_name()),
-                                         ('XML-bestand', 'test/var/lib/20190101 BoomBestanden v20180920.xml'),
+                                         ('XML-bestand', 'test/var/lib/20200101 BoomBestanden v20190919.xml'),
                                          ('folder', 'test/var/lib')])
 
         output = command_tester.get_display().rstrip()

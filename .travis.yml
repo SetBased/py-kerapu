@@ -6,13 +6,13 @@ python:
 sudo: true
 
 install:
-  - pip install cleo==0.6.1
+  - pip install cleo==0.6.8
   - pip install lxml
   - pip install coverage
 
 script:
   - cd $TRAVIS_BUILD_DIR
-  - unzip -x test/var/lib/20190101\ Groupertabellen\ v20180920.zip -d test/var/lib/
-  - python3 bin/kerapu kerapu:shredder test/var/lib/20190101\ BoomBestanden\ v20180920.xml  test/var/lib/
-  - python3 bin/kerapu kerapu:shredder test/var/lib/20190101\ Referenties\ v20180920.xml test/var/lib/
+  - unzip -x "test/var/lib/20200101 Groupertabellen v20190919.zip" -d test/var/lib/
+  - python3 bin/kerapu kerapu:shredder "test/var/lib/20200101 BoomBestanden v20190919.xml"  test/var/lib/
+  - python3 bin/kerapu kerapu:shredder "test/var/lib/20200101 Referenties v20190919.xml" test/var/lib/
   - python3 -m unittest discover -s test -p *Test.py
