@@ -1,5 +1,6 @@
-from setuptools import setup, find_packages
 from os import path
+
+from setuptools import find_packages, setup
 
 here = path.abspath(path.dirname(__file__))
 
@@ -7,46 +8,46 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as handle:
     long_description = handle.read()
 
 setup(
-    name='Kerapu',
+        name='Kerapu',
 
-    version='2.0.3',
+        version='2.0.3',
 
-    description='Een implementatie van de grouper',
-    long_description=long_description,
+        description='Een implementatie van de grouper',
+        long_description=long_description,
 
-    url='https://github.com/SetBased/py-kerapu',
+        url='https://github.com/SetBased/py-kerapu',
 
-    author='Paul Water',
-    author_email='p.r.water@setbased.nl',
+        author='Paul Water',
+        author_email='p.r.water@setbased.nl',
 
-    license='MIT',
+        license='MIT',
 
-    classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        classifiers=[
+            'Development Status :: 5 - Production/Stable',
 
-        'Intended Audience :: Developers',
+            'Intended Audience :: Developers',
 
-        'License :: OSI Approved :: MIT License',
-        'Natural Language :: Dutch',
-        'Operating System :: OS Independent',
+            'License :: OSI Approved :: MIT License',
+            'Natural Language :: Dutch',
+            'Operating System :: OS Independent',
 
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-    ],
+            'Programming Language :: Python :: 3',
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
+            'Programming Language :: Python :: 3.9',
+        ],
 
-    keywords='DBC Grouper',
+        keywords='DBC Grouper',
 
-    packages=find_packages(exclude=['build', 'test']),
+        packages=find_packages(exclude=['build', 'test']),
 
-    entry_points={
-       'console_scripts': [
-           'kerapu = kerapu.application.kerapu:main',
-       ],
-    },
+        entry_points={
+            'console_scripts': [
+                'kerapu = kerapu.application.kerapu:main',
+            ],
+        },
 
-    install_requires=['cleo==0.6.8',
-                      'lxml<5, >=4.6.1']
+        install_requires=['cleo==0.6.8',
+                          'lxml<5, >=4.6.1']
 )

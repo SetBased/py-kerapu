@@ -50,7 +50,7 @@
     </target>
 
     <!-- All steps for releasing a new version -->
-    <target name="release" depends="version,dist,upload"/>
+    <target name="release" depends="docs,version,dist,upload"/>
 
     <!-- Runs all unit tests-->
     <target name="unit">
