@@ -49,6 +49,9 @@
         <exec command="twine upload dist/Kerapu-${VERSION}.tar.gz" passthru="true" checkreturn="true"/>
     </target>
 
+    <!-- All steps for releasing a new version -->
+    <target name="release" depends="version,dist,upload"/>
+
     <!-- Runs all unit tests-->
     <target name="unit">
         <exec command="coverage3 run -m unittest discover -s test -p *Test.py" passthru="true" checkreturn="true"/>

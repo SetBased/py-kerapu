@@ -1,0 +1,6 @@
+# Must be aligned with setup.py.
+cleo==0.6.8
+lxml<5, >=4.6.1
+
+# For development only.
+coverage<6, >=5.3

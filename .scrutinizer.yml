@@ -1,19 +1,7 @@
 filter:
   excluded_paths:
     - test/*
-
-before_commands:
-  - sudo pip3 install cleo==0.6.8
-  - sudo pip3 install lxml
-  - sudo pip3 install coverage
-
 build:
-  dependencies:
-    before:
-      - pip3 install cleo==0.6.8
-      - pip3 install lxml
-      - pip3 install coverage
-
   tests:
     before:
       - unzip -x "test/var/lib/20200101 Groupertabellen v20190919.zip" -d test/var/lib/

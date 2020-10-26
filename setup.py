@@ -33,6 +33,8 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 
     keywords='DBC Grouper',
@@ -45,5 +47,6 @@ setup(
        ],
     },
 
-    install_requires=['lxml', 'cleo==0.6.8']
+    install_requires=['cleo==0.6.8',
+                      'lxml<5, >=4.6.1']
 )

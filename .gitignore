@@ -29,3 +29,4 @@
 /test/var/lib/ZorgVragen.csv
 /test/var/lib/*.xml
 /vendor/
+/venv/
